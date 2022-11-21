@@ -15,23 +15,19 @@ Class {
 { #category : #'class initialization' }
 CSSStyleSheet class >> fromFile: aStringOrFileRef [
 
-	
-	| doc url |
-	url := aStringOrFileRef asFileReference.
-	doc := url contents.
+	| doc fileReference |
+	fileReference := aStringOrFileRef asFileReference.
+	doc := fileReference contents.
 	^ doc isString
 		  ifFalse: [ "life is good"
 			  self new
 				  content: doc content;
-				  start: 0;
-				  end: doc content size;
-				  url: url ]
+				  url: fileReference;
+				  parseContents: (ReadStream on: doc content) ]
 		  ifTrue: [ 
 			  self new
 				  content: doc;
-				  start: 0;
-				  end: doc size;
-				  url: nil ]
+				  parseContents: (ReadStream on: doc) ]
 ]
 
 { #category : #'class initialization' }
@@ -118,10 +114,10 @@ CSSStyleSheet >> content [
 ]
 
 { #category : #accessing }
-CSSStyleSheet >> content: anObject [
-	"Set the value of content"
+CSSStyleSheet >> content: aString [
 
-	content := anObject
+	content := aString.
+	end := aString size
 ]
 
 { #category : #accessing }
@@ -149,6 +145,13 @@ CSSStyleSheet >> imports: anObject [
 	"Set the value of imports"
 
 	imports := anObject
+]
+
+{ #category : #accessing }
+CSSStyleSheet >> initialize [ 
+	
+	super initialize.
+	start := 0.
 ]
 
 { #category : #testing }

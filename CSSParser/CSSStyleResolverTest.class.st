@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 CSSStyleResolverTest >> setUp [
+	self setUp.
 	self styleResolver: CSSStyleResolver new
 ]
 

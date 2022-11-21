@@ -12,6 +12,7 @@ CSSBorderWidthFormatterTest >> prefix [
 
 { #category : #running }
 CSSBorderWidthFormatterTest >> setUp [
+	super setUp.
 	self formatter: CSSBorderWidthFormatter new
 ]
 

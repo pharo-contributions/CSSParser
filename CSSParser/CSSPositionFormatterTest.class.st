@@ -22,6 +22,7 @@ CSSPositionFormatterTest >> positionFormatter: anObject [
 
 { #category : #running }
 CSSPositionFormatterTest >> setUp [
+	super setUp.
 	self positionFormatter: CSSPositionFormatter new
 ]
 

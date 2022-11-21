@@ -21,7 +21,8 @@ CSSBackgroundFormatterTest >> backgroundFormatter: anObject [
 
 { #category : #running }
 CSSBackgroundFormatterTest >> setUp [
-	self backgroundFormatter: CSSBackgroundFormatter new.
+	super setUp.
+	self backgroundFormatter: CSSBackgroundFormatter new
 ]
 
 { #category : #running }

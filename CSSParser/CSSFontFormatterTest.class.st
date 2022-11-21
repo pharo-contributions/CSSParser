@@ -21,7 +21,7 @@ CSSFontFormatterTest >> fontFormatter: anObject [
 
 { #category : #running }
 CSSFontFormatterTest >> setUp [
-	self timeLimit: 300.
+	super setUp.
 	self fontFormatter: CSSFontFormatter new
 ]
 

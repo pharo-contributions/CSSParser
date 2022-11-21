@@ -21,6 +21,7 @@ CSSColorFormatterTest >> colorFormatter: anObject [
 
 { #category : #running }
 CSSColorFormatterTest >> setUp [
+	super setUp.
 	self colorFormatter: CSSColorFormatter new
 ]
 

@@ -12,6 +12,7 @@ CSSMarginFormatterTest >> prefix [
 
 { #category : #running }
 CSSMarginFormatterTest >> setUp [
+	super setUp.
 	self formatter: CSSMarginFormatter new
 ]
 

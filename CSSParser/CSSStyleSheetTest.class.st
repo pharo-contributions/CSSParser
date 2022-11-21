@@ -31,5 +31,7 @@ p {
 { #category : #tests }
 CSSStyleSheetTest >> testParseWithoutErrorDummyCSS [
 
-	CSSStyleSheet fromFile: (memory / 'css1')
+	| css |
+	css := CSSStyleSheet fromFile: memory / 'css1'.
+	self assert: css children size equals: 3
 ]

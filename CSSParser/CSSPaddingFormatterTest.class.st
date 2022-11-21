@@ -12,6 +12,7 @@ CSSPaddingFormatterTest >> prefix [
 
 { #category : #running }
 CSSPaddingFormatterTest >> setUp [
+	super setUp.
 	self formatter: CSSPaddingFormatter new
 ]
 

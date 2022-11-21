@@ -21,6 +21,7 @@ CSSDisplayFormatterTest >> displayFormatter: anObject [
 
 { #category : #running }
 CSSDisplayFormatterTest >> setUp [
+	super setUp.
 	self displayFormatter: CSSDisplayFormatter new
 ]
 

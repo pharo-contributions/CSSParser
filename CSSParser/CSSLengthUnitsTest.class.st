@@ -9,7 +9,8 @@ Class {
 
 { #category : #running }
 CSSLengthUnitsTest >> setUp [
-	cssformatter := CSSFormatter new.
+	super setUp.
+	cssformatter := CSSFormatter new
 ]
 
 { #category : #testing }

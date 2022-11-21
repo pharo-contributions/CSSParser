@@ -9,6 +9,7 @@ Class {
 
 { #category : #running }
 CSSTextFormatterTest >> setUp [
+	super setUp.
 	self textFormatter: CSSTextFormatter new
 ]
 
