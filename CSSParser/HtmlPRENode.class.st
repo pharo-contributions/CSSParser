@@ -1,22 +1,24 @@
 Class {
-	#name : #HtmlPRENode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlPRENode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlPRENode >> endStyles: formatter [
 	formatter decreasePreformatted.
 	formatter ensureNewlines: 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlPRENode >> startStyles: formatter [
 	formatter ensureNewlines: 1.
 	formatter increasePreformatted
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlPRENode >> tag [
 	^ 'pre'
 ]

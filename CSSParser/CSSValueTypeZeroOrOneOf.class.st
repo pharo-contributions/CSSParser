@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSValueTypeZeroOrOneOf,
-	#superclass : #CSSValueTypeConstraint,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSValueTypeZeroOrOneOf',
+	#superclass : 'CSSValueTypeConstraint',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeZeroOrOneOf class >> type [
 
 	^$?
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeZeroOrOneOf >> addValues: aCollection fromStream: in [
 
 	| pos |

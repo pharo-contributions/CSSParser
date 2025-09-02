@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAttributeIncludesSelector,
-	#superclass : #CSSAttributeSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAttributeIncludesSelector',
+	#superclass : 'CSSAttributeSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeIncludesSelector >> matches: aNode [
 
 	| attr |

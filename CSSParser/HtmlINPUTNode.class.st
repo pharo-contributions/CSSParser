@@ -1,13 +1,15 @@
 Class {
-	#name : #HtmlINPUTNode,
-	#superclass : #HtmlDOMNode,
+	#name : 'HtmlINPUTNode',
+	#superclass : 'HtmlDOMNode',
 	#instVars : [
 		'value'
 	],
-	#category : #'CSSParser-DOM'
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlINPUTNode >> addCheckBoxButtonToFormatter: formatter [
 	| name formData checked button buttonInput |
 
@@ -38,7 +40,7 @@ HtmlINPUTNode >> addCheckBoxButtonToFormatter: formatter [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlINPUTNode >> addFileInputToFormatter: formatter [
 	"is it a submit button?"
 	| inputMorph size fileInput |
@@ -52,7 +54,7 @@ HtmlINPUTNode >> addFileInputToFormatter: formatter [
 	self associatedForm addInput: fileInput
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlINPUTNode >> addImageButtonToFormatter: formatter [
 	"is it a submit button?"
 	| formData imageUrl morph |
@@ -76,7 +78,7 @@ HtmlINPUTNode >> addImageButtonToFormatter: formatter [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlINPUTNode >> addRadioButtonToFormatter: formatter [
 	| name formData checked buttonSet button buttonInput |
 
@@ -117,7 +119,7 @@ HtmlINPUTNode >> addRadioButtonToFormatter: formatter [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlINPUTNode >> addTextInputToFormatter: formatter [
 	"is it a submit button?"
 	| inputMorph size |
@@ -131,7 +133,7 @@ HtmlINPUTNode >> addTextInputToFormatter: formatter [
 		(TextInput name: self name defaultValue: self defaultValue  textMorph: inputMorph).
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlINPUTNode >> addToFormatter: formatter [
 	| form |
 	form := self associatedForm.
@@ -166,19 +168,19 @@ HtmlINPUTNode >> addToFormatter: formatter [
 	formatter addString: '[form input of type: ', self type, ']'.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlINPUTNode >> alt [
 	(self type = 'image')
 		ifTrue: [^self attributes at: 'alt' ifAbsent: ['[image]']]
 		ifFalse: [^self attributes at: 'alt' ifAbsent: ['']]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlINPUTNode >> defaultValue [
 	^(self attributes at: 'value' ifAbsent: ['']) asUnHtml
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlINPUTNode >> imageExtent [
 	"the image extent, according to the WIDTH and HEIGHT attributes.  returns nil if either WIDTH or HEIGHT is not specified"
 	| widthText heightText |
@@ -187,14 +189,14 @@ HtmlINPUTNode >> imageExtent [
 	^ widthText asNumber @ heightText asNumber
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 HtmlINPUTNode >> mouseUpEvent: arg1 linkMorph: arg2 formData: arg3 [
 	"Reorder the arguments for existing event handlers"
 	(arg3 isMorph and:[arg3 eventHandler notNil]) ifTrue:[arg3 eventHandler fixReversedValueMessages].
 	^self mouseUpFormData: arg1 event: arg2 linkMorph: arg3
 ]
 
-{ #category : #events }
+{ #category : 'events' }
 HtmlINPUTNode >> mouseUpFormData: formData event: event linkMorph: linkMorph [
 	| aPoint |
 	aPoint := event cursorPoint - linkMorph topLeft.
@@ -203,17 +205,17 @@ HtmlINPUTNode >> mouseUpFormData: formData event: event linkMorph: linkMorph [
 	formData submitAsync
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlINPUTNode >> name [
 	^self attributes at: 'name' ifAbsent: [nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlINPUTNode >> tag [
 	^ 'input'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlINPUTNode >> type [
 	^(self attributes at:'type' ifAbsent: ['text']) asLowercase
 ]

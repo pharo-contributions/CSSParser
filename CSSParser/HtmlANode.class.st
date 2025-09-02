@@ -1,13 +1,15 @@
 Class {
-	#name : #HtmlANode,
-	#superclass : #HtmlDOMNode,
+	#name : 'HtmlANode',
+	#superclass : 'HtmlDOMNode',
 	#instVars : [
 		'href'
 	],
-	#category : #'CSSParser-DOM'
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlANode >> addToFormatter: aFormatter [
 	"Currently not supported:"
 	"name := self attributes at: 'name' ifAbsent: [nil].
@@ -16,35 +18,35 @@ HtmlANode >> addToFormatter: aFormatter [
 	super addToFormatter: aFormatter
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlANode >> defaultBlockMorph [
 	^ HtmlLinkMorph
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlANode >> endStyles: aFormatter [
 
 	href ifNotNil: [:value | aFormatter endLink: value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlANode >> href [
 	^ href ifNil: [ href := self attributes at: 'href' ifAbsent: [nil] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlANode >> startStyles: aFormatter [
 
 	href := self attributes at: 'href' ifAbsent: [nil].	
 	href ifNotNil: [:value | aFormatter startLink: value ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlANode >> tag [
 	^ 'a'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlANode >> target [
 	^ self attributes at: 'target' ifAbsent: [nil]
 ]

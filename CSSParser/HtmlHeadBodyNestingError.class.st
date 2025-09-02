@@ -1,33 +1,35 @@
 Class {
-	#name : #HtmlHeadBodyNestingError,
-	#superclass : #HtmlTagError,
+	#name : 'HtmlHeadBodyNestingError',
+	#superclass : 'HtmlTagError',
 	#instVars : [
 		'nesting'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlHeadBodyNestingError >> isStructuralError [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlHeadBodyNestingError >> nesting [
 	"Answer the value of nesting"
 
 	^ nesting
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlHeadBodyNestingError >> nesting: anObject [
 	"Set the value of nesting"
 
 	nesting := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlHeadBodyNestingError >> printOn: aStream [
 
 	super printOn: aStream.

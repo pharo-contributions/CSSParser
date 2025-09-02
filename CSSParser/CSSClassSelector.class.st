@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSClassSelector,
-	#superclass : #CSSAttributeIncludesSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSClassSelector',
+	#superclass : 'CSSAttributeIncludesSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSClassSelector class >> readFrom: in [
 
 	| out | 
@@ -16,20 +18,20 @@ CSSClassSelector class >> readFrom: in [
 	^self new value: out contents unquoted
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 CSSClassSelector >> initialize [
 
 	super initialize.
 	self attribute: 'class'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSClassSelector >> matches: aNode [
 
 	^aNode classes includes: self value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSClassSelector >> printOn:aStream [
 
 	aStream nextPut: $..

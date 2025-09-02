@@ -2,8 +2,8 @@
 an input from a toggle button
 "
 Class {
-	#name : #ToggleButtonInput,
-	#superclass : #FormInput,
+	#name : 'ToggleButtonInput',
+	#superclass : 'FormInput',
 	#instVars : [
 		'button',
 		'name',
@@ -11,30 +11,32 @@ Class {
 		'state',
 		'checkedByDefault'
 	],
-	#category : #'CSSParser-Forms'
+	#category : 'CSSParser-Forms',
+	#package : 'CSSParser',
+	#tag : 'Forms'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 ToggleButtonInput class >> name: aName value: aValue checkedByDefault: aFlag [
 	^ self new name: aName value: aValue checkedByDefault: aFlag
 ]
 
-{ #category : #'input handling' }
+{ #category : 'input handling' }
 ToggleButtonInput >> active [
 	^self name isNil not and: [state]
 ]
 
-{ #category : #'private-initialize' }
+{ #category : 'private-initialize' }
 ToggleButtonInput >> button: aButtonMorph [
 	button := aButtonMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ToggleButtonInput >> name [
 	^name
 ]
 
-{ #category : #'private-initialize' }
+{ #category : 'private-initialize' }
 ToggleButtonInput >> name: aName value: aValue checkedByDefault: aFlag [
 	name := aName.
 	value := aValue.
@@ -42,12 +44,12 @@ ToggleButtonInput >> name: aName value: aValue checkedByDefault: aFlag [
 	state := checkedByDefault
 ]
 
-{ #category : #'button state' }
+{ #category : 'button state' }
 ToggleButtonInput >> pressed [
 	^state
 ]
 
-{ #category : #'button state' }
+{ #category : 'button state' }
 ToggleButtonInput >> pressed: aBoolean [
 	state := aBoolean.
 	self changed: #pressed.
@@ -55,7 +57,7 @@ ToggleButtonInput >> pressed: aBoolean [
 	^true
 ]
 
-{ #category : #'button state' }
+{ #category : 'button state' }
 ToggleButtonInput >> toggle [
 	"my button has been clicked on!"
 
@@ -63,7 +65,7 @@ ToggleButtonInput >> toggle [
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ToggleButtonInput >> value [
 	^value
 ]

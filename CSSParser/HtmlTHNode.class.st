@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTHNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlTHNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlTHNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -14,7 +16,7 @@ HtmlTHNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTHNode >> tag [
 	^ 'th'
 ]

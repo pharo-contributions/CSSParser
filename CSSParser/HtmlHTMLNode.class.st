@@ -1,15 +1,17 @@
 Class {
-	#name : #HtmlHTMLNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlHTMLNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlHTMLNode >> addToHtmlMorph: aHtmlBlockMorph [
 	self renderChildrenInto: aHtmlBlockMorph
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlHTMLNode >> createImpliedNodes [
 
 	| dtags |
@@ -61,7 +63,7 @@ HtmlHTMLNode >> createImpliedNodes [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlHTMLNode >> tag [
 
 	^'html'

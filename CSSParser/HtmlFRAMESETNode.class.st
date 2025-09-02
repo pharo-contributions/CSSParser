@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlFRAMESETNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlFRAMESETNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlFRAMESETNode >> tag [
 	^ 'frameset'
 ]

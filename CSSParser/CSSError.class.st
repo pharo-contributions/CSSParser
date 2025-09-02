@@ -1,23 +1,25 @@
 Class {
-	#name : #CSSError,
-	#superclass : #HtmlError,
-	#category : #'CSSParser-CSS-Errors'
+	#name : 'CSSError',
+	#superclass : 'HtmlError',
+	#category : 'CSSParser-CSS-Errors',
+	#package : 'CSSParser',
+	#tag : 'CSS-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSError >> isCSSError [
 
 	^true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSError >> printOn: aStream [
 
 	super printOn: aStream.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSError >> title [
 
 	| tt |

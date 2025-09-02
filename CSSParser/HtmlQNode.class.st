@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlQNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlQNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlQNode >> tag [
 	^ 'q'
 ]

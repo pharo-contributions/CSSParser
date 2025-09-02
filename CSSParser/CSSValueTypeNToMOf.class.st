@@ -1,20 +1,22 @@
 Class {
-	#name : #CSSValueTypeNToMOf,
-	#superclass : #CSSValueTypeConstraint,
+	#name : 'CSSValueTypeNToMOf',
+	#superclass : 'CSSValueTypeConstraint',
 	#instVars : [
 		'n',
 		'm'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf class >> isSimple [
 
 	^false
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueTypeNToMOf class >> readFrom: in [
 
 	in peek = ${ ifTrue:
@@ -28,13 +30,13 @@ CSSValueTypeNToMOf class >> readFrom: in [
 	^nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf class >> type [
 
 	^${
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf >> addValues: aCollection fromStream: in [
 
 	| pos |
@@ -54,35 +56,35 @@ CSSValueTypeNToMOf >> addValues: aCollection fromStream: in [
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf >> m [
 	"Answer the value of m"
 
 	^ m
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf >> m: anObject [
 	"Set the value of m"
 
 	m := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf >> n [
 	"Answer the value of n"
 
 	^ n
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeNToMOf >> n: anObject [
 	"Set the value of n"
 
 	n := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeNToMOf >> printOn: aStream [
 
 	type printOn: aStream.

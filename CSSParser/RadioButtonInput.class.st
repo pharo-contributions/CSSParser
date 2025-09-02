@@ -1,39 +1,41 @@
 Class {
-	#name : #RadioButtonInput,
-	#superclass : #FormInput,
+	#name : 'RadioButtonInput',
+	#superclass : 'FormInput',
 	#instVars : [
 		'inputSet',
 		'state',
 		'value',
 		'button'
 	],
-	#category : #'CSSParser-Forms'
+	#category : 'CSSParser-Forms',
+	#package : 'CSSParser',
+	#tag : 'Forms'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 RadioButtonInput class >> inputSet: anInputSet  value: aString [
 	^self new inputSet: anInputSet  value: aString
 
 ]
 
-{ #category : #'private-initialization' }
+{ #category : 'private-initialization' }
 RadioButtonInput >> button: aMorph [
 	button := aMorph
 ]
 
-{ #category : #'private-initialization' }
+{ #category : 'private-initialization' }
 RadioButtonInput >> inputSet: anInputSet  value: aString [
 	inputSet := anInputSet.
 	value := aString.
 	state := false.
 ]
 
-{ #category : #'button state' }
+{ #category : 'button state' }
 RadioButtonInput >> pressed [
 	^state
 ]
 
-{ #category : #'button state' }
+{ #category : 'button state' }
 RadioButtonInput >> pressed: aBoolean [
 	state := aBoolean.
 	self changed: #pressed.
@@ -41,7 +43,7 @@ RadioButtonInput >> pressed: aBoolean [
 	^true
 ]
 
-{ #category : #'button state' }
+{ #category : 'button state' }
 RadioButtonInput >> toggle [
 	"my button has been clicked on!"
 
@@ -50,7 +52,7 @@ RadioButtonInput >> toggle [
 	^true
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 RadioButtonInput >> valueIfPressed [
 	^value
 ]

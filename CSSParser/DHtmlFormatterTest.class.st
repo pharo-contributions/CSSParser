@@ -1,31 +1,33 @@
 Class {
-	#name : #DHtmlFormatterTest,
-	#superclass : #TestCase,
+	#name : 'DHtmlFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'htmlFormatter'
 	],
-	#category : #'CSSParser-Tests'
+	#category : 'CSSParser-Tests',
+	#package : 'CSSParser',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DHtmlFormatterTest >> htmlFormatter [
 
 	^ htmlFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DHtmlFormatterTest >> htmlFormatter: anObject [
 
 	htmlFormatter := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 DHtmlFormatterTest >> setUp [
 	self timeout: 300.
 	self htmlFormatter: DHtmlFormatter new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test03HtmlEntitiesShouldBeParsedCorrectly [
 	| document |
 	document := HtmlDocument new.
@@ -34,7 +36,7 @@ DHtmlFormatterTest >> test03HtmlEntitiesShouldBeParsedCorrectly [
 	self assert: 'µ' equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test04DecimalHtmlEntitiesShouldBeParsedCorrectly [
 	| document |
 	document := HtmlDocument new.
@@ -43,7 +45,7 @@ DHtmlFormatterTest >> test04DecimalHtmlEntitiesShouldBeParsedCorrectly [
 	self assert: '¶' equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test05HexadecimalHtmlEntitiesShouldBeParsedCorrectly [
 	| document |
 	document := HtmlDocument new.
@@ -52,7 +54,7 @@ DHtmlFormatterTest >> test05HexadecimalHtmlEntitiesShouldBeParsedCorrectly [
 	self assert: '§' equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test06NonHtmlEntitiesShouldBeReturned [
 	| document |
 	document := HtmlDocument new.
@@ -62,7 +64,7 @@ DHtmlFormatterTest >> test06NonHtmlEntitiesShouldBeReturned [
 	self assert: '<!-- begin <Tag> end -->' equals: document children second rawContent.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test07HtmlEntitiesShouldBeParsedEverywhere [
 	| document |
 	document := HtmlDocument new.
@@ -74,7 +76,7 @@ DHtmlFormatterTest >> test07HtmlEntitiesShouldBeParsedEverywhere [
 	self assert: 'ø nothing' equals: document children second alt.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test08OrderedListsShouldHaveNumbers [
 	| document |
 	document := HtmlDocument new.
@@ -87,7 +89,7 @@ DHtmlFormatterTest >> test08OrderedListsShouldHaveNumbers [
 equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test09OrderedListsShouldHaveCustomizableStartValues [
 	| document |
 	document := HtmlDocument new.
@@ -100,7 +102,7 @@ DHtmlFormatterTest >> test09OrderedListsShouldHaveCustomizableStartValues [
 equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test10OrderedListsShouldHaveCustomizableItemValues [
 	| document |
 	document := HtmlDocument new.
@@ -114,7 +116,7 @@ DHtmlFormatterTest >> test10OrderedListsShouldHaveCustomizableItemValues [
 equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test11OrderedListsShouldSupportListStyleTypeNone [
 	| document |
 	document := HtmlDocument new.
@@ -129,7 +131,7 @@ Third
 equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test12UnorderedListsShouldSupportListStyleTypeNone [
 	| document |
 	document := HtmlDocument new.
@@ -144,7 +146,7 @@ Third
 equals: self htmlFormatter text asString.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DHtmlFormatterTest >> test13CommentsShouldNotBeDisplayed [
 	| document |
 	document := HtmlDocument new.

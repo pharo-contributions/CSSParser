@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAttrXValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAttrXValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSAttrXValue class >> readFrom: in [
 
 	|  pos |
@@ -16,7 +18,7 @@ CSSAttrXValue class >> readFrom: in [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttrXValue >> isValid [
 
 	^(self valueString beginsWith: 'attr(') and: [self valueString endsWith: ')']

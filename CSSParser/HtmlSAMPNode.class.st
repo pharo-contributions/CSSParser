@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlSAMPNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlSAMPNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSAMPNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,7 +15,7 @@ HtmlSAMPNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSAMPNode >> tag [
 	^ 'samp'
 ]

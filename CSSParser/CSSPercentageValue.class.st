@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSPercentageValue,
-	#superclass : #CSSUnitizedNumberValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSPercentageValue',
+	#superclass : 'CSSUnitizedNumberValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPercentageValue >> allowableUnits [
 
 	^#( '%' )
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPercentageValue >> isValid [
 
 	^super isValid and: [valueString asNumber >= 0]

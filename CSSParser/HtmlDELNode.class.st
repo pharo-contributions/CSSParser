@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlDELNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlDELNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDELNode >> tag [
 	^ 'del'
 ]

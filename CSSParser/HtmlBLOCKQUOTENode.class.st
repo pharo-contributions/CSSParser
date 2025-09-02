@@ -1,22 +1,24 @@
 Class {
-	#name : #HtmlBLOCKQUOTENode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlBLOCKQUOTENode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlBLOCKQUOTENode >> endStyles: aFormatter [
 	aFormatter decreaseIndent.
 	aFormatter ensureNewlines: 2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlBLOCKQUOTENode >> startStyles: aFormatter [
 	aFormatter ensureNewlines: 2.
 	aFormatter increaseIndent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlBLOCKQUOTENode >> tag [
 	^ 'blockquote'
 ]

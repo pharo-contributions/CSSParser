@@ -1,5 +1,7 @@
 Class {
-	#name : #CSSRootSelector,
-	#superclass : #CSSPseudoClassSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSRootSelector',
+	#superclass : 'CSSPseudoClassSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }

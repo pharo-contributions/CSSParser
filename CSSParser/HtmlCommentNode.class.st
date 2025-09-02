@@ -1,21 +1,23 @@
 Class {
-	#name : #HtmlCommentNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlCommentNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlCommentNode >> addToFormatter: aFormatter [
 	"Do nothing - it's a comment!"
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlCommentNode >> isComment [
 
 	^true
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlCommentNode >> parseContents: aStream [
 
 	| c s allowBrackets |
@@ -55,7 +57,7 @@ HtmlCommentNode >> parseContents: aStream [
 	self end: aStream position.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCommentNode >> tag [
 
 	^'comment'

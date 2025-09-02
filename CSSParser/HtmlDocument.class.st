@@ -2,8 +2,8 @@
 an entire HTML document.  It should have exactly two sub-entities when completed: a HEAD and a BODY
 "
 Class {
-	#name : #HtmlDocument,
-	#superclass : #HtmlDOMNode,
+	#name : 'HtmlDocument',
+	#superclass : 'HtmlDOMNode',
 	#instVars : [
 		'docType',
 		'content',
@@ -12,33 +12,35 @@ Class {
 		'dtdIsImplied',
 		'loader'
 	],
-	#category : #'CSSParser-DOM'
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDocument class >> emptyDocument [
 	"return an empty document"
 	^super new add: HtmlHead new; add: HtmlBody new
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlDocument >> addToBody: anObject [
 	"add an object to the Body entity of the receiver"
 	self body add: anObject
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlDocument >> addToHead: anObject [
 	"add an object to the head entity of the receiver"
 	self head add: anObject
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDocument >> addToHtmlMorph: aHtmlBlockMorph [
 	self renderChildrenInto: aHtmlBlockMorph
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDocument >> allStyles [
 
 	| rules |
@@ -48,7 +50,7 @@ HtmlDocument >> allStyles [
 	^rules asArray
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDocument >> applyStyles [
 
 	"TODO: Optimize this based on information described at " 	"http://weblogs.mozillazine.org/hyatt/archives/2005_05.html#007507"
@@ -83,31 +85,31 @@ HtmlDocument >> applyStyles [
 	]. 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> associatedForm [
 	^ nil
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlDocument >> body [
 	^self contents at: 2
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> content [
 	"Answer the value of content"
 
 	^ content
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> content: anObject [
 	"Set the value of content"
 
 	content := anObject
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDocument >> createImpliedNodes [
 
 	(self children detect: [:ea | ea tag = 'html'] ifNone:[nil]) ifNil: 
@@ -121,7 +123,7 @@ HtmlDocument >> createImpliedNodes [
 	super createImpliedNodes.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> docType [
 	"Answer the value of docType"
 
@@ -129,7 +131,7 @@ HtmlDocument >> docType [
 	^docType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> docType: anObject [
 	"Set the value of docType"
 
@@ -137,13 +139,13 @@ HtmlDocument >> docType: anObject [
 	self dtd: (HtmlDTD forDocType: anObject).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> document [
 
 	^self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> dtd [
 
 	^dtd isNil 
@@ -151,21 +153,21 @@ HtmlDocument >> dtd [
 		ifFalse: [dtd]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> dtdIsImplied [
 	"Answer the value of dtdIsImplied"
 
 	^ dtdIsImplied
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> dtdIsImplied: anObject [
 	"Set the value of dtdIsImplied"
 
 	dtdIsImplied := anObject
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlDocument >> formattedText [
 	"return a version of this document as a formatted Text"
 	| formatter |
@@ -174,7 +176,7 @@ HtmlDocument >> formattedText [
 	^formatter text 
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlDocument >> formattedTextForBrowser: browser  defaultBaseUrl: defaultBaseUrl [
 	"return a version of this document as a formatted Text (which includes links and such)"
 	| formatter text |
@@ -192,7 +194,7 @@ HtmlDocument >> formattedTextForBrowser: browser  defaultBaseUrl: defaultBaseUrl
 	^text
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlDocument >> formattedTextMorph [
 	"return a version of this document as a formatted TextMorph (which includes links and such)"
 	| formatter text textMorph |
@@ -206,7 +208,7 @@ HtmlDocument >> formattedTextMorph [
 	^textMorph
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlDocument >> formattedTextMorphForBrowser: browser  defaultBaseUrl: defaultBaseUrl [
 	"return a version of this document as a formatted TextMorph (which includes links and such)"
 	| formatter textMorph |
@@ -224,43 +226,43 @@ HtmlDocument >> formattedTextMorphForBrowser: browser  defaultBaseUrl: defaultBa
 	^textMorph
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlDocument >> head [
 	^self contents at: 1
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDocument >> isDocument [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> loader [
 	"Answer the value of loader"
 
 	^ loader isNil ifTrue: [loader := HtmlCache new] ifFalse: [loader]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> loader: anObject [
 	"Set the value of loader"
 
 	loader := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDocument >> mayContain: anElement [
 	^true 	"not strictly true, but it makes the parser simpler"
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDocument >> mayContainTag: aTag [
 
 	^true
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDocument >> parseContents: aStream [
 
 	"tagParent: parent contents: aString stream: aStream"
@@ -362,7 +364,7 @@ HtmlDocument >> parseContents: aStream [
 
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDocument >> parseProcessingDirective: aString [
 
 	| in |
@@ -375,35 +377,35 @@ HtmlDocument >> parseProcessingDirective: aString [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> requestUrl [
 	"Answer the value of requestUrl"
 
 	^ requestUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> requestUrl: anObject [
 	"Set the value of requestUrl"
 
 	requestUrl := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> responseUrl [
 	"Answer the value of responseUrl"
 
 	^ responseUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> responseUrl: anObject [
 	"Set the value of responseUrl"
 
 	responseUrl := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> stylesheets [
 
 	| stylesheets |
@@ -419,24 +421,24 @@ HtmlDocument >> stylesheets [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> tag [
 
 	^'document'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDocument >> tagName [
 	^'html'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> uniqueId [
 
 	^'D'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDocument >> url [
 
 	^self responseUrl

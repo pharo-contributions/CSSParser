@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlAREANode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlAREANode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAREANode >> tag [
 	^ 'area'
 ]

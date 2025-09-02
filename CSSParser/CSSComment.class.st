@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSComment,
-	#superclass : #CSSElement,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSComment',
+	#superclass : 'CSSElement',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSComment >> isAtImportRule [
 
 	^false
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSComment >> parseContents: aStream [
 
 	aStream skip: 2.
@@ -29,7 +31,7 @@ CSSComment >> parseContents: aStream [
 	self end: aStream position.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSComment >> tag [
 
 	^'comment'

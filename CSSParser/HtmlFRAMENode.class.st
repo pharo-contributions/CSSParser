@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlFRAMENode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlFRAMENode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlFRAMENode >> addToFormatter: formatter [
 	| src |
 	src := self attributes at: 'src' ifAbsent: [nil].
@@ -16,7 +18,7 @@ HtmlFRAMENode >> addToFormatter: formatter [
 	formatter ensureNewlines: 1.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlFRAMENode >> tag [
 	^ 'frame'
 ]

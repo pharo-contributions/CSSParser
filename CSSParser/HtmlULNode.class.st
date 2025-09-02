@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlULNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlULNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlULNode >> addDefaultStyle [
 	"| styles |
 	styles := Dictionary newFrom: {
@@ -15,17 +17,17 @@ HtmlULNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlULNode >> endStyles: aFormatter [
 	aFormatter endUnorderedList
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlULNode >> startStyles: aFormatter [
 	aFormatter startUnorderedListWithType: (self computedStyles at: #'list-style-type' ifAbsent: ['disc']).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlULNode >> tag [
 	^ 'ul'
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlH3Node,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlH3Node',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlH3Node >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -16,7 +18,7 @@ HtmlH3Node >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlH3Node >> tag [
 	^ 'h3'
 ]

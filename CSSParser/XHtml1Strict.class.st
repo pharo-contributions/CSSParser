@@ -1,22 +1,24 @@
 Class {
-	#name : #XHtml1Strict,
-	#superclass : #XHtmlDTD,
-	#category : #'CSSParser-Validator'
+	#name : 'XHtml1Strict',
+	#superclass : 'XHtmlDTD',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 XHtml1Strict class >> defaultUrl [
 
 	^'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd' asUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 XHtml1Strict class >> docType [
 
 	^'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">'
 ]
 
-{ #category : #resources }
+{ #category : 'resources' }
 XHtml1Strict >> dtd [
 	^ '<!--
    Extensible HTML version 1.0 Strict DTD
@@ -1000,7 +1002,7 @@ several semantically related columns together.
 '
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 XHtml1Strict >> initialize [
 
 	super initialize.

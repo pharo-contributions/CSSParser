@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlBIGNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlBIGNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlBIGNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,7 +15,7 @@ HtmlBIGNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlBIGNode >> tag [
 	^ 'big'
 ]

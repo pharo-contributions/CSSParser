@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSValueTypeOR,
-	#superclass : #CSSValueTypeRelation,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSValueTypeOR',
+	#superclass : 'CSSValueTypeRelation',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeOR >> addValues: aCollection fromStream: in [
 
 	| pos |
@@ -17,25 +19,25 @@ CSSValueTypeOR >> addValues: aCollection fromStream: in [
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeOR >> isTypeOR [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeOR >> isValueValid: anObject [
 
 	^(self types detect: [:ea | ea isValueValid: anObject] ifNone: [nil]) notNil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeOR >> operator [
 
 	^'|'
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeOR >> printOn: aStream [
 
 	aStream nextPut: $[.

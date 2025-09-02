@@ -1,6 +1,6 @@
 Class {
-	#name : #CSSProperty,
-	#superclass : #CSSElement,
+	#name : 'CSSProperty',
+	#superclass : 'CSSElement',
 	#instVars : [
 		'propertyName',
 		'propertyValue',
@@ -9,16 +9,18 @@ Class {
 		'important',
 		'isDerived'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSProperty class >> propertyNamed: aString [
 
 	^self new propertyName: aString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> definition [
 
 	definition isNil ifTrue: 
@@ -29,28 +31,28 @@ CSSProperty >> definition [
 	^definition
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> definition: anObject [
 	"Set the value of definition"
 
 	definition := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> important [
 	"Answer the value of important"
 
 	^ important
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> important: anObject [
 	"Set the value of important"
 
 	important := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> isDerived [
 	"Answer the value of isDerived"
 
@@ -58,20 +60,20 @@ CSSProperty >> isDerived [
 	^ isDerived
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> isDerived: anObject [
 	"Set the value of isDerived"
 
 	isDerived := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSProperty >> isProperty [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> parseContents: aStream [
 
 	| s pos in |
@@ -89,7 +91,7 @@ CSSProperty >> parseContents: aStream [
 	self important: (in match: 'important').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> prefix [
 
 	^self isDerived ifTrue: 
@@ -111,61 +113,61 @@ CSSProperty >> prefix [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> printOn: aStream [
 
 	aStream nextPutAll: self prefix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> propertyName [
 	"Answer the value of propertyName"
 
 	^ propertyName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> propertyName: anObject [
 	"Set the value of propertyName"
 
 	propertyName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> propertyString [
 	"Answer the value of propertyString"
 
 	^ propertyString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> propertyString: anObject [
 	"Set the value of propertyString"
 
 	propertyString := anObject trimBoth
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> propertyValue [
 	"Answer the value of propertyValue"
 
 	^ propertyValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> propertyValue: anObject [
 	"Set the value of propertyValue"
 
 	propertyValue := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> tag [
 
 	^propertyName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSProperty >> valueIsValid [
 
 	"self propertyName = 'font-family' ifTrue: [self halt]."

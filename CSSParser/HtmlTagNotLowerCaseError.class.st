@@ -1,19 +1,21 @@
 Class {
-	#name : #HtmlTagNotLowerCaseError,
-	#superclass : #HtmlError,
+	#name : 'HtmlTagNotLowerCaseError',
+	#superclass : 'HtmlError',
 	#instVars : [
 		'tag'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlTagNotLowerCaseError >> isCaseError [
 
 	^true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlTagNotLowerCaseError >> printOn: aStream [
 
 	self parent rawTag printOn: aStream.
@@ -21,14 +23,14 @@ HtmlTagNotLowerCaseError >> printOn: aStream [
 	self parent tag printOn: aStream.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagNotLowerCaseError >> tag [
 	"Answer the value of tag"
 
 	^ tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagNotLowerCaseError >> tag: anObject [
 	"Set the value of tag"
 

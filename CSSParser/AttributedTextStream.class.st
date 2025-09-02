@@ -9,8 +9,8 @@ instance vars:
 	attributesChanged - whether the attributes have changed since the last addition
 "
 Class {
-	#name : #AttributedTextStream,
-	#superclass : #Stream,
+	#name : 'AttributedTextStream',
+	#superclass : 'Stream',
 	#instVars : [
 		'characters',
 		'attributeRuns',
@@ -18,15 +18,17 @@ Class {
 		'currentAttributes',
 		'currentRun'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AttributedTextStream class >> new [	
 	^ self basicNew initialize
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 AttributedTextStream class >> new: n [
 	
 	^self basicNew 
@@ -34,7 +36,7 @@ AttributedTextStream class >> new: n [
 		yourself
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> contents [	
 	| ans |	
 	currentRun > 0 ifTrue:[		
@@ -48,26 +50,26 @@ AttributedTextStream >> contents [
 	^ans
 ]
 
-{ #category : #'character writing' }
+{ #category : 'character writing' }
 AttributedTextStream >> cr [
 	"Append a carriage return character to the receiver."
 
 	self nextPut: Character cr
 ]
 
-{ #category : #'character writing' }
+{ #category : 'character writing' }
 AttributedTextStream >> crlf [
 	"Append a carriage return and a line feed to the receiver."
 
 	self nextPut: Character cr; nextPut: Character lf
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> currentAttributes [	
 	^ currentAttributes
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> currentAttributes: newAttributes [
 	"set the current attributes"	
 	(currentRun > 0 and:[currentAttributes ~= newAttributes]) ifTrue:[		
@@ -77,7 +79,7 @@ AttributedTextStream >> currentAttributes: newAttributes [
 	currentAttributes := newAttributes.
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 AttributedTextStream >> initialize [	
 	characters := WriteStream on: String new.	
 	currentAttributes := OrderedCollection new.	
@@ -86,7 +88,7 @@ AttributedTextStream >> initialize [
 	attributeRuns := WriteStream on: (Array new: 50).	
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 AttributedTextStream >> initialize: n [
 
 	super initialize.
@@ -97,14 +99,14 @@ AttributedTextStream >> initialize: n [
 	attributeRuns := (Array new: (n min: 10)) writeStream
 ]
 
-{ #category : #'character writing' }
+{ #category : 'character writing' }
 AttributedTextStream >> lf [
 	"Append a line feed character to the receiver."
 
 	self nextPut: Character lf
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> next: anInteger putAll: aString startingAt: startIndex [
 
 	"add an entire string with the same attributes"
@@ -116,31 +118,31 @@ AttributedTextStream >> next: anInteger putAll: aString startingAt: startIndex [
 		startingAt: startIndex
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> nextPut: aChar [	
 	currentRun := currentRun + 1.	
 	characters nextPut: aChar
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> nextPutAll: aString [	
 	"add an entire string with the same attributes"	
 	currentRun := currentRun + aString size.	
 	characters nextPutAll: aString.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> size [	
 	^ characters size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> withAttribute: attribute do: aBlock [
 
 	^self withAttributes: { attribute } do: aBlock
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 AttributedTextStream >> withAttributes: attributes do: aBlock [
 
 	| previousAttributes |

@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlSTYLENode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlSTYLENode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlSTYLENode >> addToHtmlMorph: aHtmlBlockMorph [	
 	
 	"preliminary fix. Sytle nodes should not render children. Are css sheets still used?"
@@ -12,18 +14,18 @@ HtmlSTYLENode >> addToHtmlMorph: aHtmlBlockMorph [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSTYLENode >> isCSS [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSTYLENode >> isRenderedInline [
 	^ true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSTYLENode >> parseContents: aStream [
 
 	| str  child |
@@ -44,17 +46,17 @@ HtmlSTYLENode >> parseContents: aStream [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSTYLENode >> stylesheet [
 
 	^self children first
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSTYLENode >> tag [
 	^ 'style'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSTYLENode >> validateAgainstDTD: aDTD [
 ]

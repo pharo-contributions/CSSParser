@@ -1,31 +1,33 @@
 Class {
-	#name : #CSSColorFormatterTest,
-	#superclass : #TestCase,
+	#name : 'CSSColorFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'colorFormatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSColorFormatterTest >> colorFormatter [
 
 	^ colorFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSColorFormatterTest >> colorFormatter: anObject [
 
 	colorFormatter := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSColorFormatterTest >> setUp [
 	super setUp.
 	self colorFormatter: CSSColorFormatter new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSColorFormatterTest >> test01ColorShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.

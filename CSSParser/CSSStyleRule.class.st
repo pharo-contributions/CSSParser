@@ -23,18 +23,20 @@ Foo{A,B}
     Foo must occur at least A times and at most B times. 
 "
 Class {
-	#name : #CSSStyleRule,
-	#superclass : #CSSRule,
+	#name : 'CSSStyleRule',
+	#superclass : 'CSSRule',
 	#instVars : [
 		'selector',
 		'properties',
 		'matchCount',
 		'keySelector'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> allRules [
 
 	| dict |
@@ -49,7 +51,7 @@ CSSStyleRule class >> allRules [
 	^dict
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> boxPropertyRules [
 
 	^'Top Margin
@@ -367,7 +369,7 @@ Inherited: 	No
 The clear property specifies if an element allows floating elements to its sides. A value of left moves the element below any floating element on its left; right acts similarly for floating elements on the right. Other values are none, which is the initial value, and both, which moves the element below floating elements on both of its sides. This property is similar in function to HTML 3.2''s <BR CLEAR=left|right|all|none>, but it can be applied to all elements.'
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> classNameFromProperty: aString [
 
 	| in s nm |
@@ -386,7 +388,7 @@ CSSStyleRule class >> classNameFromProperty: aString [
 	
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> classificationRules [
 
 	^'Display
@@ -485,7 +487,7 @@ OL        { list-style: upper-alpha }
 OL OL     { list-style: lower-roman inside }'
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> colorAndBackgroundRules [
 
 	^'Color
@@ -613,7 +615,7 @@ A value not specified will receive its initial value. For example, in the first 
 To help avoid conflicts with user style sheets, background and color properties should always be specified together.'
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> fontRules [
 
 	^'Syntax:  	font-family: [[<family-name> | <generic-family>],]* [<family-name> | <generic-family>]
@@ -733,7 +735,7 @@ P { font: italic bold 12pt/14pt Times, serif }
 specifies paragraphs with a bold and italic Times or serif font with a size of 12 points and a line height of 14 points.'
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> fromDictionary: aStyleDictionary [
 	| rule |
 	rule := self new.
@@ -742,7 +744,7 @@ CSSStyleRule class >> fromDictionary: aStyleDictionary [
 	^ rule
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> fromString: aString [
 
 	| in sel attrString pairs rules |
@@ -772,7 +774,7 @@ CSSStyleRule class >> fromString: aString [
 	^rules
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> structuredRulesFrom: aString [
 
 	| current style dict | 
@@ -824,7 +826,7 @@ CSSStyleRule class >> structuredRulesFrom: aString [
 
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> textPropertyRules [
 
 	^'Word Spacing
@@ -962,7 +964,7 @@ P { line-height: 200% }
 Microsoft Internet Explorer 3.x incorrectly treats number values and values with em or ex units as pixel values. This bug can easily make pages unreadable, and so authors should avoid provoking it wherever possible; percentage units are often a good choice.'
 ]
 
-{ #category : #definitions }
+{ #category : 'definitions' }
 CSSStyleRule class >> unitRules [
 
 	^'Length Units
@@ -1021,7 +1023,7 @@ BODY { background: url("stripe.gif") }
 BODY { background: url(\"Ulalume\".png) } /* quotes in URL escaped */'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> addProperty: anObject [
 	
 	
@@ -1030,7 +1032,7 @@ CSSStyleRule >> addProperty: anObject [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> addToRuleSet: aRuleSet [
 
 	| keys |
@@ -1077,34 +1079,27 @@ CSSStyleRule >> addToRuleSet: aRuleSet [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> end [
 	"Answer the value of end"
 
 	^ end
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> end: anObject [
 	"Set the value of end"
 
 	end := anObject
 ]
 
-{ #category : #'initialize-release' }
-CSSStyleRule >> initialize [
-
-	super initialize.
-	attributes := Dictionary new.
-]
-
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleRule >> isStyleRule [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> keySelector [
 	"Answer the value of keySelectors"
 
@@ -1124,41 +1119,41 @@ CSSStyleRule >> keySelector [
 	^ keySelector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> matchCount [
 	"Answer the value of matchCount"
 
 	^ matchCount
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> matchCount: anObject [
 	"Set the value of matchCount"
 
 	matchCount := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> matchingNodes [
 
 	^self document nodesSelect:[:ea | selector matches: ea]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> media [
 	"Answer the value of media"
 
 	^ media
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> media: anObject [
 	"Set the value of media"
 
 	media := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> parseContents: aStream [
 
 	| pString in pos |
@@ -1201,7 +1196,7 @@ CSSStyleRule >> parseContents: aStream [
 	self end: aStream position.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> printOn: aStream [
 
 	
@@ -1209,7 +1204,7 @@ CSSStyleRule >> printOn: aStream [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> properties [
 	"Answer the value of properties"
 
@@ -1217,42 +1212,42 @@ CSSStyleRule >> properties [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> properties: anObject [
 	"Set the value of properties"
 
 	properties := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> selector [
 	"Answer the value of selector"
 
 	^ selector
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> selector: anObject [
 	"Set the value of selector"
 
 	selector := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> start [
 	"Answer the value of start"
 
 	^ start
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> start: anObject [
 	"Set the value of start"
 
 	start := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleRule >> tag [
 
 	^'css-style'

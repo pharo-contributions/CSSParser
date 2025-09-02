@@ -1,31 +1,33 @@
 Class {
-	#name : #CSSStyleResolverTest,
-	#superclass : #TestCase,
+	#name : 'CSSStyleResolverTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'styleResolver'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 CSSStyleResolverTest >> setUp [
 	self setUp.
 	self styleResolver: CSSStyleResolver new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleResolverTest >> styleResolver [
 
 	^ styleResolver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleResolverTest >> styleResolver: anObject [
 
 	styleResolver := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleResolverTest >> test01StylesShouldBeForwardedToTheCorrectFormatter [
 	| result mappings |
 	mappings := { 
@@ -42,7 +44,7 @@ CSSStyleResolverTest >> test01StylesShouldBeForwardedToTheCorrectFormatter [
 			self assert: result class equals: mapping first ] ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleResolverTest >> test02LastRuleShouldOverrideAllOthers [
 	"https://developer.mozilla.org/en-US/docs/Web/CSS/Shorthand_properties"
 	| props node |
@@ -62,7 +64,7 @@ CSSStyleResolverTest >> test02LastRuleShouldOverrideAllOthers [
 	self assert: (node computedStyles at: #bold) equals: false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleResolverTest >> test03CSSRulesShouldBeWrittenToComputedStyles [
 	| props node |
 
@@ -80,7 +82,7 @@ CSSStyleResolverTest >> test03CSSRulesShouldBeWrittenToComputedStyles [
 	self assert: (node computedStyles at: #color) equals: Color white
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleResolverTest >> test04UndefinedCSSAttributeShouldBeInheritedFromParentElement [
 	| props node |
 
@@ -95,7 +97,7 @@ CSSStyleResolverTest >> test04UndefinedCSSAttributeShouldBeInheritedFromParentEl
 	self assert: (self styleResolver getStyle: #bold for: node) equals: true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleResolverTest >> test05NotInheritableCSSAttributesShouldNotBeInheritedFromParentElement [
 	| props node |
 
@@ -110,7 +112,7 @@ CSSStyleResolverTest >> test05NotInheritableCSSAttributesShouldNotBeInheritedFro
 	self assert: (self styleResolver getStyle: #bold for: node) equals: nil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleResolverTest >> test06InheritedCSSAttributeShouldBeCached [
 	| node parent |
 	

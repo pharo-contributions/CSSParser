@@ -1,12 +1,12 @@
-Extension { #name : #Color }
+Extension { #name : 'Color' }
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> fromColorName: aString [
 	(self rgbOf: aString) ifNotNil: [:rgb | ^Color r: rgb first / 255 g: rgb second / 255 b: rgb third / 255].
 	^nil
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> fromHTMLString: aString [
 	(self fromColorName: aString) ifNotNil: [:color | ^color].
 	(self fromHexRGBString: aString) ifNotNil: [:color | ^color].
@@ -15,7 +15,7 @@ Color class >> fromHTMLString: aString [
 	^ self fromString: aString
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> fromHexRGBString: aString [
 	| aColorHex |
 	aString isEmptyOrNil ifTrue: [ ^nil ].
@@ -43,7 +43,7 @@ Color class >> fromHexRGBString: aString [
 	^nil
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> fromRGBFunction: aString [
 	|r g b splitString|
 	(aString beginsWith: 'rgb') ifTrue: 
@@ -56,7 +56,7 @@ Color class >> fromRGBFunction: aString [
 	
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> fromRGBPercentageFunction: aString [
 	|r g b splitString|
 	('*%*' match:  aString) ifTrue: 
@@ -69,7 +69,7 @@ Color class >> fromRGBPercentageFunction: aString [
 	
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> htmlColors1 [
 	| htmlcolors |
 	
@@ -207,7 +207,7 @@ Color class >> htmlColors1 [
 	^ htmlcolors
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> htmlColors2 [
 	| htmlcolors |
 	
@@ -234,7 +234,7 @@ Color class >> htmlColors2 [
 	 ^ htmlcolors
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 Color class >> rgbOf: aColorName [
 	"Look in all lists as only 255 literals fit into one dictionary."
 	(self htmlColors1 at: aColorName asLowercase ifAbsent: [nil]) ifNotNil: [ :rgb | ^ rgb].

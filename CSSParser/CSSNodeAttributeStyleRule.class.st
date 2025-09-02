@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSNodeAttributeStyleRule,
-	#superclass : #CSSStyleRule,
+	#name : 'CSSNodeAttributeStyleRule',
+	#superclass : 'CSSStyleRule',
 	#instVars : [
 		'content'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSNodeAttributeStyleRule >> content [
 
 	^content
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSNodeAttributeStyleRule >> content: aString [
 
 	content := '[style="',aString,'"]{',aString,'}'.
@@ -22,7 +24,7 @@ CSSNodeAttributeStyleRule >> content: aString [
 	self parseContents: (ReadStream on: content)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSNodeAttributeStyleRule >> printOn: aStream [
 
 	aStream nextPutAll: self content

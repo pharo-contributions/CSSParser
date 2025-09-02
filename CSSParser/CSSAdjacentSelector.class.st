@@ -1,22 +1,24 @@
 Class {
-	#name : #CSSAdjacentSelector,
-	#superclass : #CSSRelationshipSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAdjacentSelector',
+	#superclass : 'CSSRelationshipSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAdjacentSelector class >> operator [
 
 	^'+'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAdjacentSelector >> isAdjacentSelector [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAdjacentSelector >> matches: aNode [
 
 	| node |

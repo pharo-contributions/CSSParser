@@ -1,13 +1,15 @@
 Class {
-	#name : #HtmlDTDMatchLiteral,
-	#superclass : #HtmlDTDMatchExpression,
+	#name : 'HtmlDTDMatchLiteral',
+	#superclass : 'HtmlDTDMatchExpression',
 	#classVars : [
 		'LiteralsByTagAsSymbol'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchLiteral class >> expression: aTag [
 
 	LiteralsByTagAsSymbol isNil ifTrue: [LiteralsByTagAsSymbol := WeakValueDictionary new].
@@ -15,7 +17,7 @@ HtmlDTDMatchLiteral class >> expression: aTag [
 	^LiteralsByTagAsSymbol at: aTag asSymbol ifAbsentPut: [self new expression: aTag]	
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchLiteral class >> on: aStringOrStream [
 
 	| in out delims s |
@@ -40,38 +42,38 @@ HtmlDTDMatchLiteral class >> on: aStringOrStream [
 		]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchLiteral >> allowedElements [
 
 	^ Array with: self
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchLiteral >> allowsItem: aTag [
 
 	^expression = aTag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchLiteral >> consumeStream: in [
 
 	expression = in peek ifTrue:[in next]
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchLiteral >> isLiteral [
 
 	^true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchLiteral >> printOn: aStream [
 
 	aStream nextPut: $"; nextPutAll: expression; nextPut:$".
 	
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchLiteral >> validateChildren: aStream ofNode: aNode [
 
 	^(aStream atEnd not and: [expression = aStream peek dtdTag]) 

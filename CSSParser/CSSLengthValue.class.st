@@ -1,22 +1,24 @@
 Class {
-	#name : #CSSLengthValue,
-	#superclass : #CSSUnitizedNumberValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSLengthValue',
+	#superclass : 'CSSUnitizedNumberValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSLengthValue >> allowableUnits [
 
 	^#('em' 'ex' 'px' 'in' 'cm' 'mm' 'pt' 'pc') 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSLengthValue >> isRelative [
 
 	^#( 'em' 'ex' 'px') includes: self units
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSLengthValue >> isValid [
 
 	^super isValid and:[units notNil or: [valueString asNumber = 0]]

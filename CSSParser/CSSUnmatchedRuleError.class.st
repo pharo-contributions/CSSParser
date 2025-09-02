@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSUnmatchedRuleError,
-	#superclass : #CSSError,
-	#category : #'CSSParser-CSS-Errors'
+	#name : 'CSSUnmatchedRuleError',
+	#superclass : 'CSSError',
+	#category : 'CSSParser-CSS-Errors',
+	#package : 'CSSParser',
+	#tag : 'CSS-Errors'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSUnmatchedRuleError >> printOn: aStream [
 
 	super printOn: aStream.

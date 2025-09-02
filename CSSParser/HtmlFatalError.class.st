@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlFatalError,
-	#superclass : #HtmlError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlFatalError',
+	#superclass : 'HtmlError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlFatalError >> isFatal [
 
 	^true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlFatalError >> printOn: aStream [
 
 	super printOn: aStream.

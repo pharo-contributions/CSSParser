@@ -1,15 +1,17 @@
 Class {
-	#name : #HtmlSCRIPTNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlSCRIPTNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlSCRIPTNode >> addToFormatter: aFormatter [
 	"Do nothing"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSCRIPTNode >> parseContents: aStream [
 
 	| str spos script |
@@ -62,7 +64,7 @@ HtmlSCRIPTNode >> parseContents: aStream [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlSCRIPTNode >> tag [
 	^ 'script'
 ]

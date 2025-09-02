@@ -1,14 +1,16 @@
 Class {
-	#name : #CSSFormatter,
-	#superclass : #Object,
+	#name : 'CSSFormatter',
+	#superclass : 'Object',
 	#instVars : [
 		'attributeMap',
 		'parentResolver'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> absoluteSizeToPx: aString defaultSize: aNumber [
 	| value |
 	aString ifNil: [^aNumber].
@@ -24,34 +26,34 @@ CSSFormatter >> absoluteSizeToPx: aString defaultSize: aNumber [
 	^aNumber
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFormatter >> attributeMap [
 
 	self subclassResponsibility
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> cmToIn: cmValue [
 	^cmValue / 2.54
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> inToPx: inValue [
 	^inValue * TextStyle pixelsPerInch
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> isAbsoluteSize: aString [
 	^aString endsWithAnyOf: {'cm' . 'mm'. 'in' . 'pt' . 'pc' . 'px'}
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> isAbsoluteSize: aString ifTrue: aBlock [
 	(self isAbsoluteSize: aString) ifTrue: [^aBlock value].
 	^false
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> isNumber: aString [
 
 	(aString size > 0 and: [aString first isDigit])
@@ -63,64 +65,64 @@ CSSFormatter >> isNumber: aString [
 	^ false
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> isRelativeSize: aString [
 	^aString endsWithAnyOf: {'em' . 'ex'. '%' . 'larger' . 'smaller'}
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> isRelativeSize: aString ifTrue: aBlock [
 	(self isRelativeSize: aString) ifTrue: [^aBlock value].
 	^false
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> mmToIn: mmValue [
 	^mmValue / 25.4
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFormatter >> parentResolver [
 	^ parentResolver ifNil: [ [:v | nil] ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFormatter >> parentResolver: anObject [
 
 	parentResolver := anObject
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 
 	(self attributeMap at: aCSSProperty propertyName ifAbsent: [nil])
 		ifNotNil: [	:process | process value: aCSSProperty value: aContext ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFormatter >> parseTextAttributesFrom: styles into: aContext withParentAttributeResolver: aParentResolver [
 	self parentResolver: aParentResolver;
 		parseTextAttributesFrom: styles into: aContext
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> pcToIn: pcValue [
 	^pcValue / 6
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> ptToIn: ptValue [
 	^ptValue / 72
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFormatter >> put: aPropertyValue at: anAttribute to: aContext [
 
 	"TODO: isValid for all formatter"
 	aContext at: anAttribute put: aPropertyValue
 ]
 
-{ #category : #'size-conversion' }
+{ #category : 'size-conversion' }
 CSSFormatter >> relativeSizeToPx: aString parentAndDefaultSize: aNumber [
 	| value |
 	aString ifNil: [^aNumber].
@@ -135,7 +137,7 @@ CSSFormatter >> relativeSizeToPx: aString parentAndDefaultSize: aNumber [
 	^aNumber
 ]
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSFormatter >> rootValueForEm [ 
 	^20
 

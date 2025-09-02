@@ -1,32 +1,34 @@
 Class {
-	#name : #CSSValueTypeRelation,
-	#superclass : #CSSValueType,
+	#name : 'CSSValueTypeRelation',
+	#superclass : 'CSSValueType',
 	#instVars : [
 		'types'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeRelation >> addType: anObject [
 
 	self types: (self types copyWith: anObject)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeRelation >> operator [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeRelation >> types [
 	"Answer the value of types"
 
 	^ types isNil ifTrue: [#()] ifFalse: [types]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeRelation >> types: anObject [
 	"Set the value of types"
 

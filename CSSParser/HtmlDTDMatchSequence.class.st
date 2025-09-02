@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlDTDMatchSequence,
-	#superclass : #HtmlDTDMatchGroup,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchSequence',
+	#superclass : 'HtmlDTDMatchGroup',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchSequence >> separator [
 
 	^','
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchSequence >> validateChildren: aStream ofNode: aNode [
 
 	expression do:

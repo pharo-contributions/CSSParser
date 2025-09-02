@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlCDATANode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlCDATANode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlCDATANode class >> start: s end: e [
 
 	^self new start: s; end: e
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> addToFormatter: aFormatter [
 
 	self parent 
@@ -21,7 +23,7 @@ HtmlCDATANode >> addToFormatter: aFormatter [
 			aFormatter endStyles ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> asString [
 
 	^self innerContents
@@ -29,7 +31,7 @@ HtmlCDATANode >> asString [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> checkForUnescapedCharacters [
 
 	| str |
@@ -70,7 +72,7 @@ HtmlCDATANode >> checkForUnescapedCharacters [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> initialize [
 
 	super initialize.
@@ -78,31 +80,31 @@ HtmlCDATANode >> initialize [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> innerContents [
 
 	^self rawContent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> isCDATA [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> prefix [
 
 	^''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> suffix [
 
 	^''
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCDATANode >> tag [
 	^ 'cdata'
 ]

@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSValueTypeLiteral,
-	#superclass : #CSSValueType,
+	#name : 'CSSValueTypeLiteral',
+	#superclass : 'CSSValueType',
 	#instVars : [
 		'literal'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueTypeLiteral class >> readFrom: in [
 
 	| out val |
@@ -32,7 +34,7 @@ CSSValueTypeLiteral class >> readFrom: in [
 	^val
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeLiteral >> addValues: aCollection fromStream: in [
 
 	| pos s out |
@@ -48,27 +50,27 @@ CSSValueTypeLiteral >> addValues: aCollection fromStream: in [
 		ifTrue: [aCollection add: (CSSIdentifierValue new valueString: self literal). true]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeLiteral >> isValueValid: anObject [
 
 	^anObject isString and: [self literal = anObject]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeLiteral >> literal [
 	"Answer the value of literal"
 
 	^ literal
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeLiteral >> literal: anObject [
 	"Set the value of literal"
 
 	literal := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeLiteral >> printOn: aStream [
 
 	aStream nextPutAll: self literal

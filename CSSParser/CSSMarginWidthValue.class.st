@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSMarginWidthValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSMarginWidthValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSMarginWidthValue >> isValid [
 
 	| s | 

@@ -6,8 +6,8 @@ Author: Todd Blanchard, 2006.  tblanchard@mac.com
 Free for any use that does not involve providing QA software packages or services for websites on a commercial or non-commercial basis.
 "
 Class {
-	#name : #HtmlValidator,
-	#superclass : #Object,
+	#name : 'HtmlValidator',
+	#superclass : 'Object',
 	#instVars : [
 		'url',
 		'document',
@@ -16,22 +16,24 @@ Class {
 		'content',
 		'loader'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlValidator class >> on: aString [
 
 	^self new content: aString
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlValidator class >> onUrl: aStringOrUrl [
 
 	^self new url: aStringOrUrl asUrl 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> bruteForceAnalyze [
 
 	"Maybe add more as I think of things"
@@ -40,7 +42,7 @@ HtmlValidator >> bruteForceAnalyze [
 	^self checkHtmlHeadBody
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> checkHtmlHeadBody [
 
 	| structure in tags pos tag patterns |
@@ -98,7 +100,7 @@ HtmlValidator >> checkHtmlHeadBody [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> content [
 	"Answer the value of content"
 
@@ -108,14 +110,14 @@ HtmlValidator >> content [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> content: anObject [
 	"Set the value of content"
 
 	content := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> cssErrors [
 
 	| list |
@@ -127,7 +129,7 @@ HtmlValidator >> cssErrors [
 	^list asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> document [
 	"Answer the value of document"
 
@@ -144,14 +146,14 @@ HtmlValidator >> document [
 	^document 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> document: anObject [
 	"Set the value of document"
 
 	document := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> dom [
 	"Answer the value of dom"
 
@@ -159,55 +161,55 @@ HtmlValidator >> dom [
 	^ dom
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> dom: anObject [
 	"Set the value of dom"
 
 	dom := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> errors [
 	"Answer the value of errors"
 
 	^ errors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> errors: anObject [
 	"Set the value of errors"
 
 	errors := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> htmlErrors [
 
 	^self dom allErrorsMatching: [:ea | ea isCSSError not ]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlValidator >> initialize [
 
 	super initialize.
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> loader [
 	"Answer the value of loader"
 
 	^ loader isNil ifTrue: [loader := HtmlCache new url: self url] ifFalse: [loader]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> loader: anObject [
 	"Set the value of loader"
 
 	loader := anObject
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> parse [
 
 	| in |
@@ -220,27 +222,27 @@ HtmlValidator >> parse [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> parseStylesheets [
 
 	self dom stylesheets
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> stylesheets [
 
 	^self dom stylesheets
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> url [
 	"Answer the value of url"
 
 	^ url
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlValidator >> url: anObject [
 	"Set the value of url"
 
@@ -248,7 +250,7 @@ HtmlValidator >> url: anObject [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> validate [
 
 	| dtd |
@@ -262,7 +264,7 @@ HtmlValidator >> validate [
 	self validateCSSAgainstDTD: dtd
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> validateAgainstDTD: dtd [
 
 	self dom nodesDo:
@@ -294,7 +296,7 @@ HtmlValidator >> validateAgainstDTD: dtd [
 	]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> validateCSSAgainstDTD: dtd [
 
 	| rules  color backgroundColor |
@@ -380,7 +382,7 @@ HtmlValidator >> validateCSSAgainstDTD: dtd [
 	
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlValidator >> validateCSSImports [
 
 	| ss styleFound |

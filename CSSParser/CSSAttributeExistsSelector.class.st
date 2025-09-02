@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAttributeExistsSelector,
-	#superclass : #CSSAttributeSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAttributeExistsSelector',
+	#superclass : 'CSSAttributeSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeExistsSelector >> matches: aNode [
 
 	^(self privateAttributeKeyInNode: aNode) notNil

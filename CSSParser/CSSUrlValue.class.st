@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSUrlValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSUrlValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSUrlValue class >> readFrom: aStream [
 
 	| s pos |
@@ -28,13 +30,13 @@ CSSUrlValue class >> readFrom: aStream [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUrlValue >> isValid [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUrlValue >> value [
 
 	| s |

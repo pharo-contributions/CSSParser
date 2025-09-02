@@ -1,39 +1,41 @@
 Class {
-	#name : #HtmlAttributeError,
-	#superclass : #HtmlError,
+	#name : 'HtmlAttributeError',
+	#superclass : 'HtmlError',
 	#instVars : [
 		'attribute'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeError >> attribute [
 	"Answer the value of attribute"
 
 	^ attribute
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeError >> attribute: anObject [
 	"Set the value of attribute"
 
 	attribute := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlAttributeError >> isAttributeError [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeError >> position [
 
 	^self parent start + (self parent prefix findString: self attribute)
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlAttributeError >> printOn: aStream [
 
 	super printOn: aStream.

@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTagUnknownError,
-	#superclass : #HtmlTagError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlTagUnknownError',
+	#superclass : 'HtmlTagError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlTagUnknownError >> printOn: aStream [
 
 	self parent tag printOn: aStream.

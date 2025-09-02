@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlIFRAMENode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlIFRAMENode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlIFRAMENode >> tag [
 	^ 'iframe'
 ]

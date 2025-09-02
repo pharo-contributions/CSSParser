@@ -1,20 +1,22 @@
 Class {
-	#name : #CSSAtImportRule,
-	#superclass : #CSSAtRule,
+	#name : 'CSSAtImportRule',
+	#superclass : 'CSSAtRule',
 	#instVars : [
 		'urlValue',
 		'stylesheet'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAtImportRule >> isAtImportRule [
 
 	^true
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSAtImportRule >> parseContents: aStream [
 
 	| s m |
@@ -28,7 +30,7 @@ CSSAtImportRule >> parseContents: aStream [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAtImportRule >> stylesheet [
 	"Answer the value of styleSheet"
 
@@ -36,21 +38,21 @@ CSSAtImportRule >> stylesheet [
 	^stylesheet
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAtImportRule >> stylesheet: anObject [
 	"Set the value of styleSheet"
 
 	stylesheet := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAtImportRule >> urlValue [
 	"Answer the value of urlValue"
 
 	^ urlValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAtImportRule >> urlValue: anObject [
 	"Set the value of urlValue"
 

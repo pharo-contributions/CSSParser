@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSListFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSListFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSListFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -12,7 +14,7 @@ CSSListFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSListFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 	aCSSProperty propertyName = 'list-style-type' ifFalse: [^nil].
 	aContext at: #'list-style-type' put: aCSSProperty propertyString.

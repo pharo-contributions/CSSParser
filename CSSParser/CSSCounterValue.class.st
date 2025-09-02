@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSCounterValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSCounterValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSCounterValue >> isValid [
 
 	| s |
@@ -28,7 +30,7 @@ CSSCounterValue >> isValid [
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSCounterValue >> isValidStyle: aString [
 
 	^(CSSPropertyDefinition named: 'list-style-type') valueType isValidValue: aString

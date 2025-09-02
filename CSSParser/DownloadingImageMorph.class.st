@@ -2,8 +2,8 @@
 a placeholder for an image that is downloading
 "
 Class {
-	#name : #DownloadingImageMorph,
-	#superclass : #Morph,
+	#name : 'DownloadingImageMorph',
+	#superclass : 'Morph',
 	#instVars : [
 		'url',
 		'altText',
@@ -12,10 +12,12 @@ Class {
 		'downloadQueue',
 		'formatter'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> altText: aString [
 	"set the text to be displayed while downloading"
 	altText := aString.
@@ -23,13 +25,13 @@ DownloadingImageMorph >> altText: aString [
 	self setContents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> defaultExtent: aPoint [
 	"set the size to use when the image hasn't yet downloaded"
 	defaultExtent := aPoint
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 DownloadingImageMorph >> downloadStateIn: aScamper [
 	"download the image"
 	| doc |
@@ -39,7 +41,7 @@ DownloadingImageMorph >> downloadStateIn: aScamper [
 
 ]
 
-{ #category : #downloading }
+{ #category : 'downloading' }
 DownloadingImageMorph >> forkDownloadWhenFinished: aBlock [ 
 	| doc |
 	image ifNotNil: [^self].
@@ -57,27 +59,27 @@ DownloadingImageMorph >> forkDownloadWhenFinished: aBlock [
 	] forkAt: Processor userBackgroundPriority
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> formatter [
 	^formatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> formatter: aFormatter [
 	formatter := aFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> imageMapName [
 	^imageMapName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> imageMapName: aString [
 	imageMapName := aString
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 DownloadingImageMorph >> initialize [
 	super initialize.
 
@@ -86,7 +88,7 @@ DownloadingImageMorph >> initialize [
 	downloadQueue := SharedQueue new.
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 DownloadingImageMorph >> setContents [
 	"set up our morphic contents"
 	| imageMorph |
@@ -108,7 +110,7 @@ DownloadingImageMorph >> setContents [
 	self owner composeToBounds
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 DownloadingImageMorph >> setNoImageContents [
 	"set up our morphic contents in case image download/decoding failed"
 	| stringMorph outlineMorph extent |
@@ -138,7 +140,7 @@ DownloadingImageMorph >> setNoImageContents [
 
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 DownloadingImageMorph >> setSvgContents [
 	"set up our svg contents"
 	| svgMorph |
@@ -158,7 +160,7 @@ DownloadingImageMorph >> setSvgContents [
 	self owner composeToBounds
 ]
 
-{ #category : #'stepping and presenter' }
+{ #category : 'stepping and presenter' }
 DownloadingImageMorph >> step [
 	| doc|
 	downloadQueue size > 0 ifTrue: [
@@ -181,13 +183,13 @@ DownloadingImageMorph >> step [
 		].
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 DownloadingImageMorph >> stepTime [
 	"this check doesn't need to be frequent"
 	^500
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DownloadingImageMorph >> url: aUrl [
 	"set the url to download"
 	url := aUrl asUrl.

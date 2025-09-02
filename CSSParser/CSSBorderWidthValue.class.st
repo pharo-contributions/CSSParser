@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSBorderWidthValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSBorderWidthValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSBorderWidthValue >> isValid [
 
 	| val |

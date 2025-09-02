@@ -1,45 +1,47 @@
 Class {
-	#name : #HtmlNodeDefaultStyleTest,
-	#superclass : #TestCase,
+	#name : 'HtmlNodeDefaultStyleTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'htmlFormatter',
 		'styleResolver'
 	],
-	#category : #'CSSParser-Tests'
+	#category : 'CSSParser-Tests',
+	#package : 'CSSParser',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> htmlFormatter [
 
 	^ htmlFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> htmlFormatter: anObject [
 
 	htmlFormatter := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> setUp [
 	self timeout: 300.
 	self htmlFormatter: DHtmlFormatter new.
 	self styleResolver: CSSStyleResolver new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> styleResolver [
 
 	^ styleResolver
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> styleResolver: anObject [
 
 	styleResolver := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test01EmphasizedTextShouldBeItalic [
 	| document node |
 	document := HtmlDocument new.
@@ -48,7 +50,7 @@ HtmlNodeDefaultStyleTest >> test01EmphasizedTextShouldBeItalic [
 	self assert: (self styleResolver getStyle: #italic for: node) equals: true.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test02StrongTextShouldBeBold [
 	| document node |
 	document := HtmlDocument new.
@@ -57,7 +59,7 @@ HtmlNodeDefaultStyleTest >> test02StrongTextShouldBeBold [
 	self assert: (self styleResolver getStyle: #bold for: node) equals: true.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test03DefinitionShouldBeItalicAndTimes [
 	| document node |
 	document := HtmlDocument new.
@@ -68,7 +70,7 @@ HtmlNodeDefaultStyleTest >> test03DefinitionShouldBeItalicAndTimes [
 		equals: (TextStyle named: 'NimbusRomanNo9L').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test04CodeShouldBeCourierNew [
 	| document node |
 	document := HtmlDocument new.
@@ -78,7 +80,7 @@ HtmlNodeDefaultStyleTest >> test04CodeShouldBeCourierNew [
 		equals: (TextStyle named: 'NimbusMonoL').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test05OutputShouldBeGeorgia [
 	| document node |
 	document := HtmlDocument new.
@@ -88,7 +90,7 @@ HtmlNodeDefaultStyleTest >> test05OutputShouldBeGeorgia [
 		equals: (TextStyle named: 'Georgia').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test06InputShouldBeTrebuchetMS [
 	| document node |
 	document := HtmlDocument new.
@@ -98,7 +100,7 @@ HtmlNodeDefaultStyleTest >> test06InputShouldBeTrebuchetMS [
 		equals: (TextStyle named: 'TrebuchetMS').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test07TeletypeShouldBeTrebuchetMS [
 	| document node |
 	document := HtmlDocument new.
@@ -108,7 +110,7 @@ HtmlNodeDefaultStyleTest >> test07TeletypeShouldBeTrebuchetMS [
 		equals: (TextStyle named: 'TrebuchetMS').
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlNodeDefaultStyleTest >> test08VariableShouldBeCourierNew [
 	| document node |
 	document := HtmlDocument new.

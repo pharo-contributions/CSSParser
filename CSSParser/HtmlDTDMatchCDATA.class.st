@@ -1,44 +1,46 @@
 Class {
-	#name : #HtmlDTDMatchCDATA,
-	#superclass : #HtmlDTDMatchExpression,
+	#name : 'HtmlDTDMatchCDATA',
+	#superclass : 'HtmlDTDMatchExpression',
 	#classVars : [
 		'CData'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchCDATA class >> cdata [
 
 	^CData isNil ifTrue: [CData := self new] ifFalse: [CData]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchCDATA >> allowedElements [
 
 	^#()
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchCDATA >> allowsItem: aTag [
 
 	^(aTag asUppercase findString: 'CDATA') > 0
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlDTDMatchCDATA >> initialize [
 
 	super initialize.
 	expression := '#CDATA'
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchCDATA >> printOn: aStream [
 
 	aStream nextPutAll: expression
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchCDATA >> validateChildren: aStream ofNode: aNode [
 
 	^(aStream atEnd not and: [self allowsItem: aStream peek dtdTag]) 

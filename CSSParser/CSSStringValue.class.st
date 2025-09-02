@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSStringValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSStringValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSStringValue class >> readFrom: in [
 
 	| out |
@@ -35,7 +37,7 @@ CSSStringValue class >> readFrom: in [
 	^out contents size > 0 ifTrue: [self new valueString: out contents] ifFalse: [nil]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStringValue >> isValid [
 
 	| s |
@@ -44,7 +46,7 @@ CSSStringValue >> isValid [
 	^s size > 0
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStringValue >> value [
 
 	^self valueString unquoted

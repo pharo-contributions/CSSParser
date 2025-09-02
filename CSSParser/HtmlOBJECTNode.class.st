@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlOBJECTNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlOBJECTNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlOBJECTNode >> tag [
 	^ 'object'
 ]

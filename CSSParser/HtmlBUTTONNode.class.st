@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlBUTTONNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlBUTTONNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlBUTTONNode >> tag [
 	^ 'button'
 ]

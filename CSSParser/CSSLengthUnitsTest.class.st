@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSLengthUnitsTest,
-	#superclass : #TestCase,
+	#name : 'CSSLengthUnitsTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'cssformatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 CSSLengthUnitsTest >> setUp [
 	super setUp.
 	cssformatter := CSSFormatter new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test01EmShouldBeParsedCorrectly [
 	| size |
 	size := '2em'.
@@ -26,7 +28,7 @@ CSSLengthUnitsTest >> test01EmShouldBeParsedCorrectly [
 			equals: (cssformatter relativeSizeToPx: size parentAndDefaultSize: 1)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test02ExShouldBeParsedCorrectly [
 	| size |
 	size := '5ex'.
@@ -39,7 +41,7 @@ CSSLengthUnitsTest >> test02ExShouldBeParsedCorrectly [
 			equals: (cssformatter relativeSizeToPx: size parentAndDefaultSize: 2)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test03PercentageShouldBeParsedCorrectly [
 	| size |
 	size := '120%'.
@@ -52,7 +54,7 @@ CSSLengthUnitsTest >> test03PercentageShouldBeParsedCorrectly [
 			equals: (cssformatter relativeSizeToPx: size parentAndDefaultSize: 1) asFloat
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test04CmShouldBeParsedCorrectly [
 	| size |
 	size := '1.5cm'.
@@ -62,7 +64,7 @@ CSSLengthUnitsTest >> test04CmShouldBeParsedCorrectly [
 			equals: (cssformatter absoluteSizeToPx: size defaultSize: nil)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test05MmShouldBeParsedCorrectly [
 	| size |
 	size := '3mm'.
@@ -72,7 +74,7 @@ CSSLengthUnitsTest >> test05MmShouldBeParsedCorrectly [
 			equals: (cssformatter absoluteSizeToPx: size defaultSize: nil)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test06InShouldBeParsedCorrectly [
 	| size |
 	size := '0.3in'.
@@ -82,7 +84,7 @@ CSSLengthUnitsTest >> test06InShouldBeParsedCorrectly [
 			equals: (cssformatter absoluteSizeToPx: size defaultSize: nil)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test07PtShouldBeParsedCorrectly [
 	| size |
 	size := '12pt'.
@@ -92,7 +94,7 @@ CSSLengthUnitsTest >> test07PtShouldBeParsedCorrectly [
 			equals: (cssformatter absoluteSizeToPx: size defaultSize: nil)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test08PcShouldBeParsedCorrectly [
 	| size |
 	size := '3pc'.
@@ -102,7 +104,7 @@ CSSLengthUnitsTest >> test08PcShouldBeParsedCorrectly [
 			equals: (cssformatter absoluteSizeToPx: size defaultSize: nil)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test09SmallerShouldBeParsedCorrectly [
 	| size |
 	size := 'smaller'.
@@ -112,7 +114,7 @@ CSSLengthUnitsTest >> test09SmallerShouldBeParsedCorrectly [
 			equals: (cssformatter relativeSizeToPx: 'smaller' parentAndDefaultSize: 16)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSLengthUnitsTest >> test10LargerShouldBeParsedCorrectly [
 	| size |
 	size := 'larger'.

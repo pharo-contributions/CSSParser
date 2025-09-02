@@ -1,14 +1,16 @@
 Class {
-	#name : #HtmlAttributeNotLowerCaseError,
-	#superclass : #HtmlAttributeError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlAttributeNotLowerCaseError',
+	#superclass : 'HtmlAttributeError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlAttributeNotLowerCaseError >> isCaseError [
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlAttributeNotLowerCaseError >> printOn: aStream [
 
 	| |

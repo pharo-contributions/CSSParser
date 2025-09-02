@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlFIELDSETNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlFIELDSETNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlFIELDSETNode >> tag [
 	^ 'fieldset'
 ]

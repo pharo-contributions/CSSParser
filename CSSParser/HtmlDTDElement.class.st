@@ -1,6 +1,6 @@
 Class {
-	#name : #HtmlDTDElement,
-	#superclass : #HtmlDTDConstruct,
+	#name : 'HtmlDTDElement',
+	#superclass : 'HtmlDTDConstruct',
 	#instVars : [
 		'dtd',
 		'startIsOptional',
@@ -8,10 +8,12 @@ Class {
 		'contentRule',
 		'allowedElements'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDElement class >> fromParsedString: aString [
 
 	| in tag start end contents |
@@ -29,13 +31,13 @@ HtmlDTDElement class >> fromParsedString: aString [
 		contentRule: contents		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> allowsTag: aTag [
 
 	^contentRule allowsItem: aTag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> cacheAllowedElementsForDTD: aDTD [
 
 	| |
@@ -61,41 +63,41 @@ HtmlDTDElement >> cacheAllowedElementsForDTD: aDTD [
 	^allowedElements
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> contentRule [
 	"Answer the value of contentRule"
 
 	^ contentRule
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> contentRule: anObject [
 	"Set the value of contentRule"
 
 	contentRule := HtmlDTDMatchExpression on: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> endIsOptional [
 	"Answer the value of endIsOptional"
 
 	^ endIsOptional first = $O
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> endIsOptional: anObject [
 	"Set the value of endIsOptional"
 
 	endIsOptional := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> isEmpty [
 
 	^contentRule isEmpty
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> printOn: aStream [
 
 	aStream nextPutAll: 'E('.
@@ -107,14 +109,14 @@ HtmlDTDElement >> printOn: aStream [
 	aStream nextPut: $)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> startIsOptional [
 	"Answer the value of startIsOptional"
 
 	^ startIsOptional first = $O
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDElement >> startIsOptional: anObject [
 	"Set the value of startIsOptional"
 

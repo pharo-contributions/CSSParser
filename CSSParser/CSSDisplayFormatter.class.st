@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSDisplayFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSDisplayFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDisplayFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -12,7 +14,7 @@ CSSDisplayFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDisplayFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 	aCSSProperty propertyName = 'display' ifTrue: [
 		| values |
@@ -29,7 +31,7 @@ CSSDisplayFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 			ifAbsent: [ (aContext includesKey: #display) ifFalse: [ aContext at: #display put: #inline ]]]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDisplayFormatter >> readDisplayFrom: aCSSProperty to: aContext [
 
 	| values |

@@ -1,17 +1,19 @@
 Class {
-	#name : #CSSPositionFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSPositionFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSPositionFormatter class >> attributePrefix [
 
 	^ 'position'
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPositionFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {

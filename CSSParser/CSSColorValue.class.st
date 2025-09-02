@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSColorValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSColorValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSColorValue class >> readFrom: in [
 
 	| out |
@@ -22,7 +24,7 @@ CSSColorValue class >> readFrom: in [
 	^self new valueString: out contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSColorValue >> isValid [
 
 	| s |

@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSIdentifierValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSIdentifierValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSIdentifierValue >> isValid [
 
 	| s |

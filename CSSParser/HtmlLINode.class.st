@@ -1,22 +1,24 @@
 Class {
-	#name : #HtmlLINode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlLINode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINode >> endStyles: aFormatter [
 	aFormatter endListItem.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINode >> startStyles: aFormatter [
 	(self attributes includesKey: 'value')
 		ifTrue: [aFormatter startListItemWithValue: (self attributes at: 'value')]
 		ifFalse: [aFormatter startListItem].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINode >> tag [
 	^ 'li'
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlCENTERNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlCENTERNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCENTERNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,7 +15,7 @@ HtmlCENTERNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCENTERNode >> tag [
 	^ 'center'
 ]

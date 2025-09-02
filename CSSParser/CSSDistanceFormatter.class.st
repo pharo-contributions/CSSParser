@@ -1,22 +1,24 @@
 Class {
-	#name : #CSSDistanceFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSDistanceFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSDistanceFormatter class >> attributePrefix [
 
 	self subclassResponsibility 
 ]
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSDistanceFormatter class >> attributeSuffix [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -28,7 +30,7 @@ CSSDistanceFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDistanceFormatter >> put: aPropertyValue at: anAttribute to: aContext [
 
 	| aPrefixedAttribute valueInPixel |
@@ -44,7 +46,7 @@ CSSDistanceFormatter >> put: aPropertyValue at: anAttribute to: aContext [
 
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDistanceFormatter >> readFourAttributesFrom: aPropertyValue to: aContext [
 
 		(aPropertyValue splitOn: ' ') doWithIndex: [:each :index |
@@ -59,7 +61,7 @@ CSSDistanceFormatter >> readFourAttributesFrom: aPropertyValue to: aContext [
 		]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDistanceFormatter >> readOneAttributeFrom: aPropertyValue to: aContext [
 
 		self put: aPropertyValue at: 'top', self class attributeSuffix to: aContext.
@@ -68,7 +70,7 @@ CSSDistanceFormatter >> readOneAttributeFrom: aPropertyValue to: aContext [
 		self put: aPropertyValue at: 'left', self class attributeSuffix to: aContext
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDistanceFormatter >> readShorthandAttributesFrom: aPropertyValue to: aContext [
 
 	| aPropertyCount |
@@ -85,7 +87,7 @@ CSSDistanceFormatter >> readShorthandAttributesFrom: aPropertyValue to: aContext
 		ifTrue:  [ self readFourAttributesFrom: aPropertyValue to: aContext ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDistanceFormatter >> readThreeAttributesFrom: aPropertyValue to: aContext [
 
 		(aPropertyValue splitOn: ' ') doWithIndex: [:each :index |
@@ -101,7 +103,7 @@ CSSDistanceFormatter >> readThreeAttributesFrom: aPropertyValue to: aContext [
 		]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSDistanceFormatter >> readTwoAttributesFrom: aPropertyValue to: aContext [
 
 		(aPropertyValue splitOn: ' ') doWithIndex: [:each :index |

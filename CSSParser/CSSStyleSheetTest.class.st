@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSStyleSheetTest,
-	#superclass : #TestCase,
+	#name : 'CSSStyleSheetTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'memory'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 CSSStyleSheetTest >> setUp [
 
 	super setUp.
@@ -28,7 +30,7 @@ p {
 }' ]
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 CSSStyleSheetTest >> testParseWithoutErrorDummyCSS [
 
 	| css |

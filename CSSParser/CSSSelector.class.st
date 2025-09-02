@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSSelector,
-	#superclass : #Object,
+	#name : 'CSSSelector',
+	#superclass : 'Object',
 	#instVars : [
 		'isValid'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSSelector class >> fromString: aString [
 
 	(aString includes: $,) 
@@ -34,7 +36,7 @@ CSSSelector class >> fromString: aString [
 	]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSSelector class >> oneSelectorFromString: aString [
 
 	| in sel lastOperator pos operators |
@@ -167,93 +169,93 @@ CSSSelector class >> oneSelectorFromString: aString [
 	^sel
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isAdjacentSelector [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isAttributeSelector [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isCSS3 [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isChildSelector [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isDescendantSelector [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isRelationshipSelector [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isSimple [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> isTypeSelector [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelector >> isValid [
 	"Answer the value of isValid"
 
 	^ isValid isNil or: [isValid]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelector >> isValid: anObject [
 	"Set the value of isValid"
 
 	isValid := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelector >> keySelectors [
 
 	^#()
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> matches: aNode [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelector >> printOn: aStream [
 
 	self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> selectorsMatching: aBlock [
 
 	^(aBlock value: self) ifTrue: [Array with: self] ifFalse: [#()]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelector >> typeSelectors [
 
 	^self selectorsMatching: [:ea | ea isTypeSelector]

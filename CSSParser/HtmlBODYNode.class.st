@@ -1,15 +1,17 @@
 Class {
-	#name : #HtmlBODYNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlBODYNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlBODYNode >> defaultBlockMorph [
 	^ HtmlBodyMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlBODYNode >> tag [
 	^ 'body'
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #XHtmlDTDElement,
-	#superclass : #HtmlDTDElement,
-	#category : #'CSSParser-Validator'
+	#name : 'XHtmlDTDElement',
+	#superclass : 'HtmlDTDElement',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 XHtmlDTDElement class >> fromParsedString: aString [
 
 	| in tag start end contents |

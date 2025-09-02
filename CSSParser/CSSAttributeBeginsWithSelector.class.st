@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAttributeBeginsWithSelector,
-	#superclass : #CSSAttributeSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAttributeBeginsWithSelector',
+	#superclass : 'CSSAttributeSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeBeginsWithSelector >> matches: aNode [
 
 	| attr |

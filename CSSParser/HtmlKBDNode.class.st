@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlKBDNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlKBDNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlKBDNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,7 +15,7 @@ HtmlKBDNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlKBDNode >> tag [
 	^ 'kbd'
 ]

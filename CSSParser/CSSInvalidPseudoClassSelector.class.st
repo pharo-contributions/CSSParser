@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSInvalidPseudoClassSelector,
-	#superclass : #CSSPseudoClassSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSInvalidPseudoClassSelector',
+	#superclass : 'CSSPseudoClassSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSInvalidPseudoClassSelector >> isValid [
 
 	^false

@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSSelectorError,
-	#superclass : #CSSError,
-	#category : #'CSSParser-CSS-Errors'
+	#name : 'CSSSelectorError',
+	#superclass : 'CSSError',
+	#category : 'CSSParser-CSS-Errors',
+	#package : 'CSSParser',
+	#tag : 'CSS-Errors'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSSelectorError >> printOn: aStream [
 
 	super printOn: aStream.

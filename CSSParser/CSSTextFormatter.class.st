@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSTextFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSTextFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTextFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -13,13 +15,13 @@ CSSTextFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSTextFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 	(self attributeMap at: aCSSProperty propertyName ifAbsent: [nil])
 		ifNotNil: [:process | process value: aCSSProperty value: aContext ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSTextFormatter >> readTextAlignAttribute: aString to: aContext [
 
 	(aString substrings: ' ') do: [ :attribute | 
@@ -34,7 +36,7 @@ CSSTextFormatter >> readTextAlignAttribute: aString to: aContext [
 
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSTextFormatter >> readTextDecorationAttribute: aString to: aContext [
 
 	(aString substrings: ' ') do: [ :attribute | 

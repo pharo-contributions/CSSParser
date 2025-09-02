@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAttributeEqualsSelector,
-	#superclass : #CSSAttributeSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAttributeEqualsSelector',
+	#superclass : 'CSSAttributeSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeEqualsSelector >> matches: aNode [
 
 	| attr |
@@ -16,7 +18,7 @@ CSSAttributeEqualsSelector >> matches: aNode [
 		ifTrue: [false]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttributeEqualsSelector >> printOn: aStream [
 
 	aStream nextPut: $[;

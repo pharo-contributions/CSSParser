@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlAttributeValueNotQuotedError,
-	#superclass : #HtmlAttributeError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlAttributeValueNotQuotedError',
+	#superclass : 'HtmlAttributeError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlAttributeValueNotQuotedError >> isSyntaxError [
 
 	^true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlAttributeValueNotQuotedError >> printOn: aStream [
 
 	aStream nextPutAll: 'Value of: '.

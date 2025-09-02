@@ -1,6 +1,6 @@
-Extension { #name : #SequenceableCollection }
+Extension { #name : 'SequenceableCollection' }
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 SequenceableCollection >> joinOn: aString [
 
 	^ String streamContents:

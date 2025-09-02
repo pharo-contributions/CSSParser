@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSTimeValue,
-	#superclass : #CSSUnitizedNumberValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSTimeValue',
+	#superclass : 'CSSUnitizedNumberValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTimeValue >> allowableUnits [
 
 	^#( 's' 'ms')
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTimeValue >> isValid [
 
 	^super isValid and: [valueString asNumber >= 0]

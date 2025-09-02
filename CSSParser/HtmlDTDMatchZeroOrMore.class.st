@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlDTDMatchZeroOrMore,
-	#superclass : #HtmlDTDMatchConstraint,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchZeroOrMore',
+	#superclass : 'HtmlDTDMatchConstraint',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchZeroOrMore >> printOn: aStream [
 
 	expression printOn: aStream.
@@ -13,7 +15,7 @@ HtmlDTDMatchZeroOrMore >> printOn: aStream [
 	
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchZeroOrMore >> validateChildren: aStream ofNode: aNode [
 
 	[expression validateChildren: aStream ofNode: aNode] whileTrue:[].

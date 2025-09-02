@@ -1,21 +1,23 @@
 Class {
-	#name : #HtmlDDNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlDDNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDDNode >> endStyles: aFormatter [
 	aFormatter decreaseIndent.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDDNode >> startStyles: aFormatter [
 	aFormatter ensureNewlines: 1.
 	aFormatter increaseIndent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDDNode >> tag [
 	^ 'dd'
 ]

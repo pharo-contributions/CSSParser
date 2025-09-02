@@ -4,8 +4,8 @@ I represent the knowledge in a DTD document regarding valid attributes and tag c
 After working with this format for awhile, I can honestly say the inventors of DVD have been taking way too much crack.
 "
 Class {
-	#name : #HtmlDTD,
-	#superclass : #Object,
+	#name : 'HtmlDTD',
+	#superclass : 'Object',
 	#instVars : [
 		'url',
 		'document',
@@ -20,28 +20,30 @@ Class {
 	#classVars : [
 		'Cache'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD class >> default [
 
 	^self forDocType: self docType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD class >> defaultUrl [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD class >> docType [
 
 	^'abstract'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTD class >> forDocType: aDocType [
 
 	| dt delims |
@@ -60,56 +62,56 @@ HtmlDTD class >> forDocType: aDocType [
 	]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTD class >> on: aString [
 
 	^self new content: aString
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTD class >> onUrl: aStringOrUrl [
 
 	^self new url: aStringOrUrl asUrl 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD class >> resetCache [
 
 	"HtmlDTD resetCache"
 	Cache := nil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD class >> updateFromWeb [
 
 	self compileSilently: ('dtd',(Character cr asString), '^',(self defaultUrl retrieveContents contents printString)) classified: 'resources'  
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> addToAttLists: anAttList [
 
 	self attLists: (self attLists copyWith: anAttList)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> addToComments: aComment [
 
 	self comments: (self comments copyWith: aComment)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> addToElements: anElement [
 
 	self elements: (self elements copyWith: anElement)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> addToEntities: anEntity [
 
 	self entities: (self entities copyWith: anEntity)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> attLists [
 	"Answer the value of attLists"
 
@@ -118,20 +120,20 @@ HtmlDTD >> attLists [
 		ifFalse:[attLists]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> attLists: anObject [
 	"Set the value of attLists"
 
 	attLists := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> attrListForTag: aTag [
 
 	^attLists detect:[:ea | ea tagMatches: aTag] ifNone:[nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> comments [
 
 	^comments isNil 
@@ -139,13 +141,13 @@ HtmlDTD >> comments [
 		ifFalse: [comments]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> comments: anArray [
 
 	comments := anArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> content [
 	"Answer the value of content"
 
@@ -160,20 +162,20 @@ HtmlDTD >> content [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> content: anObject [
 	"Set the value of content"
 
 	content := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> defaultUrl [
 
 	^self class defaultUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> document [
 	"Answer the value of document"
 
@@ -182,34 +184,34 @@ HtmlDTD >> document [
 		ifTrue: [url isNil ifFalse: [document := url asUrl retrieveContents] ifTrue: [nil]] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> document: anObject [
 	"Set the value of document"
 
 	document := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> dom [
 	"Answer the value of dom"
 
 	^ dom
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> dom: anObject [
 	"Set the value of dom"
 
 	dom := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> elementForTag: aTag [
 
 	^elements detect:[:ea | ea tagMatches: aTag] ifNone:[nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> elements [
 	"Answer the value of elements"
 
@@ -218,14 +220,14 @@ HtmlDTD >> elements [
 		ifFalse:[elements]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> elements: anObject [
 	"Set the value of elements"
 
 	elements := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> entities [
 	"Answer the value of entities"
 
@@ -234,35 +236,35 @@ HtmlDTD >> entities [
 		ifFalse: [entities]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> entities: anObject [
 	"Set the value of entities"
 
 	entities := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> errors [
 	"Answer the value of errors"
 
 	^ errors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> errors: anObject [
 	"Set the value of errors"
 
 	errors := anObject
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> expandAllTokens [
 
 	self expandElementTokens.
 	self expandAttListTokens.
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> expandAttListTokens [
 
 	| expanded changed |
@@ -287,7 +289,7 @@ HtmlDTD >> expandAttListTokens [
 	^attLists := expanded
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> expandElementTokens [
 
 	| expanded changed |
@@ -309,7 +311,7 @@ HtmlDTD >> expandElementTokens [
 	^elements := expanded
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> expandTokensInLine: aString [
 
 	| in out s |
@@ -331,33 +333,33 @@ HtmlDTD >> expandTokensInLine: aString [
 	^out contents
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlDTD >> initialize [
 
 	super initialize.
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> isXML [
 
 	^false
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> objectifyAttLists [
 
 	attLists := attLists collect: [:ea | HtmlDTDAttrList fromParsedArray: ea]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> objectifyElements [
 
 	elements := elements collect: [:ea | HtmlDTDElement fromParsedString: ea].
 	elements do: [:ea | ea cacheAllowedElementsForDTD: self].
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> parse [
 
 	| in s |
@@ -402,7 +404,7 @@ HtmlDTD >> parse [
 	
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> readAttList: aStream [
 
 	| s list |
@@ -416,7 +418,7 @@ HtmlDTD >> readAttList: aStream [
 	self addToAttLists: list asArray.
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> readComment: aStream [
 
 	| s |
@@ -426,7 +428,7 @@ HtmlDTD >> readComment: aStream [
 	self addToComments: s.
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> readConditionalElement: aStream [
 
 	| s |
@@ -436,7 +438,7 @@ HtmlDTD >> readConditionalElement: aStream [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> readElement: aStream [
 
 	| s |
@@ -445,7 +447,7 @@ HtmlDTD >> readElement: aStream [
 	self addToElements: (self stripCommentsFrom: s) trimBoth.
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> readEntity: aStream [
 
 	| s in out |
@@ -468,13 +470,13 @@ HtmlDTD >> readEntity: aStream [
 	
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> reset [
 
 	entities := attributes := comments := elements := attLists := nil
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> stripCommentsFrom: aString [
 
 	| in out |
@@ -490,7 +492,7 @@ HtmlDTD >> stripCommentsFrom: aString [
 	^out contents
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tag: aTag allowsAttribute: anAttribute [
 
 	| a |
@@ -500,7 +502,7 @@ HtmlDTD >> tag: aTag allowsAttribute: anAttribute [
 		ifTrue:[false]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tag: aTag attribute: anAttribute hasValidValue: aValue [
 
 	| a adef |
@@ -522,7 +524,7 @@ HtmlDTD >> tag: aTag attribute: anAttribute hasValidValue: aValue [
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tag: aTag canContainTag: anotherTag [
 
 	| element |
@@ -533,7 +535,7 @@ HtmlDTD >> tag: aTag canContainTag: anotherTag [
 		
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tagCloseIsOptional: aTag [
 
 	| element |
@@ -544,7 +546,7 @@ HtmlDTD >> tagCloseIsOptional: aTag [
 		ifFalse:[element endIsOptional]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tagIsEmpty: aTag [
 
 	| e |
@@ -553,7 +555,7 @@ HtmlDTD >> tagIsEmpty: aTag [
 	^e notNil ifTrue: [e isEmpty] ifFalse: [false]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tagIsOptional: aTag [
 
 	| decl |
@@ -561,13 +563,13 @@ HtmlDTD >> tagIsOptional: aTag [
 	^((decl splitOn: ' ') at: 2) = 'O'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTD >> tagIsReal: aTag [
 
 	^(self elementForTag: aTag) notNil
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 HtmlDTD >> tokenDefinition: aToken [
 
 	| def fmt s in |
@@ -581,14 +583,14 @@ HtmlDTD >> tokenDefinition: aToken [
 	^s	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> url [
 	"Answer the value of url"
 
 	^ url isNil ifTrue: [url := self defaultUrl]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTD >> url: anObject [
 	"Set the value of url"
 
@@ -596,7 +598,7 @@ HtmlDTD >> url: anObject [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> validateAttributesOfNode: aNode [
 
 	aNode attributes copy keysAndValuesDo:
@@ -635,7 +637,7 @@ HtmlDTD >> validateAttributesOfNode: aNode [
 
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 HtmlDTD >> validateChildrenOfNode: aNode [
 
 	| element children stream |

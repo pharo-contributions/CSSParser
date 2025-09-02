@@ -1,32 +1,34 @@
 Class {
-	#name : #CSSRule,
-	#superclass : #CSSElement,
+	#name : 'CSSRule',
+	#superclass : 'CSSElement',
 	#instVars : [
 		'media'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSRule >> isAtImportRule [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSRule >> isStyleRule [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRule >> media [
 	"Answer the value of media"
 
 	^ media
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRule >> media: anObject [
 	"Set the value of media"
 

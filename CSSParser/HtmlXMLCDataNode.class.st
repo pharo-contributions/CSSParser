@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlXMLCDataNode,
-	#superclass : #HtmlCommentNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlXMLCDataNode',
+	#superclass : 'HtmlCommentNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlXMLCDataNode >> parseContents: aStream [
 
 	| cdStart out |

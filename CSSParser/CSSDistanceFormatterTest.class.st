@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSDistanceFormatterTest,
-	#superclass : #TestCase,
+	#name : 'CSSDistanceFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'formatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> bottomAttribute [
 
 	^ self prefix, '-bottom', self suffix
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> bottomAttributeShouldBeParsedCorrectly [
 
 	| aProperty aResult |
@@ -27,25 +29,25 @@ CSSDistanceFormatterTest >> bottomAttributeShouldBeParsedCorrectly [
 	self assert: 40 equals: (aResult at: self bottomAttribute asSymbol)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> completeAttribute [
 
 	^ self prefix, self suffix
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> formatter [
 
 	^ formatter 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> formatter: aFormatter [
 
 	formatter := aFormatter 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> fourShorthandAttributesShouldBeParsedCorrectly [
 
 	| aProperty aResult |
@@ -62,13 +64,13 @@ CSSDistanceFormatterTest >> fourShorthandAttributesShouldBeParsedCorrectly [
 	self assert: 120 equals: (aResult at: self leftAttribute asSymbol)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> leftAttribute [
 
 	^ self prefix, '-left', self suffix
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> leftAttributeShouldBeParsedCorrectly [
 
 	| aProperty aResult |
@@ -82,7 +84,7 @@ CSSDistanceFormatterTest >> leftAttributeShouldBeParsedCorrectly [
 	self assert: 50 equals: (aResult at: self leftAttribute asSymbol)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> oneShorthandAttributeShouldBeParsedCorrectly [
 
 	| aProperty aResult |
@@ -99,19 +101,19 @@ CSSDistanceFormatterTest >> oneShorthandAttributeShouldBeParsedCorrectly [
 	self assert: 60 equals: (aResult at: self leftAttribute asSymbol)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> prefix [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> rightAttribute [
 
 	^ self prefix, '-right', self suffix
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> rightAttributeShouldBeParsedCorrectly [
 
 	| aProperty aResult |
@@ -125,13 +127,13 @@ CSSDistanceFormatterTest >> rightAttributeShouldBeParsedCorrectly [
 	self assert: 30 equals: (aResult at: self rightAttribute asSymbol)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> suffix [
 
 	self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> threeShorthandAttributesShouldBeParsedCorrectly [
 
 	| aProperty aResult |
@@ -148,13 +150,13 @@ CSSDistanceFormatterTest >> threeShorthandAttributesShouldBeParsedCorrectly [
 	self assert: 90 equals: (aResult at: self leftAttribute asSymbol)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDistanceFormatterTest >> topAttribute [
 
 	^ self prefix, '-top', self suffix
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> topAttributeShouldBeParsedCorrectly [
 
 	| aProperty aResult  |
@@ -168,7 +170,7 @@ CSSDistanceFormatterTest >> topAttributeShouldBeParsedCorrectly [
 	self assert: 20 equals: (aResult at: self topAttribute asSymbol)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDistanceFormatterTest >> twoShorthandAttributesShouldBeParsedCorrectly [
 
 	| aProperty aResult |

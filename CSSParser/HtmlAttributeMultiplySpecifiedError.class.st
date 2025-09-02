@@ -1,14 +1,16 @@
 Class {
-	#name : #HtmlAttributeMultiplySpecifiedError,
-	#superclass : #HtmlAttributeError,
+	#name : 'HtmlAttributeMultiplySpecifiedError',
+	#superclass : 'HtmlAttributeError',
 	#instVars : [
 		'value1',
 		'value2'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeMultiplySpecifiedError >> printOn: aStream [
 
 	self attribute printOn: aStream.
@@ -17,7 +19,7 @@ HtmlAttributeMultiplySpecifiedError >> printOn: aStream [
 	aStream nextPutAll: '.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeMultiplySpecifiedError >> value: v1 value: v2 [
 
 	value1 := v1.

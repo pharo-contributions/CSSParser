@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSFamilyNameValue,
-	#superclass : #CSSStringValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSFamilyNameValue',
+	#superclass : 'CSSStringValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSFamilyNameValue class >> readFrom: in [
 
 	| out pos |

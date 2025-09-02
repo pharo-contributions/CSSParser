@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSValueTypeOneOrMoreOf,
-	#superclass : #CSSValueTypeConstraint,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSValueTypeOneOrMoreOf',
+	#superclass : 'CSSValueTypeConstraint',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeOneOrMoreOf class >> type [
 
 	^$+
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeOneOrMoreOf >> addValues: aCollection fromStream: in [
 
 	| one pos |

@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSValueTypeAND,
-	#superclass : #CSSValueTypeRelation,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSValueTypeAND',
+	#superclass : 'CSSValueTypeRelation',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeAND >> addValues: aCollection fromStream: in [
 
 	| pos sz |
@@ -22,19 +24,19 @@ CSSValueTypeAND >> addValues: aCollection fromStream: in [
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeAND >> isTypeAND [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeAND >> operator [
 
 	^' '
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeAND >> printOn: aStream [
 
 	aStream nextPut: $[.

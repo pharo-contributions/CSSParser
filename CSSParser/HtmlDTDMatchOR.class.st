@@ -1,22 +1,24 @@
 Class {
-	#name : #HtmlDTDMatchOR,
-	#superclass : #HtmlDTDMatchGroup,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchOR',
+	#superclass : 'HtmlDTDMatchGroup',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchOR >> isEnumeration [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchOR >> separator [
 
 	^'|'
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchOR >> validateChildren: aStream ofNode: aNode [
 
 	| position matched |

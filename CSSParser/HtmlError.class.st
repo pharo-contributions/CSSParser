@@ -1,75 +1,77 @@
 Class {
-	#name : #HtmlError,
-	#superclass : #Object,
+	#name : 'HtmlError',
+	#superclass : 'Object',
 	#instVars : [
 		'parent'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isAttributeError [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isCSSError [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isCaseError [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isFatal [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isStructuralError [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isSyntaxError [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> isTagError [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlError >> parent [
 	"Answer the value of parent"
 
 	^ parent isNil ifTrue: [nil] ifFalse: [parent first]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlError >> parent: anObject [
 	"Set the value of parent"
 
 	parent := WeakArray with: anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlError >> position [
 
 	^self parent start
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlError >> printOn: aStream [
 
 	self class printOn: aStream. 
@@ -78,13 +80,13 @@ HtmlError >> printOn: aStream [
 	aStream space.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlError >> tag [
 
 	^self parent tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlError >> title [
 
 	| tt |
@@ -93,7 +95,7 @@ HtmlError >> title [
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlError >> uniqueId [
 
 	^self parent uniqueId
