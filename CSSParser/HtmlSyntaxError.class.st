@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlSyntaxError,
-	#superclass : #HtmlError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlSyntaxError',
+	#superclass : 'HtmlError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlSyntaxError >> isSyntaxError [
 
 	^true

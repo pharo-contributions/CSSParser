@@ -1,70 +1,72 @@
 Class {
-	#name : #CSSMarginFormatterTest,
-	#superclass : #CSSDistanceFormatterTest,
-	#category : #'CSSParser-CSS-Tests'
+	#name : 'CSSMarginFormatterTest',
+	#superclass : 'CSSDistanceFormatterTest',
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSMarginFormatterTest >> prefix [
 
 	^ 'margin'
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSMarginFormatterTest >> setUp [
 	super setUp.
 	self formatter: CSSMarginFormatter new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSMarginFormatterTest >> suffix [
 
 	^ ''
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test01topAttributeShouldBeParsedCorrectly [ 
 
 	super topAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test02rightAttributeShouldBeParsedCorrectly [ 
 
 	super rightAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test03bottomAttributeShouldBeParsedCorrectly [ 
 
 	super bottomAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test04leftAttributeShouldBeParsedCorrectly [ 
 
 	super leftAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test05oneShorthandAttributeShouldBeParsedCorrectly [ 
 
 	super oneShorthandAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test06twoShorthandAttributesShouldBeParsedCorrectly [ 
 
 	super twoShorthandAttributesShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test07threeShorthandAttributesShouldBeParsedCorrectly [ 
 
 	super threeShorthandAttributesShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSMarginFormatterTest >> test08fourShorthandAttributesShouldBeParsedCorrectly [ 
 
 	super fourShorthandAttributesShouldBeParsedCorrectly 

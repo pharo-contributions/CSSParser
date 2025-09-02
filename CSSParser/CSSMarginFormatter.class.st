@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSMarginFormatter,
-	#superclass : #CSSDistanceFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSMarginFormatter',
+	#superclass : 'CSSDistanceFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSMarginFormatter class >> attributePrefix [
 
 	^ 'margin'
 ]
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSMarginFormatter class >> attributeSuffix [
 
 	^ ''

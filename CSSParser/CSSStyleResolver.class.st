@@ -1,28 +1,30 @@
 Class {
-	#name : #CSSStyleResolver,
-	#superclass : #Object,
+	#name : 'CSSStyleResolver',
+	#superclass : 'Object',
 	#instVars : [
 		'cssPrefixMap',
 		'domNode'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSStyleResolver class >> for: aDomNode [
 	^ self new
 		domNode: aDomNode;
 		yourself
 ]
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSStyleResolver class >> inheritableAttributes [
 	"The following CSS Attributes are inheritable:"
 	"'azimuth', 'border-collapse', 'border-spacing', 'caption-side', 'color', 'cursor', 'direction', 'elevation', 'empty-cells', 'font-family', 'font-size', 'font-style', 'font-variant', 'font-weight', 'font', 'letter-spacing', 'line-height', 'list-style-image', 'list-style-position', 'list-style-type', 'list-style', 'orphans', 'pitch-range', 'pitch', 'quotes', 'richness', 'speak-header', 'speak-numeral', 'speak-punctuation', 'speak', 'speak-rate', 'stress', 'text-align', 'text-indent', 'text-transform', 'visibility', 'voice-family', 'volume', 'white-space', 'widows', 'word-spacing'"
 	^ #( #italic. #bold. #fontSize. #color. #fontFamily. #textAlign)
 ]
 
-{ #category : #'formatter-resolution' }
+{ #category : 'formatter-resolution' }
 CSSStyleResolver >> cssPrefixMap [
 	^ cssPrefixMap ifNil: [
 		| sizeFormatter |
@@ -44,13 +46,13 @@ CSSStyleResolver >> cssPrefixMap [
 		}]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleResolver >> domNode: anObject [
 
 	domNode := anObject
 ]
 
-{ #category : #'private-resolution' }
+{ #category : 'private-resolution' }
 CSSStyleResolver >> evaluateLocalStylesFor: aDomNode [
 	| styles |
 	styles := Dictionary new.
@@ -60,45 +62,45 @@ CSSStyleResolver >> evaluateLocalStylesFor: aDomNode [
 	aDomNode computedStyles: styles
 ]
 
-{ #category : #'formatter-resolution' }
+{ #category : 'formatter-resolution' }
 CSSStyleResolver >> getFormatterFor: aCSSProperty [
 	| prefix |
 	prefix := self getPrefixOf: aCSSProperty propertyName asLowercase.
 	^ self cssPrefixMap at: prefix ifAbsent: [nil]
 ]
 
-{ #category : #'formatter-resolution' }
+{ #category : 'formatter-resolution' }
 CSSStyleResolver >> getPrefixOf: aString [
 
 	^(aString substrings: '-') first.
 ]
 
-{ #category : #resolution }
+{ #category : 'resolution' }
 CSSStyleResolver >> getStyle: attributeKey [
 	
 	^ self getStyle: attributeKey for: domNode
 ]
 
-{ #category : #resolution }
+{ #category : 'resolution' }
 CSSStyleResolver >> getStyle: attributeKey for: aDomNode [
 	
 	aDomNode computedStyles ifNil: [ self evaluateLocalStylesFor: aDomNode ].
 	^ self resolveStyle: attributeKey for: aDomNode
 ]
 
-{ #category : #resolution }
+{ #category : 'resolution' }
 CSSStyleResolver >> ifStyleNotNil: attributeKey do: aBlock [
 
 	(self getStyle: attributeKey) ifNotNilDo: [ :attribValue | ^aBlock value: attribValue ]
 ]
 
-{ #category : #resolution }
+{ #category : 'resolution' }
 CSSStyleResolver >> ifStyleNotNil: attributeKey do: aBlock ifNil: anotherBlock [
 
 	(self getStyle: attributeKey) ifNil: [^anotherBlock value] ifNotNilDo: [ :attribValue | ^aBlock value: attribValue ]
 ]
 
-{ #category : #'private-resolution' }
+{ #category : 'private-resolution' }
 CSSStyleResolver >> parseCSSProperty: aCSSProperty of: aDomNode into: aContext [
 	
 	(self getFormatterFor: aCSSProperty)
@@ -108,14 +110,14 @@ CSSStyleResolver >> parseCSSProperty: aCSSProperty of: aDomNode into: aContext [
 					    withParentAttributeResolver: [:attr | self resolveParentAttribute: attr of: aDomNode ]]
 ]
 
-{ #category : #'private-resolution' }
+{ #category : 'private-resolution' }
 CSSStyleResolver >> resolveParentAttribute: attributeKey of: aDomNode [
 	^ aDomNode parent
 			ifNil: [ nil ]
 			ifNotNil: [ self getStyle: attributeKey for: aDomNode parent ]
 ]
 
-{ #category : #'private-resolution' }
+{ #category : 'private-resolution' }
 CSSStyleResolver >> resolveStyle: attributeKey for: aDomNode [
 	| parentStyle |
 	(aDomNode computedStyles includesKey: attributeKey)

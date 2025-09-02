@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlH5Node,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlH5Node',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlH5Node >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -16,7 +18,7 @@ HtmlH5Node >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlH5Node >> tag [
 	^ 'h5'
 ]

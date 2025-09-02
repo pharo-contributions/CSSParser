@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAtRule,
-	#superclass : #CSSRule,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAtRule',
+	#superclass : 'CSSRule',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSAtRule class >> named: aString [
 
 	| out cls |
@@ -21,7 +23,7 @@ CSSAtRule class >> named: aString [
 	^cls new
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSAtRule >> parseContents: aStream [
 
 	| s |

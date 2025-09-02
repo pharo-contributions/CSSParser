@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSRelationshipSelector,
-	#superclass : #CSSSelector,
+	#name : 'CSSRelationshipSelector',
+	#superclass : 'CSSSelector',
 	#instVars : [
 		'selectors'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector class >> operator [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector class >> operators [
 
 	| out |
@@ -22,61 +24,61 @@ CSSRelationshipSelector class >> operators [
 	^out contents
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSRelationshipSelector class >> selectorForOperator: aString [
 
 	^(self subclasses detect:[:ea | ea operator = aString] ifNone: [CSSDescendantSelector]) new
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 CSSRelationshipSelector >> = anObject [
 
 	self class = anObject class and: [self selectors = anObject selectors]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> addSelector: aSelector [
 
 	self selectors: (self selectors copyWith: aSelector)
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 CSSRelationshipSelector >> hash [
 
 	^(self class hash) + (selectors hash)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> isCSS3 [
 
 	^(self selectors detect:[:ea | ea isCSS3] ifNone: [nil]) notNil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSRelationshipSelector >> isRelationshipSelector [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> isValid [
 
 	^super isValid and: [(self selectors detect:[:ea | ea isValid not] ifNone: [nil]) isNil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> keySelectors [
 
 	^self selectors last keySelectors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> operator [
 
 	^self class operator
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> printOn: aStream [
 
 	selectors do:
@@ -87,7 +89,7 @@ CSSRelationshipSelector >> printOn: aStream [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> removeLastSelector [
 
 	| last |
@@ -96,21 +98,21 @@ CSSRelationshipSelector >> removeLastSelector [
 	^last
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> selectors [
 	"Answer the value of selectors"
 
 	^ selectors isNil ifTrue:[#()] ifFalse: [selectors]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> selectors: anObject [
 	"Set the value of selectors"
 
 	selectors := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRelationshipSelector >> selectorsMatching: aBlock [
 
 	| col |

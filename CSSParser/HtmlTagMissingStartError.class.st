@@ -1,27 +1,29 @@
 Class {
-	#name : #HtmlTagMissingStartError,
-	#superclass : #HtmlTagStructureError,
+	#name : 'HtmlTagMissingStartError',
+	#superclass : 'HtmlTagStructureError',
 	#instVars : [
 		'position',
 		'tag'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlTagMissingStartError >> isStructuralError [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagMissingStartError >> position [
 	"Answer the value of position"
 
 	^ position
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagMissingStartError >> position: anObject [
 	"Set the value of position"
 
@@ -31,7 +33,7 @@ HtmlTagMissingStartError >> position: anObject [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagMissingStartError >> printOn: aStream [
 
 	aStream nextPutAll: 'Closing tag: '.
@@ -39,21 +41,21 @@ HtmlTagMissingStartError >> printOn: aStream [
 	aStream nextPutAll: ' with no start found'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagMissingStartError >> tag [
 	"Answer the value of tag"
 
 	^ tag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagMissingStartError >> tag: anObject [
 	"Set the value of tag"
 
 	tag := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagMissingStartError >> uniqueId [
 
 	^super uniqueId, '-end'

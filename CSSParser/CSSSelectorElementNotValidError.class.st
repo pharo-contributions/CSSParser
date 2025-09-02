@@ -1,27 +1,29 @@
 Class {
-	#name : #CSSSelectorElementNotValidError,
-	#superclass : #CSSSelectorError,
+	#name : 'CSSSelectorElementNotValidError',
+	#superclass : 'CSSSelectorError',
 	#instVars : [
 		'element'
 	],
-	#category : #'CSSParser-CSS-Errors'
+	#category : 'CSSParser-CSS-Errors',
+	#package : 'CSSParser',
+	#tag : 'CSS-Errors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelectorElementNotValidError >> element [
 	"Answer the value of element"
 
 	^ element
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelectorElementNotValidError >> element: anObject [
 	"Set the value of element"
 
 	element := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelectorElementNotValidError >> printOn: aStream [
 
 	self class printOn: aStream.

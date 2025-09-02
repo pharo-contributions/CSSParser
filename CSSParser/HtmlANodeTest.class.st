@@ -1,30 +1,32 @@
 Class {
-	#name : #HtmlANodeTest,
-	#superclass : #TestCase,
+	#name : 'HtmlANodeTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'aNode'
 	],
-	#category : #'CSSParser-Tests'
+	#category : 'CSSParser-Tests',
+	#package : 'CSSParser',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlANodeTest >> aNode [
 
 	^ aNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlANodeTest >> aNode: anObject [
 
 	aNode := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HtmlANodeTest >> setUp [ 
 	self aNode: HtmlANode new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlANodeTest >> test01AShouldRenderAsHtmlLinkMorphIfDisplayIsBlock [
 
 	self assert: self aNode getHtmlBlockMorph class equals: HtmlLinkMorph

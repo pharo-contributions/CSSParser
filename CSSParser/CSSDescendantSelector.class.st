@@ -1,22 +1,24 @@
 Class {
-	#name : #CSSDescendantSelector,
-	#superclass : #CSSRelationshipSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSDescendantSelector',
+	#superclass : 'CSSRelationshipSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDescendantSelector class >> operator [
 
 	^' '
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDescendantSelector >> isDescendantSelector [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDescendantSelector >> matches: aNode [
 
 	| node |
@@ -34,7 +36,7 @@ CSSDescendantSelector >> matches: aNode [
 	^node notNil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDescendantSelector >> printOn: aStream [
 
 	self selectors do: [:ea | ea printOn: aStream. aStream nextPut: $ ]

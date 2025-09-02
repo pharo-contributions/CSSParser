@@ -1,14 +1,16 @@
 Class {
-	#name : #HtmlCache,
-	#superclass : #Object,
+	#name : 'HtmlCache',
+	#superclass : 'Object',
 	#instVars : [
 		'urlToDocument',
 		'url'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCache >> canonicalize: aStringOrUrl [
 
 	| href |
@@ -22,26 +24,26 @@ HtmlCache >> canonicalize: aStringOrUrl [
 	ifTrue: [href].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCache >> contentsForUrl: anUrl [
 
 	^(self documentForUrl: anUrl) contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCache >> documentForUrl: anUrl [
 
 	^(self queueUrl: anUrl) 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlCache >> initialize [
 
 	super initialize.
 	urlToDocument := Dictionary new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCache >> queueUrl: anUrl [
 
 	| absoluteUrl |
@@ -59,14 +61,14 @@ HtmlCache >> queueUrl: anUrl [
 	]	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCache >> url [
 	"Answer the value of url"
 
 	^ url
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCache >> url: anObject [
 	"Set the value of url"
 

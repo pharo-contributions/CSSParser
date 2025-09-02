@@ -1,13 +1,15 @@
 Class {
-	#name : #HtmlDTDAttrList,
-	#superclass : #HtmlDTDConstruct,
+	#name : 'HtmlDTDAttrList',
+	#superclass : 'HtmlDTDConstruct',
 	#instVars : [
 		'attributes'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDAttrList class >> fromParsedArray: anArray [
 
 	| tag attrs list |
@@ -39,13 +41,13 @@ HtmlDTDAttrList class >> fromParsedArray: anArray [
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDAttrList >> addToAttributes: anAttribute [
 
 	self attributes: (self attributes copyWith: anAttribute)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDAttrList >> attributeNamed: aString [
 
 	| nm |
@@ -53,25 +55,25 @@ HtmlDTDAttrList >> attributeNamed: aString [
 	^self attributes detect:[:ea | ea attribute = nm] ifNone: [nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDAttrList >> attributes [
 
 	^attributes isNil ifTrue:[attributes := #()] ifFalse: [attributes]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDAttrList >> attributes: anArray [
 
 	attributes := anArray
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDTDAttrList >> includesAttribute: anAttribute [
 
 	^(self attributeNamed: anAttribute) notNil
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDAttrList >> printOn: aStream [
 
 	aStream nextPutAll: '@@'; nextPut: $(. 
@@ -85,7 +87,7 @@ HtmlDTDAttrList >> printOn: aStream [
 	aStream nextPut: $).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDAttrList >> requiredAttributes [
 
 	^self attributes select:[:ea | ea isRequired]

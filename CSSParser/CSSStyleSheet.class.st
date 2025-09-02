@@ -2,17 +2,19 @@
 I represent a collection of CSS style rules
 "
 Class {
-	#name : #CSSStyleSheet,
-	#superclass : #CSSElement,
+	#name : 'CSSStyleSheet',
+	#superclass : 'CSSElement',
 	#instVars : [
 		'imports',
 		'content',
 		'url'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 CSSStyleSheet class >> fromFile: aStringOrFileRef [
 
 	| doc fileReference |
@@ -30,7 +32,7 @@ CSSStyleSheet class >> fromFile: aStringOrFileRef [
 				  parseContents: (ReadStream on: doc) ]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 CSSStyleSheet class >> fromUrl: aStringOrUrl [
 
 	| doc url |
@@ -50,7 +52,7 @@ CSSStyleSheet class >> fromUrl: aStringOrUrl [
 
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 CSSStyleSheet class >> fromUrl: aStringOrUrl parent: aDOMNode [
 
 	| doc href url |
@@ -81,19 +83,19 @@ CSSStyleSheet class >> fromUrl: aStringOrUrl parent: aDOMNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> absoluteUrl [
 	^self url asUrlRelativeTo: self document requestUrl asUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> addImportedStyleSheet: anObject [
 	"Set the value of imports"
 
 	self imports: (self imports copyWith: anObject)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> addImportedUrl: aUrl [
 
 	| doc ss |
@@ -104,7 +106,7 @@ CSSStyleSheet >> addImportedUrl: aUrl [
 	ss parseContents: (ReadStream on: ss content).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> content [
 	"Answer the value of content"
 
@@ -113,26 +115,26 @@ CSSStyleSheet >> content [
 		ifFalse: [content]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> content: aString [
 
 	content := aString.
 	end := aString size
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> docType [
 
 	^'Content-Type: text/css'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> endTagMissing [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> imports [
 	"Answer the value of imports"
 
@@ -140,39 +142,39 @@ CSSStyleSheet >> imports [
 	^ imports
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> imports: anObject [
 	"Set the value of imports"
 
 	imports := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> initialize [ 
 	
 	super initialize.
 	start := 0.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleSheet >> isComment [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleSheet >> isInline [
 
 	^url isNil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSStyleSheet >> isStyleSheet [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> loadStyles [
 
 	| doc |
@@ -185,13 +187,13 @@ CSSStyleSheet >> loadStyles [
 	self parseContents: (ReadStream on: self content).
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> media [
 	self parent isNil ifTrue:[^nil].
 	^(self parent attributes at: 'media' ifAbsent: ['all']) findTokens: ', '
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSStyleSheet >> parseAtRule: aStream media: anArray [
 
 	| label child s |
@@ -224,7 +226,7 @@ CSSStyleSheet >> parseAtRule: aStream media: anArray [
 	]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSStyleSheet >> parseContents: aStream [
 
 	| in  |
@@ -254,7 +256,7 @@ CSSStyleSheet >> parseContents: aStream [
 	
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSStyleSheet >> parseStyles: aStream media: anArray [
 
 	aStream skipSeparators.
@@ -293,25 +295,25 @@ CSSStyleSheet >> parseStyles: aStream media: anArray [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> stylesheetDocument [
 	^ self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> tag [
 
 	^'css-stylesheet'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> url [
 	"Answer the value of url"
 
 	^ url isNil ifTrue: [self document url] ifFalse: [url]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSStyleSheet >> url: anObject [
 	"Set the value of url"
 

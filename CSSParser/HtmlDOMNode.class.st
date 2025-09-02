@@ -1,6 +1,6 @@
 Class {
-	#name : #HtmlDOMNode,
-	#superclass : #HtmlParseNode,
+	#name : 'HtmlDOMNode',
+	#superclass : 'HtmlParseNode',
 	#instVars : [
 		'attributes',
 		'hasTrailingSlash',
@@ -20,10 +20,12 @@ Class {
 		'DefaultRules',
 		'HTML401'
 	],
-	#category : #'CSSParser-DOM'
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDOMNode class >> fromStream: aStream [
 
 	| s doctype html |
@@ -44,7 +46,7 @@ HtmlDOMNode class >> fromStream: aStream [
 	^html docType: doctype
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDOMNode class >> newForTag: aTag [ 
 
 	| node className cls tag |
@@ -69,7 +71,7 @@ HtmlDOMNode class >> newForTag: aTag [
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDOMNode class >> tagContents: aTag [ 
 
 	| node className cls tag in out trimmedTag endsWithSlash |
@@ -108,19 +110,19 @@ HtmlDOMNode class >> tagContents: aTag [
 
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlDOMNode >> addDefaultStyle [
 	"Do nothing"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> addStyle: aStyleRule [
 
 	
 	self styles: (self styles copyWith: aStyleRule)
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> addToFormatter: aFormatter [
 	| newBlockMorph |
 	self boxType == #inline ifTrue: [
@@ -135,12 +137,12 @@ HtmlDOMNode >> addToFormatter: aFormatter [
 		self endStyles: aFormatter ]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> addToHtmlMorph: aHtmlBlockMorph [	
 	aHtmlBlockMorph addChild: self getHtmlBlockMorph.
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> applyComputedStylesTo: aHtmlMorph [
 
 	| resolver |
@@ -161,19 +163,19 @@ HtmlDOMNode >> applyComputedStylesTo: aHtmlMorph [
 			]."
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> associatedForm [
 	^ associatedForm ifNil: [ associatedForm := self parent associatedForm ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> attributes [
 	"Answer the value of attributes"
 
 	^ attributes ifNil: [attributes:=Dictionary new]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> attributes: anObject [
 	"Set the value of attributes"
 
@@ -190,73 +192,73 @@ HtmlDOMNode >> attributes: anObject [
 	classes := cstr isNil ifTrue: [#()] ifFalse: [cstr findTokens: ' ']
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> boxType [
 
 	^ ((CSSStyleResolver for: self) getStyle: #display) ifNil: [ #inline ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> childDTDTags [
 
 	^((self children collect: [:ea | ea dtdTag]) reject:[:ea | ea = 'COMMENT']) asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> childTags [
 
 	^((self children collect: [:ea | ea tag]) reject:[:ea | ea = 'comment']) asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> classes [
 	
 	^classes isNil ifTrue: [#()] ifFalse: [classes]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> closeTagIsOptional [
 
 	^self dtd tagCloseIsOptional: self dtdTag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> closeTagMissing [
 	
 
 	^self endTagMissing
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> computedStyles [
 
 	^ computedStyles
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> computedStyles: anObject [
 
 	computedStyles := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> content [
 
 	^self parent content
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDOMNode >> createImpliedNodes [
 
 	self children do:[:ea | ea createImpliedNodes]
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlDOMNode >> defaultBlockMorph [
 	^ HtmlBlockMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> dtd [
 
 	dtd isNil ifTrue: [self parent notNil ifTrue: [dtd := self parent dtd]].
@@ -264,24 +266,24 @@ HtmlDOMNode >> dtd [
 	^dtd
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> dtd: aDTD [
 
 	dtd := aDTD
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> dtdTag [
 
 	^self dtd isXML ifFalse: [self tag asUppercase] ifTrue: [self tag]
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> endStyles: aFormatter [
 	"Do nothing"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> endTagMissing [
 	"Answer the value of endTagMissing"
 
@@ -294,19 +296,19 @@ HtmlDOMNode >> endTagMissing [
 		]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> endTagMissing: anObject [
 	"Set the value of endTagMissing"
 
 	endTagMissing := anObject
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> flushBlockNode: blockNode to: aHtmlMorph [
 	blockNode addToHtmlMorph: aHtmlMorph.
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> flushInlineNodes: inlineNodes to: aHtmlBlockMorph [
 
 	| formatter htmlInlineMorph |
@@ -323,7 +325,7 @@ HtmlDOMNode >> flushInlineNodes: inlineNodes to: aHtmlBlockMorph [
 		
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> getHtmlBlockMorph [
 
 	htmlMorph := self defaultBlockMorph newFor: self.
@@ -334,68 +336,68 @@ HtmlDOMNode >> getHtmlBlockMorph [
 	^ htmlMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> hasTrailingSlash [
 
 	^hasTrailingSlash isNil ifTrue: [false] ifFalse: [hasTrailingSlash] 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> hasTrailingSlash: anObject [
 	"Set the value of hasTrailingSlash"
 
 	hasTrailingSlash := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> id [
 
 	^id
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlDOMNode >> initialize [
 	super initialize.
 	self addDefaultStyle
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNode >> isCDATA [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNode >> isCSS [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNode >> isComment [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNode >> isDocument [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> isImplied [
 	
 	^isImplied isNil ifTrue: [^false] ifFalse: [isImplied]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> isImplied: trueOrFalse [
 	
 	isImplied := trueOrFalse
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> isRenderedInline [
 	
 	| boxType |
@@ -413,25 +415,25 @@ HtmlDOMNode >> isRenderedInline [
 		ifNotEmpty: [ ^ isRenderedInline := self children allSatisfy: [ :child | child isRenderedInline ]]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> isSelfContained [
 
 	^self hasTrailingSlash or: [self dtd tagIsEmpty: self dtdTag]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNode >> isStyleSheet [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> loader [
 
 	^self document loader
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDOMNode >> mayContainTag: aTag [
 
 	^self isComment 
@@ -439,7 +441,7 @@ HtmlDOMNode >> mayContainTag: aTag [
 		ifFalse:[self dtd tag: self dtdTag canContainTag: aTag]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDOMNode >> parseAttributes: attrString [
 
 	| attrs in s |
@@ -493,7 +495,7 @@ HtmlDOMNode >> parseAttributes: attrString [
 	self attributes: attrs.
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDOMNode >> parseContents: aStream [
 
 	"tagParent: parent contents: aString stream: aStream"
@@ -623,13 +625,13 @@ HtmlDOMNode >> parseContents: aStream [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> rawTag [
 
 	^tag
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlDOMNode >> recoverFromLTIn: aString stream: in [
 
 	| s  |
@@ -650,7 +652,7 @@ HtmlDOMNode >> recoverFromLTIn: aString stream: in [
 	^s
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> renderChildrenInto: aHtmlBlockMorph [
 	| inlineNodes |
 	
@@ -662,45 +664,45 @@ HtmlDOMNode >> renderChildrenInto: aHtmlBlockMorph [
 	self flushInlineNodes: inlineNodes to: aHtmlBlockMorph
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDOMNode >> startStyles: aFormatter [
 	"Do nothing"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> styles [
 
 	^styles isNil ifTrue: [#()] ifFalse: [styles]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> styles: anArray [
 
 	
 	styles := anArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> tag [
 	"Answer the value of tag"
 
 	^ tag isNil ifFalse: [tag asLowercase] ifTrue: [tag]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> tag: anObject [
 	"Set the value of tag"
 
 	tag := anObject.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> tagsNamed: aName [
 
 	^self nodesSelect:[:ea | ea tag = aName]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNode >> uniqueId [
 
 	^(self parent uniqueId, '.', ((self parent children indexOf: self) asString))

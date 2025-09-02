@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlPNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlPNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlPNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -14,7 +16,7 @@ HtmlPNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlPNode >> tag [
 	^ 'p'
 ]

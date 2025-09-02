@@ -1,26 +1,28 @@
 Class {
-	#name : #CSSValue,
-	#superclass : #Object,
+	#name : 'CSSValue',
+	#superclass : 'Object',
 	#instVars : [
 		'valueString'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValue class >> forType: aType [
 
 	^self allSubclasses detect: [:ea | ea type = aType] ifNone: [nil]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValue class >> fromString: aString [
 	
 	^self readFrom: (ReadStream on: aString)
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValue class >> readFrom: in [
 
 	| out seps |
@@ -32,7 +34,7 @@ CSSValue class >> readFrom: in [
 	^self new valueString: out contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValue class >> type [
 
 	| s in out |
@@ -51,32 +53,32 @@ CSSValue class >> type [
 	^out contents 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValue >> isProperty [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValue >> isValid [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValue >> value [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValue >> valueString [
 	"Answer the value of valueString"
 
 	^ valueString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValue >> valueString: anObject [
 	"Set the value of valueString"
 

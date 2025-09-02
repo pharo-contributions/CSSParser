@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSBackgroundFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSBackgroundFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSBackgroundFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -16,13 +18,13 @@ CSSBackgroundFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> isValidRepeatValue: aString [
 
 	^ {'repeat'. 'repeat-x'. 'repeat-y'. 'no-repeat'. 'initial'. 'inherit'} includes: aString
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 	
 	aCSSProperty propertyName = 'background'
@@ -37,7 +39,7 @@ CSSBackgroundFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 		ifTrue: [ self readBackgroundPositionAttribute: aCSSProperty propertyString to: aContext ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> readBackgroundAttribute: propertyValue of: aCSSProperty to: aContext [ 
 	| shorthandContext positionValues |
 	shorthandContext := Dictionary newFrom: {
@@ -67,12 +69,12 @@ CSSBackgroundFormatter >> readBackgroundAttribute: propertyValue of: aCSSPropert
 	aContext addAll: shorthandContext
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> readBackgroundColorAttribute: propertyValue to: aContext [ 
 	aContext at: #backgroundColor put: (Color fromHTMLString: propertyValue).
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> readBackgroundImageAttribute: propertyValue of: aCSSProperty to: aContext [ 
 	(propertyValue beginsWith: 'url')
 		ifTrue: [ 
@@ -91,7 +93,7 @@ CSSBackgroundFormatter >> readBackgroundImageAttribute: propertyValue of: aCSSPr
 			aContext at: #backgroundImage put: url ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> readBackgroundPositionAttribute: propertyValue to: aContext [
 	| values position |
 	values := propertyValue splitOn: ' '.
@@ -103,7 +105,7 @@ CSSBackgroundFormatter >> readBackgroundPositionAttribute: propertyValue to: aCo
 	aContext at: #backgroundPosition put: position
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSBackgroundFormatter >> readBackgroundRepeatAttribute: propertyString to: aContext [
 	| values |
 	values := Dictionary newFrom: {

@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlUncommentedScriptError,
-	#superclass : #HtmlSyntaxError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlUncommentedScriptError',
+	#superclass : 'HtmlSyntaxError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUncommentedScriptError >> isStructuralError [
 
 	^true
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlUncommentedScriptError >> printOn: aStream [
 
 	'Script should be surrounded by html comments: <!-- script -->' printOn: aStream.

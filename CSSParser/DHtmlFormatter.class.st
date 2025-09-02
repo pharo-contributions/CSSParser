@@ -7,39 +7,41 @@ roadmap
 -2-	support for tabless
 "
 Class {
-	#name : #DHtmlFormatter,
-	#superclass : #HtmlFormatter,
+	#name : 'DHtmlFormatter',
+	#superclass : 'HtmlFormatter',
 	#instVars : [
 		'fontSpecs'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> decreaseFontBy: relSize [
 	self startFont: (TextFontChange fontNumber: ((self lastFontSize - relSize) min: 4))
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> endFont: aFont [
 	fontSpecs isEmptyOrNil
 		ifFalse: [fontSpecs removeLast].
 	self setAttributes
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> endHeader: level [
 	boldLevel := boldLevel - 1. "self decreaseBold"
 	self ensureNewlines: 2.
 	self endFont: nil.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> endStyles [
 	self endFont: nil
 ]
 
-{ #category : #'private-formatting' }
+{ #category : 'private-formatting' }
 DHtmlFormatter >> fontWith: aTextStyle and: aFontSize [
 	| size font |
 	size := (CSSFontFormatter sizeFactorFor: aTextStyle)
@@ -49,17 +51,17 @@ DHtmlFormatter >> fontWith: aTextStyle and: aFontSize [
 	^font
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> headerFont: level [
 	^{TextFontChange fontNumber: ((5 - level) max: 1)}
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> increaseFontBy: relSize [
 	self startFont: (TextFontChange fontNumber: ((self lastFontSize + relSize) min: 4))
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> lastFontSize [
 	| textAttrib |
 	fontSpecs isEmptyOrNil ifTrue: [^1].
@@ -71,7 +73,7 @@ DHtmlFormatter >> lastFontSize [
 	^1 "default font size in Squeak (1) corresponds to HTML's default 4"
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> parseTextAttributesFor: aDomNode [
 	
 	| attributes resolver |
@@ -92,7 +94,7 @@ DHtmlFormatter >> parseTextAttributesFor: aDomNode [
 	^ attributes
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> parseTextStyleAttributesFor: aStyleResolver in: anOrderedCollection [
 	
 	| family size |
@@ -106,7 +108,7 @@ DHtmlFormatter >> parseTextStyleAttributesFor: aStyleResolver in: anOrderedColle
 					(TextFontReference toFont: (self fontWith: family and: size))].
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> resetFont [
 	"probably need use document defaults"
 	self startFont:
@@ -114,7 +116,7 @@ DHtmlFormatter >> resetFont [
 		TextFontChange fontNumber: 1}
 ]
 
-{ #category : #'private-formatting' }
+{ #category : 'private-formatting' }
 DHtmlFormatter >> setAttributes [
 	"set attributes on the output stream"
 	| attribs |
@@ -131,7 +133,7 @@ DHtmlFormatter >> setAttributes [
 	outputStream currentAttributes: attribs
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> startFont: aTextAttribList [
 	"aTextAttribList is a collection of TextAttributes"
 	fontSpecs ifNil: [fontSpecs := OrderedCollection new].
@@ -142,14 +144,14 @@ DHtmlFormatter >> startFont: aTextAttribList [
 	self setAttributes
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> startHeader: level [
 	self ensureNewlines: 3.
 	boldLevel := boldLevel + 1. "self increaseBold"
 	self startFont: (self headerFont: level).
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 DHtmlFormatter >> startStyles: aDomNode [
 	| textAttributes |
 	textAttributes := self parseTextAttributesFor: aDomNode.

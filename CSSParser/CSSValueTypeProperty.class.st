@@ -1,14 +1,16 @@
 Class {
-	#name : #CSSValueTypeProperty,
-	#superclass : #CSSValueType,
+	#name : 'CSSValueTypeProperty',
+	#superclass : 'CSSValueType',
 	#instVars : [
 		'propertyName',
 		'valueType'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueTypeProperty class >> readFrom: in [
 
 	| s val | 
@@ -24,7 +26,7 @@ CSSValueTypeProperty class >> readFrom: in [
 	^val
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeProperty >> addValues: aCollection fromStream: in [
 
 	| returnValue size |
@@ -44,34 +46,34 @@ CSSValueTypeProperty >> addValues: aCollection fromStream: in [
 	^returnValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeProperty >> isValueValid: anObject [
 
 	^self valueType isValueValid: anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeProperty >> printOn: aStream [
 
 	"self propertyName printOn: aStream"
 	self valueType printOn: aStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeProperty >> propertyName [
 	"Answer the value of propertyName"
 
 	^ propertyName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeProperty >> propertyName: anObject [
 	"Set the value of propertyName"
 
 	propertyName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeProperty >> valueType [
 
 	valueType isNil 

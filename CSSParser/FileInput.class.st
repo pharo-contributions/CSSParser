@@ -5,17 +5,19 @@ Appearance/behavior as in NS/MS browsers
 (i.e., separate filename entry box and browse files button)
 "
 Class {
-	#name : #FileInput,
-	#superclass : #TextInput,
-	#category : #'CSSParser-Forms'
+	#name : 'FileInput',
+	#superclass : 'TextInput',
+	#category : 'CSSParser-Forms',
+	#package : 'CSSParser',
+	#tag : 'Forms'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 FileInput class >> name: aString textMorph: aTextMorph [
 	^self name: aString defaultValue: '' textMorph: aTextMorph
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FileInput >> browse [
 	| file |
 	file := (StandardFileMenu oldFileFrom: self directory) ifNil: [^nil].
@@ -26,28 +28,28 @@ FileInput >> browse [
 		accept
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FileInput >> directory [
 	^FileDirectory forFileName: self filename
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FileInput >> filename [
 	textMorph hasUnacceptedEdits ifTrue: [ textMorph accept ].
 	^textMorph getText asString withInternetLineEndings
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FileInput >> localFilename [
 	^FileDirectory localNameFor: self filename
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FileInput >> url [
 	^FileUrl pathParts: ((self directory pathParts) copyWith: self localFilename)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 FileInput >> value [
 	^MIMEDocument contentType: (MIMEDocument guessTypeFromName: self filename)
 		content: nil

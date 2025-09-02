@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSUnitizedNumberValue,
-	#superclass : #CSSNumberValue,
+	#name : 'CSSUnitizedNumberValue',
+	#superclass : 'CSSNumberValue',
 	#instVars : [
 		'units'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUnitizedNumberValue class >> allowableUnits [
 
 	^self new allowableUnits
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSUnitizedNumberValue class >> readFrom: in [
 
 	| out |
@@ -32,27 +34,27 @@ CSSUnitizedNumberValue class >> readFrom: in [
 	^out contents size > 0 ifTrue: [self new valueString: out contents] ifFalse: [nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUnitizedNumberValue >> allowableUnits [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUnitizedNumberValue >> units [
 	"Answer the value of units"
 
 	^ units
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUnitizedNumberValue >> units: anObject [
 	"Set the value of units"
 
 	units := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSUnitizedNumberValue >> valueString: aString [
 
 	| lc |

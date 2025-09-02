@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSFrequencyValue,
-	#superclass : #CSSUnitizedNumberValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSFrequencyValue',
+	#superclass : 'CSSUnitizedNumberValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFrequencyValue >> allowableUnits [
 
 	^#( 'hz' 'khz')
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFrequencyValue >> isValid [
 
 	^super isValid and: [valueString asNumber >= 0]

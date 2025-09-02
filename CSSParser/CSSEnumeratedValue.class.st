@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSEnumeratedValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSEnumeratedValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSEnumeratedValue class >> readFrom: in [
 
 	| out set |

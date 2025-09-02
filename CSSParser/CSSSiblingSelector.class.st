@@ -1,22 +1,24 @@
 Class {
-	#name : #CSSSiblingSelector,
-	#superclass : #CSSRelationshipSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSSiblingSelector',
+	#superclass : 'CSSRelationshipSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSiblingSelector class >> operator [
 
 	^'~'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSiblingSelector >> isAdjacentSelector [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSiblingSelector >> matches: aNode [
 
 	| predecessors sels |

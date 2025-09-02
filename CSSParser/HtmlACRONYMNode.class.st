@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlACRONYMNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlACRONYMNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlACRONYMNode >> tag [
 	^ 'acronym'
 ]

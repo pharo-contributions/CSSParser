@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSGenericVoiceValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSGenericVoiceValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSGenericVoiceValue >> isValid [
 
 	^#( 'male' 'female' 'child' ) includes: self valueString trimBoth

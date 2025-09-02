@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSIntegerValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSIntegerValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSIntegerValue class >> readFrom: in [
 
 	| out |
@@ -14,7 +16,7 @@ CSSIntegerValue class >> readFrom: in [
 	^self new valueString: out contents 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSIntegerValue >> isValid [
 
 	| str |
@@ -26,7 +28,7 @@ CSSIntegerValue >> isValid [
 	^(str detect:[:ea | ea isDigit not] ifNone:[nil]) isNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSIntegerValue >> value [
 
 	^self isValid ifTrue: [valueString asNumber] ifFalse: [nil]

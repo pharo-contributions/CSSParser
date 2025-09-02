@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlMissingDocTypeError,
-	#superclass : #HtmlError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlMissingDocTypeError',
+	#superclass : 'HtmlError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlMissingDocTypeError >> isStructuralError [
 
 	^true

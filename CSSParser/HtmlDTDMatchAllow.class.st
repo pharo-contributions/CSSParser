@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlDTDMatchAllow,
-	#superclass : #HtmlDTDMatchExpression,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchAllow',
+	#superclass : 'HtmlDTDMatchExpression',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchAllow class >> on: anObject [
 
 	| in | 
@@ -18,19 +20,19 @@ HtmlDTDMatchAllow class >> on: anObject [
 	^self new expression: (HtmlDTDMatchExpression on: in)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchAllow >> allowedElements [
 
 	^expression allowedElements
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchAllow >> allowsItem: anItem [
 
 	^self expression allowsItem: anItem
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchAllow >> printOn: aStream [
 
 	aStream nextPut: $+.
@@ -39,7 +41,7 @@ HtmlDTDMatchAllow >> printOn: aStream [
 
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchAllow >> validateChildren: aStream ofNode: aNode [
 
 	^expression validateChildren: aStream ofNode: aNode

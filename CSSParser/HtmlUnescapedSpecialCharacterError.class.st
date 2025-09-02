@@ -1,6 +1,6 @@
 Class {
-	#name : #HtmlUnescapedSpecialCharacterError,
-	#superclass : #HtmlSyntaxError,
+	#name : 'HtmlUnescapedSpecialCharacterError',
+	#superclass : 'HtmlSyntaxError',
 	#instVars : [
 		'position'
 	],
@@ -8,10 +8,12 @@ Class {
 		'CharactersToEntities',
 		'SpecialCharacters'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 HtmlUnescapedSpecialCharacterError class >> initialize [
 
 	"HtmlUnescapedSpecialCharacterError initialize"
@@ -26,26 +28,26 @@ HtmlUnescapedSpecialCharacterError class >> initialize [
 	SpecialCharacters := CharactersToEntities keys
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlUnescapedSpecialCharacterError class >> specialCharacters [
 
 	^SpecialCharacters
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlUnescapedSpecialCharacterError >> position [
 
 	^position
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlUnescapedSpecialCharacterError >> position: anObject [
 	"Set the value of position"
 
 	position := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlUnescapedSpecialCharacterError >> printOn: aStream [
 
 	| c |

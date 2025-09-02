@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlDTDMatchGroup,
-	#superclass : #HtmlDTDMatchExpression,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchGroup',
+	#superclass : 'HtmlDTDMatchExpression',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchGroup class >> on: aStringOrStream [
 
 	| seq in seps | 
@@ -38,7 +40,7 @@ HtmlDTDMatchGroup class >> on: aStringOrStream [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchGroup >> allowedElements [
 
 	| collection |
@@ -50,19 +52,19 @@ HtmlDTDMatchGroup >> allowedElements [
 	^collection asArray
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchGroup >> allowsItem: anItem [
 
 	^(expression detect:[:ea| ea allowsItem: anItem] ifNone: [nil]) notNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchGroup >> expression: aCollection [
 
 	super expression: aCollection asArray
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchGroup >> printOn: aStream [
 
 	aStream nextPut: $(.
@@ -71,7 +73,7 @@ HtmlDTDMatchGroup >> printOn: aStream [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchGroup >> separator [
 
 	self subclassResponsibility 

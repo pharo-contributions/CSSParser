@@ -1,5 +1,7 @@
 Class {
-	#name : #CSSHoverSelector,
-	#superclass : #CSSPseudoClassSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSHoverSelector',
+	#superclass : 'CSSPseudoClassSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }

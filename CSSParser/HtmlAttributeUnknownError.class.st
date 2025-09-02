@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlAttributeUnknownError,
-	#superclass : #HtmlAttributeError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlAttributeUnknownError',
+	#superclass : 'HtmlAttributeError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlAttributeUnknownError >> printOn: aStream [
 
 	| attrList |

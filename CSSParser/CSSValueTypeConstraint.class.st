@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSValueTypeConstraint,
-	#superclass : #CSSValueType,
+	#name : 'CSSValueTypeConstraint',
+	#superclass : 'CSSValueType',
 	#instVars : [
 		'type'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeConstraint class >> allTypes [
 
 	^self subclasses collect:[:ea | ea type]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueTypeConstraint class >> forType: aCharacter [
 
 	^self subclasses detect: [:ea | ea type = aCharacter] 
@@ -21,13 +23,13 @@ CSSValueTypeConstraint class >> forType: aCharacter [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeConstraint class >> isSimple [
 
 	^true
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueTypeConstraint class >> readFrom: in [
 
 	| cls |
@@ -38,21 +40,21 @@ CSSValueTypeConstraint class >> readFrom: in [
 		ifFalse: [cls readFrom: in]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeConstraint >> printOn: aStream [
 
 	self type printOn: aStream.
 	aStream nextPut: self class type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeConstraint >> type [
 	"Answer the value of type"
 
 	^ type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeConstraint >> type: anObject [
 	"Set the value of type"
 

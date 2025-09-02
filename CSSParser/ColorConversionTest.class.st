@@ -1,10 +1,12 @@
 Class {
-	#name : #ColorConversionTest,
-	#superclass : #TestCase,
-	#category : #'CSSParser-Tests'
+	#name : 'ColorConversionTest',
+	#superclass : 'TestCase',
+	#category : 'CSSParser-Tests',
+	#package : 'CSSParser',
+	#tag : 'Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ColorConversionTest >> test01ConvertNameToColor [
 	| colorLists |
 	colorLists := OrderedCollection new.
@@ -20,7 +22,7 @@ ColorConversionTest >> test01ConvertNameToColor [
 	self assert: (Color r: 1 g: 0 b: 0) equals: (Color fromHTMLString: 'Red').
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ColorConversionTest >> test02ConvertHexRGBToColor [
 		
 	self assert: (Color fromHTMLString: '#fff') equals: (Color r: 1 g: 1 b: 1).
@@ -30,7 +32,7 @@ ColorConversionTest >> test02ConvertHexRGBToColor [
 	self assert: (Color fromHTMLString: '#abcdef') equals: (Color r: 171/255 g: 205/255 b:239/255)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ColorConversionTest >> test03ConvertHexRRGGBBToColor [
 		
 	self assert: (Color fromHTMLString: '#ffffff') equals: (Color r: 1 g: 1 b: 1).
@@ -40,7 +42,7 @@ ColorConversionTest >> test03ConvertHexRRGGBBToColor [
 	self assert: (Color fromHTMLString: '#abcdef') equals: (Color r: 0.671 g: 0.804 b: 0.937).
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ColorConversionTest >> test04ConvertRGBDecimalFunctionToColor [
 		
 	self assert: (Color fromHTMLString: 'rgb(255, 255, 255)') equals: (Color r: 1 g: 1 b: 1).
@@ -50,7 +52,7 @@ ColorConversionTest >> test04ConvertRGBDecimalFunctionToColor [
 	self assert: (Color fromHTMLString: 'rgb(300, -10, 136)') equals: (Color r: 1 g: 0 b: 0.534).
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ColorConversionTest >> test05ConvertRGBPercentFunctionToColor [
 		
 	self assert: (Color fromHTMLString: 'rgb(100%, 100%, 100%)') equals: (Color r: 1 g: 1 b: 1).
@@ -60,7 +62,7 @@ ColorConversionTest >> test05ConvertRGBPercentFunctionToColor [
 	self assert: (Color fromHTMLString: 'rgb(300%, -10%, 35%)') equals: (Color r: 1 g: 0 b: 0.35).
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ColorConversionTest >> test06CSS2ColorNamesEqualsOfficialW3List [
 		
 	self assert: (Color fromHTMLString: 'aqua') equals: (Color r: 0 g: 1 b: 1).

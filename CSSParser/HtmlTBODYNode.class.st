@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTBODYNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlTBODYNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlTBODYNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,14 +15,14 @@ HtmlTBODYNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlTBODYNode >> addToHtmlMorph: aHtmlTableMorph [
 	self children do: [ :ea |
 		ea addToHtmlMorph: aHtmlTableMorph.
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTBODYNode >> tag [
 	^ 'tbody'
 ]

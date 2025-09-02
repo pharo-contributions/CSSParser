@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlAttributeValueNotValidError,
-	#superclass : #HtmlAttributeError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlAttributeValueNotValidError',
+	#superclass : 'HtmlAttributeError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeValueNotValidError >> printOn: aStream [
 
 	| attrList attr |
@@ -19,7 +21,7 @@ HtmlAttributeValueNotValidError >> printOn: aStream [
 	attr type asString printOn: aStream.	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlAttributeValueNotValidError >> validTypeExpression [
 
 	| p attList attr |

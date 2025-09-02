@@ -1,22 +1,24 @@
 Class {
-	#name : #XHtmlDTD,
-	#superclass : #HtmlDTD,
-	#category : #'CSSParser-Validator'
+	#name : 'XHtmlDTD',
+	#superclass : 'HtmlDTD',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #private }
+{ #category : 'private' }
 XHtmlDTD >> isXML [
 
 	^true
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 XHtmlDTD >> objectifyElements [
 
 	elements := elements collect: [:ea | XHtmlDTDElement fromParsedString: ea]
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 XHtmlDTD >> tag: aTag canContainTag: anotherTag [
 
 	| element |

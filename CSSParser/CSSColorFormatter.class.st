@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSColorFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSColorFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSColorFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -12,14 +14,14 @@ CSSColorFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSColorFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 	aCSSProperty propertyName = 'color' ifFalse: [^nil].
 	(Color fromHTMLString: aCSSProperty propertyString) ifNotNil:
 		[:color | aContext at: #color put: color].
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSColorFormatter >> readColorFrom: aProperty to: aContext [
 
 	(Color fromHTMLString: aProperty propertyString) 

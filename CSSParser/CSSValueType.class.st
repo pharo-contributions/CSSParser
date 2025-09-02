@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSValueType,
-	#superclass : #Object,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSValueType',
+	#superclass : 'Object',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueType class >> fromString: aString [
 
 	| in | 
@@ -14,7 +16,7 @@ CSSValueType class >> fromString: aString [
 	^self readFrom: in
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueType class >> readFrom: aStream [
 
 	| in val pos operator |
@@ -134,48 +136,48 @@ CSSValueType class >> readFrom: aStream [
 	^val
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> addValues: aCollection fromStream: in [
 
 	self subclassResponsibility
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> isTypeAND [
 
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> isTypeANDOR [
 
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> isTypeOR [
 
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> isTypeOneOf [
 
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> isTypeOneOrMoreOf [
 
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueType >> isValidValue: anObject [
 
 	self subclassResponsibility

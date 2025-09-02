@@ -1,20 +1,22 @@
 Class {
-	#name : #CSSSelectorElementNotLowercaseError,
-	#superclass : #CSSSelectorError,
+	#name : 'CSSSelectorElementNotLowercaseError',
+	#superclass : 'CSSSelectorError',
 	#instVars : [
 		'element'
 	],
-	#category : #'CSSParser-CSS-Errors'
+	#category : 'CSSParser-CSS-Errors',
+	#package : 'CSSParser',
+	#tag : 'CSS-Errors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelectorElementNotLowercaseError >> element [
 	"Answer the value of element"
 
 	^ element
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSelectorElementNotLowercaseError >> element: anObject [
 	"Set the value of element"
 

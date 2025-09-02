@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlDFNNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlDFNNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDFNNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -14,7 +16,7 @@ HtmlDFNNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDFNNode >> tag [
 	^ 'dfn'
 ]

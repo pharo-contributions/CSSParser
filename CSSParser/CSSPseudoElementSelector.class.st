@@ -1,8 +1,10 @@
 Class {
-	#name : #CSSPseudoElementSelector,
-	#superclass : #CSSSelector,
+	#name : 'CSSPseudoElementSelector',
+	#superclass : 'CSSSelector',
 	#instVars : [
 		'pseudoElementName'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }

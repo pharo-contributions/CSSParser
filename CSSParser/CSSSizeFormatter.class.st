@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSSizeFormatter,
-	#superclass : #CSSFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSSizeFormatter',
+	#superclass : 'CSSFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSSizeFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -13,7 +15,7 @@ CSSSizeFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSSizeFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 
 	(aCSSProperty propertyName = 'height' and: [ self isNumber: aCSSProperty propertyString ])
@@ -36,7 +38,7 @@ CSSSizeFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 					(self absoluteSizeToPx: aCSSProperty propertyString defaultSize: 0) ] ]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSSizeFormatter >> readWidthFrom: aCSSProperty to: aContext [
 
 	aContext at: #absoluteWidth put: nil.

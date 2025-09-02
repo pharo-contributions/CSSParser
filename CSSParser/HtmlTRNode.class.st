@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTRNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlTRNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlTRNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,12 +15,12 @@ HtmlTRNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTRNode >> endStyles: aFormatter [
 	aFormatter ensureNewlines: 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTRNode >> tag [
 	^ 'tr'
 ]

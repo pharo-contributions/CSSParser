@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAngleValue,
-	#superclass : #CSSUnitizedNumberValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAngleValue',
+	#superclass : 'CSSUnitizedNumberValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAngleValue >> allowableUnits [
 
 	^#('deg' 'grad' 'rad')

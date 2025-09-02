@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlH6Node,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlH6Node',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlH6Node >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -16,7 +18,7 @@ HtmlH6Node >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlH6Node >> tag [
 	^ 'h6'
 ]

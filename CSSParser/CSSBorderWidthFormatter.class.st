@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSBorderWidthFormatter,
-	#superclass : #CSSDistanceFormatter,
-	#category : #'CSSParser-Formatter'
+	#name : 'CSSBorderWidthFormatter',
+	#superclass : 'CSSDistanceFormatter',
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSBorderWidthFormatter class >> attributePrefix [
 
 	^ 'border'
 ]
 
-{ #category : #constants }
+{ #category : 'constants' }
 CSSBorderWidthFormatter class >> attributeSuffix [
 
 	^ '-width'

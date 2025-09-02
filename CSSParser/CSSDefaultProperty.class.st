@@ -5,12 +5,14 @@ Instance Variables
 
 "
 Class {
-	#name : #CSSDefaultProperty,
-	#superclass : #CSSProperty,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSDefaultProperty',
+	#superclass : 'CSSProperty',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSDefaultProperty >> printOn: aStream [
 	aStream nextPutAll: (self propertyName, ':', self propertyString)
 	

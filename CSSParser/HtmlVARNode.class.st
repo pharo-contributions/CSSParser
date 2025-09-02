@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlVARNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlVARNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlVARNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -14,7 +16,7 @@ HtmlVARNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlVARNode >> tag [
 	^ 'var'
 ]

@@ -1,14 +1,16 @@
 Class {
-	#name : #CSSPseudoClassSelector,
-	#superclass : #CSSSelector,
+	#name : 'CSSPseudoClassSelector',
+	#superclass : 'CSSSelector',
 	#instVars : [
 		'pseudoClassName',
 		'arguments'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSPseudoClassSelector class >> readFrom: in [
 
 	| cls obj out |
@@ -31,27 +33,27 @@ CSSPseudoClassSelector class >> readFrom: in [
 	^obj
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPseudoClassSelector >> arguments [
 	"Answer the value of arguments"
 
 	^ arguments
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPseudoClassSelector >> arguments: anObject [
 	"Set the value of arguments"
 
 	arguments := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPseudoClassSelector >> matches: aNode [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPseudoClassSelector >> printOn: aStream [
 
 	| s |
@@ -60,7 +62,7 @@ CSSPseudoClassSelector >> printOn: aStream [
 	aStream nextPut: $: ; nextPutAll: s asLowercase
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPseudoClassSelector >> pseudoClassName [
 	"Answer the value of pseudoClassName"
 
@@ -85,7 +87,7 @@ CSSPseudoClassSelector >> pseudoClassName [
 		]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPseudoClassSelector >> pseudoClassName: anObject [
 	"Set the value of pseudoClassName"
 

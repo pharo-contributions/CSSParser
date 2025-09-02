@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSAdjacentSelectorTest,
-	#superclass : #TestCase,
-	#category : #'CSSParser-CSS-Tests'
+	#name : 'CSSAdjacentSelectorTest',
+	#superclass : 'TestCase',
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAdjacentSelectorTest >> test01NodeWithoutParentShouldntRaiseErrors [
 	| selector |
 	selector := CSSSelector fromString: 'a+*'.

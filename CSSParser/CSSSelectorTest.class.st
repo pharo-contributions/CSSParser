@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSSelectorTest,
-	#superclass : #TestCase,
+	#name : 'CSSSelectorTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'colorFormatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelectorTest >> test01CSSSelectorWihtoutNilSelector [
 
 	| selector |
@@ -15,7 +17,7 @@ CSSSelectorTest >> test01CSSSelectorWihtoutNilSelector [
 	self assert: selector asString equals: 'yt-uix-button img , *.yt-uix-button-icon-wrapper+*.yt-uix-button-content '.
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSSelectorTest >> test02CSSAtRuleStartingWithDashShouldNotRaiseErrors [
 
 	self shouldnt: [CSSAtRule named: '-ignore'] raise: MessageNotUnderstood.

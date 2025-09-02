@@ -22,15 +22,17 @@ A & B
     Both A and B must occur, in any order. 
 "
 Class {
-	#name : #HtmlDTDMatchExpression,
-	#superclass : #Object,
+	#name : 'HtmlDTDMatchExpression',
+	#superclass : 'Object',
 	#instVars : [
 		'expression'
 	],
-	#category : #'CSSParser-Validator'
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchExpression class >> on: anObject [
 
 " 
@@ -100,7 +102,7 @@ A & B
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchExpression class >> readConstraintFor: anExpn from: aStream [
 
 	| c |
@@ -116,7 +118,7 @@ HtmlDTDMatchExpression class >> readConstraintFor: anExpn from: aStream [
 	]	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchExpression >> allowedElements [
 
 	| collection |
@@ -128,44 +130,44 @@ HtmlDTDMatchExpression >> allowedElements [
 	^collection asArray
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchExpression >> allowsItem: anItem [
 
 	^(expression detect: [:ea | ea allowsItem: anItem] ifNone: [nil]) notNil
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchExpression >> expression [
 	"Answer the value of expression"
 
 	^ expression
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchExpression >> expression: anObject [
 	
 	expression := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchExpression >> isEmpty [
 
 	^false
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchExpression >> isEnumeration [
 
 	^false
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchExpression >> isLiteral [
 
 	^false
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchExpression >> matchTagList: aList [
 
 	| in |
@@ -175,13 +177,13 @@ HtmlDTDMatchExpression >> matchTagList: aList [
 	^in upToEnd
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchExpression >> printOn: aStream [
 
 	expression do: [:ea | ea printOn: aStream. aStream nextPut: $ ]
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchExpression >> validateChildren: aStream ofNode: aNode [
 
 	expression do:

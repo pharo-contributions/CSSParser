@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlDTDMatchAND,
-	#superclass : #HtmlDTDMatchGroup,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchAND',
+	#superclass : 'HtmlDTDMatchGroup',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchAND >> separator [
 
 	^'&'
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchAND >> validateChildren: aStream ofNode: aNode [
 
 	| position matched subexpressions |

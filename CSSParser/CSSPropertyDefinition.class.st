@@ -1,6 +1,6 @@
 Class {
-	#name : #CSSPropertyDefinition,
-	#superclass : #Object,
+	#name : 'CSSPropertyDefinition',
+	#superclass : 'Object',
 	#instVars : [
 		'appliesTo',
 		'propertyName',
@@ -13,10 +13,12 @@ Class {
 	#classVars : [
 		'Definitions'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSPropertyDefinition class >> initialData [
 
 	^'( { 
@@ -900,7 +902,7 @@ CSSPropertyDefinition class >> initialData [
 })'
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 CSSPropertyDefinition class >> initialize [ 
 
 	| list dict |
@@ -923,27 +925,27 @@ CSSPropertyDefinition class >> initialize [
 	
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSPropertyDefinition class >> named: aString [
 
 	^Definitions at: aString ifAbsent: [nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> appliesTo [
 	"Answer the value of appliesTo"
 
 	^ appliesTo
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> appliesTo: anObject [
 	"Set the value of appliesTo"
 
 	appliesTo := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSPropertyDefinition >> asPList [
 
 	| dict |
@@ -955,7 +957,7 @@ CSSPropertyDefinition >> asPList [
 	^dict
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSPropertyDefinition >> definitionString [
 
 	| out |
@@ -964,49 +966,49 @@ CSSPropertyDefinition >> definitionString [
 	^out contents
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> initialValue [
 	"Answer the value of initialValue"
 
 	^ initialValue
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> initialValue: anObject [
 	"Set the value of initialValue"
 
 	initialValue := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> media [
 	"Answer the value of media"
 
 	^ media
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> media: anObject [
 	"Set the value of media"
 
 	media := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> percentages [
 	"Answer the value of percentages"
 
 	^ percentages
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> percentages: anObject [
 	"Set the value of percentages"
 
 	percentages := anObject
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSPropertyDefinition >> printDefinitionOn: aStream [
 
 	aStream nextPutAll: 'CSSPropertyDefinition new appliesTo: '. appliesTo printOn: aStream.
@@ -1023,41 +1025,41 @@ CSSPropertyDefinition >> printDefinitionOn: aStream [
 	aStream nextPutAll: '.'; cr; cr.
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSPropertyDefinition >> printOn: aStream [
 
 	aStream nextPutAll: self propertyName; nextPutAll: ': '; nextPutAll: valueString; nextPutAll: '; '
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> propertyName [
 	"Answer the value of propertyName"
 
 	^ propertyName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> propertyName: anObject [
 	"Set the value of propertyName"
 
 	propertyName := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> valueString [
 	"Answer the value of valueString"
 
 	^ valueString
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> valueString: anObject [
 	"Set the value of valueString"
 
 	valueString := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> valueType [
 	"Answer the value of valueType"
 
@@ -1065,7 +1067,7 @@ CSSPropertyDefinition >> valueType [
 	^valueType
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyDefinition >> valueType: anObject [
 	"Set the value of valueType"
 

@@ -2,30 +2,32 @@
 <LINK rel=""stylesheet"" type=""text/css"" name=""anyname"" href=""url"">
 "
 Class {
-	#name : #HtmlLINKNode,
-	#superclass : #HtmlDOMNode,
+	#name : 'HtmlLINKNode',
+	#superclass : 'HtmlDOMNode',
 	#instVars : [
 		'stylesheet',
 		'href'
 	],
-	#category : #'CSSParser-DOM'
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINKNode >> href [
 	"Answer the value of href"
 
 	^ href
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINKNode >> href: anObject [
 	"Set the value of href"
 
 	href := anObject
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlLINKNode >> parseContents: aStream [
 
 	| rel |
@@ -48,7 +50,7 @@ HtmlLINKNode >> parseContents: aStream [
 	super parseContents: aStream
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINKNode >> stylesheet [
 	"Answer the value of stylesheet"
 
@@ -70,14 +72,14 @@ HtmlLINKNode >> stylesheet [
 	^ stylesheet
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINKNode >> stylesheet: anObject [
 	"Set the value of stylesheet"
 
 	stylesheet := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLINKNode >> tag [
 	^ 'link'
 ]

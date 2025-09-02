@@ -1,6 +1,6 @@
 Class {
-	#name : #HtmlParseNode,
-	#superclass : #Object,
+	#name : 'HtmlParseNode',
+	#superclass : 'Object',
 	#instVars : [
 		'children',
 		'parent',
@@ -8,35 +8,37 @@ Class {
 		'start',
 		'end'
 	],
-	#category : #'CSSParser-DOM'
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlParseNode class >> start: s end: e [
 
 	^self new start: s; end: e
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> addChild: aNode [
 
 	self children: (self children copyWith: aNode).
 	aNode parent: self.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> addError: anError [
 
 	anError parent: self.
 	self errors: (self errors copyWith: anError)
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlParseNode >> addToFormatter: aFormatter [
 	self children do: [:e | e addToFormatter: aFormatter ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> allErrors [
 
 	| collection |
@@ -48,7 +50,7 @@ HtmlParseNode >> allErrors [
 	^collection asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> allErrorsMatching: aBlock [
 
 	| errs |
@@ -60,7 +62,7 @@ HtmlParseNode >> allErrorsMatching: aBlock [
 	^errs asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> asString [
 
 	| |
@@ -69,14 +71,14 @@ HtmlParseNode >> asString [
 		
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> children [
 	"Answer the value of children"
 
 	^ children isNil ifTrue: [#()] ifFalse: [children]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> children: anObject [
 	"Set the value of children"
 
@@ -84,13 +86,13 @@ HtmlParseNode >> children: anObject [
 	children do:[:ea | ea parent: self]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> content [
 
 	^self parent ifNil: [''] ifNotNil: [self parent content]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> detectAncestor: aBlock [
 
 	| p |
@@ -102,41 +104,41 @@ HtmlParseNode >> detectAncestor: aBlock [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> document [
 
 	^self parent document
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> end [
 	"Answer the value of end"
 
 	^ end
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> end: anObject [
 	"Set the value of end"
 
 	end := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> errors [
 	"Answer the value of errors"
 
 	^ errors isNil ifTrue: [#()] ifFalse: [errors]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> errors: anObject [
 	"Set the value of errors"
 
 	errors := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> firstAncestor: aString [
 
 	| p |
@@ -148,13 +150,13 @@ HtmlParseNode >> firstAncestor: aString [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> hasAncestor: aString [
 
 	^(self firstAncestor: aString) notNil
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> innerContents [
 
 	| in | 
@@ -169,55 +171,55 @@ HtmlParseNode >> innerContents [
 		]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> innerId [
 
 	^(self uniqueId, '-inner')
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> isCDATA [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> isCSS [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> isComment [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> isDocument [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> isHTML [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> isImplied [
 	
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlParseNode >> isStyleSheet [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> level [
 
 	| level p |
@@ -227,14 +229,14 @@ HtmlParseNode >> level [
 	^level
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 HtmlParseNode >> nodesDo: aBlock [
 
 	aBlock value: self.
 	self children do:[:ea | ea nodesDo: aBlock].
 ]
 
-{ #category : #iterating }
+{ #category : 'iterating' }
 HtmlParseNode >> nodesSelect: aBlock [
 
 	| col |
@@ -244,27 +246,27 @@ HtmlParseNode >> nodesSelect: aBlock [
 	^col asArray
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> parent [
 	"Answer the value of parent"
 
 	^ parent isNil ifTrue: [nil] ifFalse: [parent first]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> parent: anObject [
 	"Set the value of parent"
 
 	parent := WeakArray with: anObject
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 HtmlParseNode >> parseContents: aStream [
 
 	self subclassResponsibility
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> prefix [
 
 	| in theEnd |
@@ -276,13 +278,13 @@ HtmlParseNode >> prefix [
 	^in next: (theEnd - self start)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> prefixId [
 
 	^self uniqueId
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> rawContent [
 
 	| in |
@@ -294,21 +296,21 @@ HtmlParseNode >> rawContent [
 		ifFalse: [^ (in next: (self end - self start)) asUnHtml].
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> start [
 	"Answer the value of start"
 
 	^ start
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> start: anObject [
 	"Set the value of start"
 
 	start := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> startForNextElement [
 
 	^self children isEmpty ifTrue:
@@ -325,7 +327,7 @@ HtmlParseNode >> startForNextElement [
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> suffix [
 
 	| in theStart |
@@ -337,20 +339,20 @@ HtmlParseNode >> suffix [
 	^in next: (0 max: (self end - theStart))
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> suffixId [
 
 	^(self uniqueId, '-end')
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> tag [
 	"Answer the value of tag"
 
 	^ tag isNil ifFalse: [tag asLowercase] ifTrue: [tag]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlParseNode >> uniqueId [
 
 	^(self parent uniqueId, '.', ((self parent children indexOf: self) asString))

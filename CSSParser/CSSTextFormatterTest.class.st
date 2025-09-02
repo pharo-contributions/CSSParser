@@ -1,19 +1,21 @@
 Class {
-	#name : #CSSTextFormatterTest,
-	#superclass : #TestCase,
+	#name : 'CSSTextFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'textFormatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 CSSTextFormatterTest >> setUp [
 	super setUp.
 	self textFormatter: CSSTextFormatter new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test01TextDecorationUnderlinedShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -25,7 +27,7 @@ CSSTextFormatterTest >> test01TextDecorationUnderlinedShouldBeParsedCorrectly [
 	self assert: true equals: (result at: #underlined)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test02TextDecorationLineThroughShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -37,7 +39,7 @@ CSSTextFormatterTest >> test02TextDecorationLineThroughShouldBeParsedCorrectly [
 	self assert: true equals: (result at: #struckOut)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test03TextDecorationUnderlinedLineThroughShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -50,7 +52,7 @@ CSSTextFormatterTest >> test03TextDecorationUnderlinedLineThroughShouldBeParsedC
 	self assert: true equals: (result at: #struckOut)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test04TextAlignCenterShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -63,7 +65,7 @@ CSSTextFormatterTest >> test04TextAlignCenterShouldBeParsedCorrectly [
 	self assert: (TextAlignment respondsTo: #centered)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test05TextAlignLeftShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -76,7 +78,7 @@ CSSTextFormatterTest >> test05TextAlignLeftShouldBeParsedCorrectly [
 	self assert: (TextAlignment respondsTo: #leftFlush)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test06TextAlignRightShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -89,7 +91,7 @@ CSSTextFormatterTest >> test06TextAlignRightShouldBeParsedCorrectly [
 	self assert: (TextAlignment respondsTo: #rightFlush)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTextFormatterTest >> test07TextAlignJustifyShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -102,13 +104,13 @@ CSSTextFormatterTest >> test07TextAlignJustifyShouldBeParsedCorrectly [
 	self assert: (TextAlignment respondsTo: #justified)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTextFormatterTest >> textFormatter [
 
 	^ textFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTextFormatterTest >> textFormatter: anObject [
 
 	textFormatter := anObject

@@ -5,18 +5,20 @@
 (4) The selector specifies none of these things. (Example: *[disabled])
 "
 Class {
-	#name : #CSSRuleSet,
-	#superclass : #Object,
+	#name : 'CSSRuleSet',
+	#superclass : 'Object',
 	#instVars : [
 		'idSelectors',
 		'classSelectors',
 		'tagSelectors',
 		'otherSelectors'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> candidateRulesForNode: aNode [
 
 	| id classes list |
@@ -37,35 +39,35 @@ CSSRuleSet >> candidateRulesForNode: aNode [
 	^list
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> classSelectors [
 	"Answer the value of classSelectors"
 
 	^ classSelectors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> classSelectors: anObject [
 	"Set the value of classSelectors"
 
 	classSelectors := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> idSelectors [
 	"Answer the value of idSelectors"
 
 	^ idSelectors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> idSelectors: anObject [
 	"Set the value of idSelectors"
 
 	idSelectors := anObject
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 CSSRuleSet >> initialize [
 
 	super initialize.
@@ -75,28 +77,28 @@ CSSRuleSet >> initialize [
 	otherSelectors := OrderedCollection new.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> otherSelectors [
 	"Answer the value of otherSelectors"
 
 	^ otherSelectors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> otherSelectors: anObject [
 	"Set the value of otherSelectors"
 
 	otherSelectors := anObject
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> tagSelectors [
 	"Answer the value of tagSelectors"
 
 	^ tagSelectors
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSRuleSet >> tagSelectors: anObject [
 	"Set the value of tagSelectors"
 

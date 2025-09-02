@@ -5,8 +5,8 @@ In principle, this formatter, along with the associated addToFormatter: methods,
 
 "
 Class {
-	#name : #HtmlFormatter,
-	#superclass : #Object,
+	#name : 'HtmlFormatter',
+	#superclass : 'Object',
 	#instVars : [
 		'browser',
 		'baseUrl',
@@ -26,10 +26,12 @@ Class {
 		'CSNonSeparators',
 		'CSSeparators'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #examples }
+{ #category : 'examples' }
 HtmlFormatter class >> example1 [
 	"(HtmlFormatter example1 asParagraph compositionRectangle: (0@0 extent: 300@500) ) displayAt: 0@0"
 	| input |
@@ -93,7 +95,7 @@ Page</a> -- fight the tyranny!
 	^(HtmlParser parse: input) formattedText
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 HtmlFormatter class >> initialize [
 	"HtmlFormatter initialize"
 
@@ -101,17 +103,17 @@ HtmlFormatter class >> initialize [
 	CSNonSeparators := CSSeparators complement.
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlFormatter class >> new [
 	^super new initialize
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlFormatter class >> preferredFormatterClass [
 	^DHtmlFormatter
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> addChar: c [
 	"add a single character, updating all the tallies"
 
@@ -129,19 +131,19 @@ HtmlFormatter >> addChar: c [
 			precedingSpaces := precedingNewlines := 0 ] ].
 ]
 
-{ #category : #'image maps' }
+{ #category : 'image maps' }
 HtmlFormatter >> addImageMap: anImageMap [
 	imageMaps addLast: anImageMap
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> addIncompleteMorph: aMorph [
 	"add a morph, and note that it needs to download some more state before reaching its ultimate state"
 	self addMorph: aMorph.
 	incompleteMorphs add: aMorph.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> addLink: text  url: url [
 	"add a link with the given url and text"
 	| savedAttributes linkAttribute  |
@@ -160,7 +162,7 @@ HtmlFormatter >> addLink: text  url: url [
 	precedingSpaces := precedingNewlines := 0.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> addMorph: aMorph [
 	"add a morph to the output"
 	| savedAttributes |
@@ -176,7 +178,7 @@ HtmlFormatter >> addMorph: aMorph [
 	morphsToEmbed add: aMorph.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> addString: aString [
 	"adds the text in the given string.  It collapses spaces unless we are in a preformatted region"
 
@@ -232,37 +234,37 @@ HtmlFormatter >> addString: aString [
 				ifFalse: [ 0 ] ]
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlFormatter >> anchorLocations [
 	"return a dictionary mapping lowercase-ed anchor names into the integer positions they are located at in the text"
 	^anchorLocations
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlFormatter >> baseUrl [
 	"return the base URL for the document we are formatting, if known"
 	^baseUrl
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlFormatter >> baseUrl: url [
 	"set the base url.  All relative URLs will be determined relative to it"
 	baseUrl := url.
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlFormatter >> browser [
 	"return the browser we are formatting for, or nil if none"
 	^browser
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlFormatter >> browser: b [
 	"set what browser we are formatting for"
 	browser := b.
 ]
 
-{ #category : #forms }
+{ #category : 'forms' }
 HtmlFormatter >> currentFormData [
 	"return the current form data, or nil if we aren't inside a form"
 	formDatas size > 0 
@@ -270,42 +272,42 @@ HtmlFormatter >> currentFormData [
 		ifFalse: [ ^nil ].
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> decreaseBold [
 	boldLevel := boldLevel - 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> decreaseIndent [
 	indentLevel := indentLevel - 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> decreaseItalics [
 	italicsLevel := italicsLevel - 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> decreasePreformatted [
 	preformattedLevel := preformattedLevel - 1
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> decreaseStrike [
 	strikeLevel := strikeLevel - 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> decreaseUnderline [
 	underlineLevel := underlineLevel - 1.
 	self setAttributes.
 ]
 
-{ #category : #forms }
+{ #category : 'forms' }
 HtmlFormatter >> endForm [
 	formDatas size > 0 ifTrue: [ 
 		formDatas removeLast. ]
@@ -313,25 +315,25 @@ HtmlFormatter >> endForm [
 	self ensureNewlines: 1.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> endHeader: level [
 	self decreaseBold.
 	self ensureNewlines: 2
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> endLink: url [
 	urlLink := nil.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> endListItem [
 	"end a list item"
 	self ensureNewlines: 1.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> endOrderedList [
 	"end an ordered list"
 	listLengths removeLast.
@@ -344,7 +346,7 @@ HtmlFormatter >> endOrderedList [
 	
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> endUnorderedList [
 	"end an unordered list"
 	listLengths removeLast.
@@ -356,14 +358,14 @@ HtmlFormatter >> endUnorderedList [
 	self ensureNewlines: 1.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> ensureNewlines: number [
 	"make sure there are at least number preceding newlines"
 	number > precedingNewlines ifTrue: [
 		(number - precedingNewlines) timesRepeat: [ self addChar: Character cr ] ].
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> ensureSpaces: number [
 	"make sure there are at least number preceding spaces, unless we're at the beginning of a new line"
 
@@ -373,7 +375,7 @@ HtmlFormatter >> ensureSpaces: number [
 		(number - precedingSpaces) timesRepeat: [ self addChar: Character space ] ].
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> hr [
 	"add an (attempt at a) horizontal rule"
 	self ensureNewlines: 1.
@@ -383,7 +385,7 @@ HtmlFormatter >> hr [
 	precedingNewlines := 1000.    "pretend it's the top of a new page"
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlFormatter >> htmlInlineMorph [
 	| text htmlInlineMorph |
 	text := outputStream contents.
@@ -393,53 +395,53 @@ HtmlFormatter >> htmlInlineMorph [
 	^htmlInlineMorph
 ]
 
-{ #category : #'image maps' }
+{ #category : 'image maps' }
 HtmlFormatter >> imageMapNamed: imageMapName [
 	^imageMaps detect: [:im | im name asLowercase = imageMapName asLowercase] ifNone: []
 ]
 
-{ #category : #access }
+{ #category : 'access' }
 HtmlFormatter >> incompleteMorphs [
 	"list of morphs needing to download some more state"
 	^incompleteMorphs
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> increaseBold [
 	boldLevel := boldLevel + 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> increaseIndent [
 	indentLevel := indentLevel + 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> increaseItalics [
 	italicsLevel := italicsLevel + 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> increasePreformatted [
 	preformattedLevel := preformattedLevel + 1
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> increaseStrike [
 	strikeLevel := strikeLevel + 1.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> increaseUnderline [
 	underlineLevel := underlineLevel + 1.
 	self setAttributes.
 ]
 
-{ #category : #'private-initialization' }
+{ #category : 'private-initialization' }
 HtmlFormatter >> initialize [
 	outputStream := AttributedTextStream new.
 	preformattedLevel := 0.
@@ -455,13 +457,13 @@ HtmlFormatter >> initialize [
 	imageMaps := OrderedCollection new.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> noteAnchorStart: anchorName [
 	"note that an anchor starts at this point in the output"
 	anchorLocations at: anchorName asLowercase put: outputStream size
 ]
 
-{ #category : #'private-formatting' }
+{ #category : 'private-formatting' }
 HtmlFormatter >> setAttributes [
 	"set attributes on the output stream"
 	| attribs |
@@ -475,26 +477,26 @@ HtmlFormatter >> setAttributes [
 	outputStream currentAttributes: attribs
 ]
 
-{ #category : #forms }
+{ #category : 'forms' }
 HtmlFormatter >> startForm: form [
 	"a form is beginning"
 	self ensureNewlines: 1.
 	formDatas addLast: (FormInputSet forForm: form  andBrowser: browser).
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startHeader: level [
 	self ensureNewlines: 3.
 	self increaseBold
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startLink: url [
 	urlLink := url.
 	self setAttributes.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startListItem [
 	"begin a new list item"
 	(listTypes isEmpty or: [listStyleTypes isEmpty]) ifTrue: [ ^self ].
@@ -514,13 +516,13 @@ HtmlFormatter >> startListItem [
 	listLengths at: (listLengths size) put: (listLengths last + 1).
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startListItemWithValue: aValue [
 	listLengths at: (listLengths size) put: (aValue - 1).
 	self startListItem.
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startOrderedList [
 	"begin an ordered list"
 	listLengths add: 0.
@@ -530,7 +532,7 @@ HtmlFormatter >> startOrderedList [
 	
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startOrderedListWithStart: aStartValue type: aListStyleType [
 	"begin an ordered list"
 	listLengths add: (aStartValue - 1).
@@ -541,7 +543,7 @@ HtmlFormatter >> startOrderedListWithStart: aStartValue type: aListStyleType [
 	
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startUnorderedList [
 	"begin an unordered list"
 	listLengths add: 0.
@@ -551,7 +553,7 @@ HtmlFormatter >> startUnorderedList [
 	
 ]
 
-{ #category : #'formatting commands' }
+{ #category : 'formatting commands' }
 HtmlFormatter >> startUnorderedListWithType: aListStyleType [
 	"begin an unordered list"
 	listLengths add: 0.
@@ -562,14 +564,14 @@ HtmlFormatter >> startUnorderedListWithType: aListStyleType [
 	
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlFormatter >> text [
 	| text |
 	text := outputStream contents.
 	^text
 ]
 
-{ #category : #formatting }
+{ #category : 'formatting' }
 HtmlFormatter >> textMorph [
 	| text textMorph |
 	text := outputStream contents.

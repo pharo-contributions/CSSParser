@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSPropertyError,
-	#superclass : #CSSError,
+	#name : 'CSSPropertyError',
+	#superclass : 'CSSError',
 	#instVars : [
 		'propertyName'
 	],
-	#category : #'CSSParser-CSS-Errors'
+	#category : 'CSSParser-CSS-Errors',
+	#package : 'CSSParser',
+	#tag : 'CSS-Errors'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyError >> printOn: aStream [
 
 	super printOn: aStream.
@@ -15,14 +17,14 @@ CSSPropertyError >> printOn: aStream [
 	self parent printOn: aStream.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyError >> propertyName [
 	"Answer the value of propertyName"
 
 	^ propertyName
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPropertyError >> propertyName: anObject [
 	"Set the value of propertyName"
 

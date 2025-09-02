@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSBorderStyleValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSBorderStyleValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSBorderStyleValue >> isValid [
 
 ^#( 'none'

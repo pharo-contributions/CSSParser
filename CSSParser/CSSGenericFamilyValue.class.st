@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSGenericFamilyValue,
-	#superclass : #CSSValue,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSGenericFamilyValue',
+	#superclass : 'CSSValue',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSGenericFamilyValue class >> readFrom: in [
 
 	| out pos |
@@ -45,7 +47,7 @@ CSSGenericFamilyValue class >> readFrom: in [
 		ifFalse: [in position: pos. nil]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSGenericFamilyValue >> isValid [
 
 	^#( 'serif' 'sans-serif' 'cursive' 'fantasy' 'monospace' ) includes: self valueString trimBoth

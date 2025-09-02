@@ -1,6 +1,6 @@
 Class {
-	#name : #HtmlPListSerializer,
-	#superclass : #Object,
+	#name : 'HtmlPListSerializer',
+	#superclass : 'Object',
 	#instVars : [
 		'stream',
 		'arrayItemsPerLine',
@@ -11,10 +11,12 @@ Class {
 		'ReadTranslations',
 		'WriteTranslations'
 	],
-	#category : #'CSSParser-PList'
+	#category : 'CSSParser-PList',
+	#package : 'CSSParser',
+	#tag : 'PList'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 HtmlPListSerializer class >> initialize [
 	"comment stating purpose of message"
 	| dict |
@@ -40,7 +42,7 @@ HtmlPListSerializer class >> initialize [
 
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlPListSerializer class >> on: aStream [ 
 	"Answer an instance of me initialized on a stream."
 
@@ -48,25 +50,25 @@ HtmlPListSerializer class >> on: aStream [
 	^self basicNew on: aStream
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 HtmlPListSerializer >> close [
 
 	stream close.
 	stream := nil.
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> next [
 	^self read
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> nextPut: anObject [
 
 	self write: anObject
 ]
 
-{ #category : #initialize }
+{ #category : 'initialize' }
 HtmlPListSerializer >> on: aStream [
 	"Initialize myself with a stream"
 
@@ -77,7 +79,7 @@ HtmlPListSerializer >> on: aStream [
 	indentLevel := 0
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> read [
 	"read a complete plist object assembly from the stream and return it"
 
@@ -98,7 +100,7 @@ HtmlPListSerializer >> read [
 		]
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> readArray [
 	"read an array"
 
@@ -128,7 +130,7 @@ HtmlPListSerializer >> readArray [
 		^list
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> readDictionary [
 	"read a dictionary - assumes leading { has already been read"
 
@@ -164,7 +166,7 @@ HtmlPListSerializer >> readDictionary [
 		^dict
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> readQuotedString [
 	"read a complete plist object assembly from the stream and return it"
 	| out c |
@@ -183,7 +185,7 @@ HtmlPListSerializer >> readQuotedString [
 	^ out contents
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> readString [
 	"read a complete plist object assembly from the stream and return it"
 
@@ -198,7 +200,7 @@ HtmlPListSerializer >> readString [
 	^out contents
 ]
 
-{ #category : #reading }
+{ #category : 'reading' }
 HtmlPListSerializer >> skipWhitespace [
 	"read a dictionary - assumes leading { has already been read"
 
@@ -210,7 +212,7 @@ HtmlPListSerializer >> skipWhitespace [
 
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 HtmlPListSerializer >> write: object [
 	"write a serialized version of object - either an ordered collection, a dictionary, or something we can convert to a string"
 
@@ -219,7 +221,7 @@ HtmlPListSerializer >> write: object [
 		ifTrue: [ self writeString: object asString] 
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 HtmlPListSerializer >> writeArray: aCollection [
 	"write a serialized version of the ordered collection"
 
@@ -240,7 +242,7 @@ HtmlPListSerializer >> writeArray: aCollection [
 	stream nextPutAll: ')'.
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 HtmlPListSerializer >> writeCollection: aCollection [
 	"write a serialized version of the collection"
 
@@ -249,7 +251,7 @@ HtmlPListSerializer >> writeCollection: aCollection [
 		ifFalse: [ self writeDictionary: aCollection] 
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 HtmlPListSerializer >> writeDictionary: aCollection [
 	"write a serialized version of the ordered collection"
 
@@ -265,14 +267,14 @@ HtmlPListSerializer >> writeDictionary: aCollection [
 	stream nextPutAll: '}'.
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 HtmlPListSerializer >> writeIndent [
 	"write the indent"
 
 	0 to: indentLevel do: [:x | stream nextPutAll: '    '] 
 ]
 
-{ #category : #writing }
+{ #category : 'writing' }
 HtmlPListSerializer >> writeString: aString [
 	"write a string to the stream - quoting and escaping if necessary"
 

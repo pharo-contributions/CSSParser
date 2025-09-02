@@ -1,13 +1,15 @@
 Class {
-	#name : #HtmlTagImproperlyNestedError,
-	#superclass : #HtmlTagStructureError,
+	#name : 'HtmlTagImproperlyNestedError',
+	#superclass : 'HtmlTagStructureError',
 	#instVars : [
 		'wrongTag'
 	],
-	#category : #'CSSParser-DOM-Errors'
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlTagImproperlyNestedError >> printOn: aStream [
 
 	| rule |
@@ -25,14 +27,14 @@ HtmlTagImproperlyNestedError >> printOn: aStream [
 	
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagImproperlyNestedError >> wrongTag [
 	"Answer the value of wrongTag"
 
 	^ wrongTag
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTagImproperlyNestedError >> wrongTag: anObject [
 	"Set the value of wrongTag"
 

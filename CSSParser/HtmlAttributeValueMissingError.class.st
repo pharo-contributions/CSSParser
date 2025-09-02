@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlAttributeValueMissingError,
-	#superclass : #HtmlAttributeError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlAttributeValueMissingError',
+	#superclass : 'HtmlAttributeError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlAttributeValueMissingError >> printOn: aStream [
 
 	aStream nextPutAll: 'Value missing for: '.

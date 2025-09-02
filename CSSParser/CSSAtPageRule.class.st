@@ -1,5 +1,7 @@
 Class {
-	#name : #CSSAtPageRule,
-	#superclass : #CSSAtRule,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAtPageRule',
+	#superclass : 'CSSAtRule',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }

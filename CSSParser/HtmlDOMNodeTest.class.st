@@ -1,30 +1,32 @@
 Class {
-	#name : #HtmlDOMNodeTest,
-	#superclass : #TestCase,
+	#name : 'HtmlDOMNodeTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'domNode'
 	],
-	#category : #'CSSParser-Tests'
+	#category : 'CSSParser-Tests',
+	#package : 'CSSParser',
+	#tag : 'Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNodeTest >> domNode [
 
 	^ domNode
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDOMNodeTest >> domNode: anObject [
 
 	domNode := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HtmlDOMNodeTest >> setUp [ 
 	self domNode: HtmlDOMNode new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test01FlushingInlineNodesShouldEmptyInputCollection [
 	| blockMorph inlineNodes |
 	blockMorph := HtmlBlockMorph new.
@@ -34,7 +36,7 @@ HtmlDOMNodeTest >> test01FlushingInlineNodesShouldEmptyInputCollection [
 	self assert: inlineNodes isEmpty
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test02InlineNodesShouldBePlacedInHtmlInlineMorph [
 
 	| doc result |
@@ -48,7 +50,7 @@ HtmlDOMNodeTest >> test02InlineNodesShouldBePlacedInHtmlInlineMorph [
 	self assert: result submorphs first text asString equals: 'test'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test03SubsequentInlineNodesShouldGroupedIntoHtmlInlineMorph [
 
 	| doc result |
@@ -62,7 +64,7 @@ HtmlDOMNodeTest >> test03SubsequentInlineNodesShouldGroupedIntoHtmlInlineMorph [
 	self assert: result submorphs first text asString equals: 'testeins'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test04BlockNodeShouldBePlacedInHtmlBlockMorph [
 
 	| result |
@@ -72,7 +74,7 @@ HtmlDOMNodeTest >> test04BlockNodeShouldBePlacedInHtmlBlockMorph [
 	self assert: result submorphs first class equals: HtmlBlockMorph
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test05MixedChildrenShouldBeGroupedIntoCorrectSubmorphs [
 
 	| doc result |
@@ -98,7 +100,7 @@ HtmlDOMNodeTest >> test05MixedChildrenShouldBeGroupedIntoCorrectSubmorphs [
 	self assert: result submorphs fifth text asString equals: 'drei'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test06InlineBlockElementsShouldBeTransformedIntoCorrectSubmorphs [
 
 	| doc result |
@@ -123,7 +125,7 @@ HtmlDOMNodeTest >> test06InlineBlockElementsShouldBeTransformedIntoCorrectSubmor
 	self assert: result submorphs first submorphs first submorphs first text equals: 'eins'
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test07InlineBlockElementsShouldAlwaysBeRenderedInline [
 
 	self domNode 
@@ -132,7 +134,7 @@ HtmlDOMNodeTest >> test07InlineBlockElementsShouldAlwaysBeRenderedInline [
 	self assert: self domNode isRenderedInline equals: true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test08BlockElementsShouldNeverBeRenderedInline [
 
 	self domNode 
@@ -141,7 +143,7 @@ HtmlDOMNodeTest >> test08BlockElementsShouldNeverBeRenderedInline [
 	self assert: self domNode isRenderedInline equals: false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test09InlineElementsShouldBeRenderedAsBlockIfContainingBlockChildren [
 
 	self domNode
@@ -150,20 +152,20 @@ HtmlDOMNodeTest >> test09InlineElementsShouldBeRenderedAsBlockIfContainingBlockC
 	self assert: self domNode isRenderedInline equals: false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test10BoxTypeShouldDefaultToInline [
 
 	self assert: self domNode boxType equals: #inline
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test11BoxTypeShouldBeResolvedToCSSAttribute [
 
 	self domNode addStyle: (CSSStyleRule fromDictionary: (Dictionary newFrom: { 'display' -> 'inline-block' })).
 	self assert: self domNode boxType equals: #inlineBlock
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test12InlineNodesShouldBeAssignedToHtmlInlineMorph [
 
 	| doc result inlineNodes |
@@ -177,7 +179,7 @@ HtmlDOMNodeTest >> test12InlineNodesShouldBeAssignedToHtmlInlineMorph [
 	self assert: (result submorphs first nodes allSatisfy: [:node | inlineNodes includes: node ])
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlDOMNodeTest >> test13AttributesInUppercaseShouldBeParsed [
 	| doc |
 	doc := HtmlDocument new 

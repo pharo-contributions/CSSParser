@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSValueTypeValue,
-	#superclass : #CSSValueType,
+	#name : 'CSSValueTypeValue',
+	#superclass : 'CSSValueType',
 	#instVars : [
 		'valueClass'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSValueTypeValue class >> readFrom: in [
 
 	| str vt val |
@@ -27,7 +29,7 @@ CSSValueTypeValue class >> readFrom: in [
 	^val
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeValue >> addValues: aCollection fromStream: in [
 
 	| pos val |
@@ -39,26 +41,26 @@ CSSValueTypeValue >> addValues: aCollection fromStream: in [
 	
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeValue >> isValueValid: anObject [
 
 	^(self valueClass new valueString: anObject asString) isValid
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeValue >> printOn: aStream [
 
 	aStream nextPutAll: self valueClass type
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeValue >> valueClass [
 	"Answer the value of valueClass"
 
 	^ valueClass
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSValueTypeValue >> valueClass: anObject [
 	"Set the value of valueClass"
 

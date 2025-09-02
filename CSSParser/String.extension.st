@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> asUnHtml [
 	"Strip out all Html stuff (commands in angle brackets <>) and convert
 the characters &<> back to their real value.  Leave actual cr and tab as
@@ -31,13 +31,13 @@ they were in text."
 	^ out contents
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> content [
 
 	^self
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> splitOn: aString [
 
 	| idx lastIdx |
@@ -56,21 +56,21 @@ String >> splitOn: aString [
 
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> trimBoth [
 	"Trim separators from both sides of the receiving string."
 	
 	^ self trimBoth: [ :char | char isSeparator ]
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> trimBoth: aBlock [
 	"Trim characters satisfying the condition given in aBlock from both sides of the receiving string."
 
 	^ self trimLeft: aBlock right: aBlock
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> trimLeft: aLeftBlock right: aRightBlock [
 	"Trim characters satisfying the condition given in aLeftBlock from the left side and aRightBlock from the right sides of the receiving string."
 
@@ -84,7 +84,7 @@ String >> trimLeft: aLeftBlock right: aRightBlock [
 	^ self copyFrom: left to: right
 ]
 
-{ #category : #'*CSSParser' }
+{ #category : '*CSSParser' }
 String >> unquoted [
 
 	^self withoutQuoting

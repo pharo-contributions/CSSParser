@@ -1,6 +1,6 @@
 Class {
-	#name : #CSSFontFormatter,
-	#superclass : #CSSFormatter,
+	#name : 'CSSFontFormatter',
+	#superclass : 'CSSFormatter',
 	#instVars : [
 		'fontMap'
 	],
@@ -8,29 +8,31 @@ Class {
 		'numberOfInstalledFonts',
 		'fontSizeFactorMap'
 	],
-	#category : #'CSSParser-Formatter'
+	#category : 'CSSParser-Formatter',
+	#package : 'CSSParser',
+	#tag : 'Formatter'
 }
 
-{ #category : #'font parameters' }
+{ #category : 'font parameters' }
 CSSFontFormatter class >> defaultSize [
 	self installFontsIfNecessary.
 	^TextStyle pointsToPixels:
 			(((TextStyle named: 'Verdana') ifNil: [TextStyle default]) defaultFont pointSize)
 ]
 
-{ #category : #'font parameters' }
+{ #category : 'font parameters' }
 CSSFontFormatter class >> defaultStyle [
 	self installFontsIfNecessary.
 	^(TextStyle named: 'Verdana') ifNil: [TextStyle default]
 ]
 
-{ #category : #'font installation' }
+{ #category : 'font installation' }
 CSSFontFormatter class >> fontDirectory [
 	^('Scamper' asFileReference / 'fonts')
 	"^ FileDirectory uri: 'Scamper' , FileDirectory slash , 'fonts'"
 ]
 
-{ #category : #'font parameters' }
+{ #category : 'font parameters' }
 CSSFontFormatter class >> fontSizeFactorMap [
 "I provide values to scale fonts to a correct display size."
 	^ fontSizeFactorMap ifNil:
@@ -48,14 +50,14 @@ CSSFontFormatter class >> fontSizeFactorMap [
 		}]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 CSSFontFormatter class >> initialize [
 	super initialize.
 	numberOfInstalledFonts := 0.
 	self installFontsIfNecessary.
 ]
 
-{ #category : #'font installation' }
+{ #category : 'font installation' }
 CSSFontFormatter class >> installFonts [
 	"self installFonts"
 	| fontFiles |
@@ -66,7 +68,7 @@ CSSFontFormatter class >> installFonts [
 	numberOfInstalledFonts := fontFiles size.
 ]
 
-{ #category : #'font installation' }
+{ #category : 'font installation' }
 CSSFontFormatter class >> installFontsIfNecessary [
 
 	| numberOfAvailableFonts dir entries exists |
@@ -81,7 +83,7 @@ CSSFontFormatter class >> installFontsIfNecessary [
 
 ]
 
-{ #category : #'font installation' }
+{ #category : 'font installation' }
 CSSFontFormatter class >> newTextStyleFromTTFile: fileName [
 	| description array style |
 	description := TTFontDescription addFromTTFile: fileName.
@@ -95,12 +97,12 @@ CSSFontFormatter class >> newTextStyleFromTTFile: fileName [
 	^style
 ]
 
-{ #category : #'font installation' }
+{ #category : 'font installation' }
 CSSFontFormatter class >> pointSizes [
 	^ #(6 8 9 10 12 14 16 18 20 22 24 26 30 36 48)
 ]
 
-{ #category : #'font parameters' }
+{ #category : 'font parameters' }
 CSSFontFormatter class >> sizeFactorFor: aTextStyle [
 	self fontSizeFactorMap associationsDo:
 			[:association | aTextStyle = (TextStyle named: association key)
@@ -108,14 +110,14 @@ CSSFontFormatter class >> sizeFactorFor: aTextStyle [
 	^1
 ]
 
-{ #category : #'font installation' }
+{ #category : 'font installation' }
 CSSFontFormatter class >> uninstallFonts [
 	{'NimbusMonoL' . 'TrebuchetMS' . 'Webdings' . 'Georgia' . 'Verdana' . 'AndaleMono' . 'NimbusRomanNo9L' . 'NimbusSansL' . 'ComicSansMS' . 'URWChanceryL'}
 		do: [:font | TTCFont removeStyleName: font].
 	numberOfInstalledFonts := 0.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFontFormatter >> attributeMap [
 
 	^ attributeMap ifNil: [ attributeMap := Dictionary newFrom: {
@@ -127,7 +129,7 @@ CSSFontFormatter >> attributeMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> factorForNamedSize: aString [
 	^(Dictionary newFrom: {
 		'initial' -> 1.
@@ -141,7 +143,7 @@ CSSFontFormatter >> factorForNamedSize: aString [
 	}) at: aString ifAbsent: [1]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSFontFormatter >> fontMap [
 "I replace some fonts with licence issues by free alternatives and set a mapping for generic font families such as serif or monospace."
 	^ fontMap ifNil: [ Dictionary newFrom: {
@@ -165,26 +167,26 @@ CSSFontFormatter >> fontMap [
 		}]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> isValidStyleValue: aString [
 
 	^ {'normal'. 'italic'. 'oblique'. 'initial'. 'inherit'} includes: aString
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> isValidWeightValue: aString [
 
 	^ {'normal'. 'bold'. 'bolder'. 'lighter'. '100'. '200'. '300'. '400'. '500'. '600'. '700'. '800'. '900'. 'initial'. 'inherit'} includes: aString
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
 
 	self class installFontsIfNecessary.
 	super parseTextAttributesFrom: aCSSProperty into: aContext
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> readFontAttribute: aString to: aContext [
 	| values shorthandContext |
 	shorthandContext := Dictionary newFrom: {
@@ -209,7 +211,7 @@ CSSFontFormatter >> readFontAttribute: aString to: aContext [
 	aContext addAll: shorthandContext
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> readFontFamilyAttribute: aString to: aContext [
 	| style |
 	style := self class defaultStyle.
@@ -218,7 +220,7 @@ CSSFontFormatter >> readFontFamilyAttribute: aString to: aContext [
 	aContext at: #fontFamily put: style.
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> readFontSizeAttribute: aString to: aContext [
 	| defaultSize parentFontSize|
 	defaultSize := self class defaultSize.
@@ -237,7 +239,7 @@ CSSFontFormatter >> readFontSizeAttribute: aString to: aContext [
 	aContext at: #fontSize put: ((self factorForNamedSize: aString) * defaultSize) asInteger
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> readFontStyleAttribute: aString to: aContext [
 	| map |
 	map := Dictionary newFrom: {
@@ -249,7 +251,7 @@ CSSFontFormatter >> readFontStyleAttribute: aString to: aContext [
 	(map at: aString ifAbsent: [nil]) ifNotNil: [:value | aContext at: #italic put: value]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> readFontWeightAttribute: aString to: aContext [
 	| map |
 	map := Dictionary newFrom: {
@@ -260,7 +262,7 @@ CSSFontFormatter >> readFontWeightAttribute: aString to: aContext [
 	(map at: aString ifAbsent: [nil]) ifNotNil: [:value | aContext at: #bold put: value]
 ]
 
-{ #category : #parsing }
+{ #category : 'parsing' }
 CSSFontFormatter >> styleForFamily: aString [
 	| family |
 	family := aString trimBoth: [:char | (char isSeparator or: [char = $"]) or: [char = $']].

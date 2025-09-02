@@ -1,31 +1,33 @@
 Class {
-	#name : #CSSDisplayFormatterTest,
-	#superclass : #TestCase,
+	#name : 'CSSDisplayFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'displayFormatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDisplayFormatterTest >> displayFormatter [
 
 	^ displayFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSDisplayFormatterTest >> displayFormatter: anObject [
 
 	displayFormatter := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSDisplayFormatterTest >> setUp [
 	super setUp.
 	self displayFormatter: CSSDisplayFormatter new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDisplayFormatterTest >> test01SupportedDisplayValuesShouldBeParsedCorrectly [
 	| supportedValues |
 	supportedValues := Dictionary newFrom: {
@@ -43,7 +45,7 @@ CSSDisplayFormatterTest >> test01SupportedDisplayValuesShouldBeParsedCorrectly [
 		self assert: (tempContext at: #display) equals: expectedResult ]
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDisplayFormatterTest >> test02OtherDisplayValuesShouldDefaultToInline [
 	| styles |
 	styles := Dictionary new.
@@ -53,7 +55,7 @@ CSSDisplayFormatterTest >> test02OtherDisplayValuesShouldDefaultToInline [
 	self assert: (styles at: #display) equals: #inline
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSDisplayFormatterTest >> test03DefaultFallbackDisplayValueShouldNotOverrideSupportedValue [
 	| styles |
 	styles := Dictionary newFrom: { #display -> #inlineBlock }.

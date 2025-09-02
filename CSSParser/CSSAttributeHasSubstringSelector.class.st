@@ -1,16 +1,18 @@
 Class {
-	#name : #CSSAttributeHasSubstringSelector,
-	#superclass : #CSSAttributeSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSAttributeHasSubstringSelector',
+	#superclass : 'CSSAttributeSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeHasSubstringSelector >> isCSS3 [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeHasSubstringSelector >> matches: aNode [
 
 	| attr |

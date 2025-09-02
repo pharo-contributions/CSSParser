@@ -1,13 +1,15 @@
 Class {
-	#name : #CSSTypeSelector,
-	#superclass : #CSSUniversalSelector,
+	#name : 'CSSTypeSelector',
+	#superclass : 'CSSUniversalSelector',
 	#instVars : [
 		'element'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSTypeSelector class >> readFrom: in [
 
 	| out |
@@ -22,27 +24,27 @@ CSSTypeSelector class >> readFrom: in [
 	^self new element: out contents; readAttributeSelectorsFrom: in
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTypeSelector >> element [
 	"Answer the value of element"
 
 	^ element
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTypeSelector >> element: anObject [
 	"Set the value of element"
 
 	element := anObject
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSTypeSelector >> isTypeSelector [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTypeSelector >> matches: aNode [
 
 	aNode isCSS ifTrue: [^false].
@@ -51,7 +53,7 @@ CSSTypeSelector >> matches: aNode [
 		ifFalse: [element asLowercase = aNode tag]) and: [super matches: aNode]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSTypeSelector >> printOn: aStream [
 
 	aStream nextPutAll: self element.

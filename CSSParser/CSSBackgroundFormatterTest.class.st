@@ -1,31 +1,33 @@
 Class {
-	#name : #CSSBackgroundFormatterTest,
-	#superclass : #TestCase,
+	#name : 'CSSBackgroundFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'backgroundFormatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSBackgroundFormatterTest >> backgroundFormatter [
 
 	^ backgroundFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSBackgroundFormatterTest >> backgroundFormatter: anObject [
 
 	backgroundFormatter := anObject
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSBackgroundFormatterTest >> setUp [
 	super setUp.
 	self backgroundFormatter: CSSBackgroundFormatter new
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSBackgroundFormatterTest >> test01BackgroundColorShouldBeParsedCorrectly [
 	| property result |
 	result := Dictionary new.
@@ -37,7 +39,7 @@ CSSBackgroundFormatterTest >> test01BackgroundColorShouldBeParsedCorrectly [
 	self assert: Color blue equals: (result at: #backgroundColor).
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSBackgroundFormatterTest >> test02BackgroundImageShouldBeParsedCorrectly [
 	| property result |
 	result := Dictionary new.
@@ -49,7 +51,7 @@ CSSBackgroundFormatterTest >> test02BackgroundImageShouldBeParsedCorrectly [
 	self assert: '/foo.png' equals: (result at: #backgroundImage).
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSBackgroundFormatterTest >> test03BackgroundPositionShouldBeParsedCorrectly [
 	| property result |
 	result := Dictionary new.
@@ -61,7 +63,7 @@ CSSBackgroundFormatterTest >> test03BackgroundPositionShouldBeParsedCorrectly [
 	self assert: 30@40 equals: (result at: #backgroundPosition).
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSBackgroundFormatterTest >> test04BackgroundRepeatShouldBeParsedCorrectly [
 	| property result |
 	result := Dictionary new.
@@ -73,7 +75,7 @@ CSSBackgroundFormatterTest >> test04BackgroundRepeatShouldBeParsedCorrectly [
 	self assert: #repeatX equals: (result at: #backgroundRepeat).
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSBackgroundFormatterTest >> test05BackgroundShouldBeParsedCorrectly [
 	| property result |
 	result := Dictionary new.

@@ -1,15 +1,17 @@
 Class {
-	#name : #HtmlDLNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlDLNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlDLNode >> endStyles: aFormatter [
 	aFormatter ensureNewlines: 1.
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDLNode >> tag [
 	^ 'dl'
 ]

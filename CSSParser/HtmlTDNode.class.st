@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTDNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlTDNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlTDNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -13,12 +15,12 @@ HtmlTDNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTDNode >> endStyles: aFormatter [
 	aFormatter ensureSpaces: 1
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTDNode >> tag [
 	^ 'td'
 ]

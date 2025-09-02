@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTHEADNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlTHEADNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlTHEADNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -14,14 +16,14 @@ HtmlTHEADNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlTHEADNode >> addToHtmlMorph: aHtmlTableMorph [
 	self children do: [ :ea |
 		ea addToHtmlMorph: aHtmlTableMorph.
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTHEADNode >> tag [
 	^ 'thead'
 ]

@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlBASEFONTNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlBASEFONTNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlBASEFONTNode >> tag [
 	^ 'basefont'
 ]

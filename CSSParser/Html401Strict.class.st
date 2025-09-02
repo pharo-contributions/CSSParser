@@ -1,22 +1,24 @@
 Class {
-	#name : #Html401Strict,
-	#superclass : #HtmlDTD,
-	#category : #'CSSParser-Validator'
+	#name : 'Html401Strict',
+	#superclass : 'HtmlDTD',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Html401Strict class >> defaultUrl [
 
 	^'http://www.w3.org/TR/REC-html40/strict.dtd' asUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Html401Strict class >> docType [
 
 	^'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">'
 ]
 
-{ #category : #resources }
+{ #category : 'resources' }
 Html401Strict >> dtd [
 	^ '<!--
     This is HTML 4.01 Strict DTD, which excludes the presentation 
@@ -891,7 +893,7 @@ several semantically related columns together.
 '
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Html401Strict >> initialize [
 
 	super initialize.

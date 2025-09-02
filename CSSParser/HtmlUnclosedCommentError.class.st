@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlUnclosedCommentError,
-	#superclass : #HtmlSyntaxError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlUnclosedCommentError',
+	#superclass : 'HtmlSyntaxError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUnclosedCommentError >> isStructuralError [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUnclosedCommentError >> printOn: aStream [
 
 	aStream nextPutAll: 'Comment section not properly terminated.'

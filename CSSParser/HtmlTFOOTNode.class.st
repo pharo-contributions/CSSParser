@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlTFOOTNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlTFOOTNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 HtmlTFOOTNode >> addDefaultStyle [
 	| styles |
 	styles := Dictionary newFrom: {
@@ -14,14 +16,14 @@ HtmlTFOOTNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : #rendering }
+{ #category : 'rendering' }
 HtmlTFOOTNode >> addToHtmlMorph: aHtmlTableMorph [
 	self children do: [ :ea |
 		ea addToHtmlMorph: aHtmlTableMorph.
 	]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlTFOOTNode >> tag [
 	^ 'tfoot'
 ]

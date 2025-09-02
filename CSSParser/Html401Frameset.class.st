@@ -1,22 +1,24 @@
 Class {
-	#name : #Html401Frameset,
-	#superclass : #HtmlDTD,
-	#category : #'CSSParser-Validator'
+	#name : 'Html401Frameset',
+	#superclass : 'HtmlDTD',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Html401Frameset class >> defaultUrl [
 
 	^'http://www.w3.org/TR/html4/frameset.dtd' asUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Html401Frameset class >> docType [
 
 	^'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">'
 ]
 
-{ #category : #resources }
+{ #category : 'resources' }
 Html401Frameset >> dtd [
 	^ '<!--
     This is HTML 4.01 Strict DTD, which excludes the presentation 
@@ -892,7 +894,7 @@ several semantically related columns together.
 '
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Html401Frameset >> initialize [
 
 	super initialize.

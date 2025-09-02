@@ -1,73 +1,75 @@
 Class {
-	#name : #CSSPaddingFormatterTest,
-	#superclass : #CSSDistanceFormatterTest,
-	#category : #'CSSParser-CSS-Tests'
+	#name : 'CSSPaddingFormatterTest',
+	#superclass : 'CSSDistanceFormatterTest',
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPaddingFormatterTest >> prefix [
 
 	^ 'padding'
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSPaddingFormatterTest >> setUp [
 	super setUp.
 	self formatter: CSSPaddingFormatter new
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPaddingFormatterTest >> suffix [
 
 	^ ''
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test01topAttributeShouldBeParsedCorrectly [ 
 
 	super topAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test02rightAttributeShouldBeParsedCorrectly [ 
 
 	super rightAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test03bottomAttributeShouldBeParsedCorrectly [ 
 
 	super bottomAttributeShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test04leftAttributeShouldBeParsedCorrectly [ 
 
 	super leftAttributeShouldBeParsedCorrectly 
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test05oneShorthandAttributeShouldBeParsedCorrectly [ 
 
 	super oneShorthandAttributeShouldBeParsedCorrectly 
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test06twoShorthandAttributesShouldBeParsedCorrectly [ 
 
 	super twoShorthandAttributesShouldBeParsedCorrectly 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test07threeShorthandAttributesShouldBeParsedCorrectly [ 
 
 	super threeShorthandAttributesShouldBeParsedCorrectly 
 
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPaddingFormatterTest >> test08fourShorthandAttributesShouldBeParsedCorrectly [ 
 
 	super fourShorthandAttributesShouldBeParsedCorrectly 

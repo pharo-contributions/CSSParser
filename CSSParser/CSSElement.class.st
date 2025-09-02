@@ -2,47 +2,49 @@
 I am a base class for CSS parse nodes.
 "
 Class {
-	#name : #CSSElement,
-	#superclass : #HtmlParseNode,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSElement',
+	#superclass : 'HtmlParseNode',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSElement >> isAtImportRule [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSElement >> isCSS [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSElement >> isProperty [
 
 	^false
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSElement >> isStyleRule [
 
 	^false
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSElement >> stylesheetDocument [
 	self parent 
 		ifNil: [ ^ nil ]
 		ifNotNil: [ ^ self parent stylesheetDocument ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSElement >> tag [
 	^'css'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSElement >> validateAgainstDTD: aDTD [
 ]

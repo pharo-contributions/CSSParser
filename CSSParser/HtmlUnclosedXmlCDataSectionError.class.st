@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlUnclosedXmlCDataSectionError,
-	#superclass : #HtmlSyntaxError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlUnclosedXmlCDataSectionError',
+	#superclass : 'HtmlSyntaxError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUnclosedXmlCDataSectionError >> isStructuralError [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUnclosedXmlCDataSectionError >> printOn: aStream [
 
 	aStream nextPutAll: 'CDATA section not properly terminated.'

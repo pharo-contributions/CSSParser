@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlCAPTIONNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlCAPTIONNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlCAPTIONNode >> tag [
 	^ 'caption'
 ]

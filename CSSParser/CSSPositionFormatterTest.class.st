@@ -1,32 +1,34 @@
 Class {
-	#name : #CSSPositionFormatterTest,
-	#superclass : #TestCase,
+	#name : 'CSSPositionFormatterTest',
+	#superclass : 'TestCase',
 	#instVars : [
 		'positionFormatter'
 	],
-	#category : #'CSSParser-CSS-Tests'
+	#category : 'CSSParser-CSS-Tests',
+	#package : 'CSSParser',
+	#tag : 'CSS-Tests'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPositionFormatterTest >> positionFormatter [
 
 	^ positionFormatter
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSPositionFormatterTest >> positionFormatter: anObject [
 
 	positionFormatter := anObject
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 CSSPositionFormatterTest >> setUp [
 	super setUp.
 	self positionFormatter: CSSPositionFormatter new
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test01PositionAbsoluteShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -38,7 +40,7 @@ CSSPositionFormatterTest >> test01PositionAbsoluteShouldBeParsedCorrectly [
 	self assert: #absolute equals: (result at: #position)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test02PositionFixedShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -50,7 +52,7 @@ CSSPositionFormatterTest >> test02PositionFixedShouldBeParsedCorrectly [
 	self assert: #fixed equals: (result at: #position)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test03PositionRelativeShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -62,7 +64,7 @@ CSSPositionFormatterTest >> test03PositionRelativeShouldBeParsedCorrectly [
 	self assert: #relative equals: (result at: #position)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test04PositionStaticShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -74,7 +76,7 @@ CSSPositionFormatterTest >> test04PositionStaticShouldBeParsedCorrectly [
 	self assert: #static equals: (result at: #position)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test05TopPositionShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -86,7 +88,7 @@ CSSPositionFormatterTest >> test05TopPositionShouldBeParsedCorrectly [
 	self assert: '10px' equals: (result at: #top)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test06RightPositionShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -98,7 +100,7 @@ CSSPositionFormatterTest >> test06RightPositionShouldBeParsedCorrectly [
 	self assert: '20px' equals: (result at: #right)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test07BottomPositionShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.
@@ -110,7 +112,7 @@ CSSPositionFormatterTest >> test07BottomPositionShouldBeParsedCorrectly [
 	self assert: '30px' equals: (result at: #bottom)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSPositionFormatterTest >> test08LeftPositionShouldBeParsedCorrectly [
 	| prop result |
 	result := Dictionary new.

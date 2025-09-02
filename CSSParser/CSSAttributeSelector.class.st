@@ -1,14 +1,16 @@
 Class {
-	#name : #CSSAttributeSelector,
-	#superclass : #CSSSelector,
+	#name : 'CSSAttributeSelector',
+	#superclass : 'CSSSelector',
 	#instVars : [
 		'attribute',
 		'value'
 	],
-	#category : #'CSSParser-CSS'
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSAttributeSelector class >> readFrom: in [
 
 	| out |
@@ -86,7 +88,7 @@ CSSAttributeSelector class >> readFrom: in [
 	
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 CSSAttributeSelector >> = anObject [
 
 	^anObject class == self class and: 
@@ -95,33 +97,33 @@ CSSAttributeSelector >> = anObject [
 		]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttributeSelector >> attribute [
 	"Answer the value of attribute"
 
 	^ attribute
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttributeSelector >> attribute: anObject [
 	"Set the value of attribute"
 
 	attribute := anObject asLowercase asSymbol
 ]
 
-{ #category : #comparing }
+{ #category : 'comparing' }
 CSSAttributeSelector >> hash [
 
 	^self class hash + self attribute hash + self value hash
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSAttributeSelector >> isAttributeSelector [
 
 	^true
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttributeSelector >> privateAttributeKeyInNode: aNode [
 
 	^(aNode dtd isXML 
@@ -140,13 +142,13 @@ CSSAttributeSelector >> privateAttributeKeyInNode: aNode [
 
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttributeSelector >> value [
 
 	^value
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSAttributeSelector >> value: anObject [
 	"Set the value of value"
 

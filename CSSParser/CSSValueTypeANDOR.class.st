@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSValueTypeANDOR,
-	#superclass : #CSSValueTypeRelation,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSValueTypeANDOR',
+	#superclass : 'CSSValueTypeRelation',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeANDOR >> addValues: aCollection fromStream: in [
 
 	| oneWorked gotOne |
@@ -23,19 +25,19 @@ CSSValueTypeANDOR >> addValues: aCollection fromStream: in [
 	^oneWorked
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeANDOR >> isTypeANDOR [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 CSSValueTypeANDOR >> operator [
 
 	^'||'
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSValueTypeANDOR >> printOn: aStream [
 
 	aStream nextPut: $[.

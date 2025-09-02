@@ -1,16 +1,18 @@
 Class {
-	#name : #HtmlUnclosedProcessingDirectiveError,
-	#superclass : #HtmlSyntaxError,
-	#category : #'CSSParser-DOM-Errors'
+	#name : 'HtmlUnclosedProcessingDirectiveError',
+	#superclass : 'HtmlSyntaxError',
+	#category : 'CSSParser-DOM-Errors',
+	#package : 'CSSParser',
+	#tag : 'DOM-Errors'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUnclosedProcessingDirectiveError >> isStructuralError [
 
 	^true
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 HtmlUnclosedProcessingDirectiveError >> printOn: aStream [
 
 	aStream nextPutAll: 'Processing directive not properly terminated.'

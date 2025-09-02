@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSIDSelector,
-	#superclass : #CSSAttributeEqualsSelector,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSIDSelector',
+	#superclass : 'CSSAttributeEqualsSelector',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSIDSelector class >> readFrom: in [
 
 	| out | 
@@ -16,14 +18,14 @@ CSSIDSelector class >> readFrom: in [
 	^self new value: out contents
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 CSSIDSelector >> initialize [
 
 	super initialize.
 	self attribute: 'id'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 CSSIDSelector >> printOn:aStream [
 
 	aStream nextPut: $#.

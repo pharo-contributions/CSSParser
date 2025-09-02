@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlLEGENDNode,
-	#superclass : #HtmlDOMNode,
-	#category : #'CSSParser-DOM'
+	#name : 'HtmlLEGENDNode',
+	#superclass : 'HtmlDOMNode',
+	#category : 'CSSParser-DOM',
+	#package : 'CSSParser',
+	#tag : 'DOM'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlLEGENDNode >> tag [
 	^ 'legend'
 ]

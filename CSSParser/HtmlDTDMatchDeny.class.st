@@ -1,10 +1,12 @@
 Class {
-	#name : #HtmlDTDMatchDeny,
-	#superclass : #HtmlDTDMatchExpression,
-	#category : #'CSSParser-Validator'
+	#name : 'HtmlDTDMatchDeny',
+	#superclass : 'HtmlDTDMatchExpression',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 HtmlDTDMatchDeny class >> on: anObject [
 
 	| in | 
@@ -18,19 +20,19 @@ HtmlDTDMatchDeny class >> on: anObject [
 	^self new expression: (HtmlDTDMatchExpression on: in)
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 HtmlDTDMatchDeny >> allowedElements [
 
 	^#()
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchDeny >> allowsItem: anItem [
 
 	^(self expression allowsItem: anItem) not
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 HtmlDTDMatchDeny >> printOn: aStream [
 
 	aStream nextPut: $-.
@@ -39,7 +41,7 @@ HtmlDTDMatchDeny >> printOn: aStream [
 	
 ]
 
-{ #category : #matching }
+{ #category : 'matching' }
 HtmlDTDMatchDeny >> validateChildren: aStream ofNode: aNode [
 
 	^(expression validateChildren: aStream ofNode: aNode) not

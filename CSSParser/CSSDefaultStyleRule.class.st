@@ -1,10 +1,12 @@
 Class {
-	#name : #CSSDefaultStyleRule,
-	#superclass : #CSSStyleRule,
-	#category : #'CSSParser-CSS'
+	#name : 'CSSDefaultStyleRule',
+	#superclass : 'CSSStyleRule',
+	#category : 'CSSParser-CSS',
+	#package : 'CSSParser',
+	#tag : 'CSS'
 }
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 CSSDefaultStyleRule class >> fromDictionary: aStyleDictionary [
 
 	| rule |
@@ -14,7 +16,7 @@ CSSDefaultStyleRule class >> fromDictionary: aStyleDictionary [
 	^ rule
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 CSSDefaultStyleRule >> printOn: aStream [
 
 	| first |

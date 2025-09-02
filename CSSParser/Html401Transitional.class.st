@@ -1,22 +1,24 @@
 Class {
-	#name : #Html401Transitional,
-	#superclass : #HtmlDTD,
-	#category : #'CSSParser-Validator'
+	#name : 'Html401Transitional',
+	#superclass : 'HtmlDTD',
+	#category : 'CSSParser-Validator',
+	#package : 'CSSParser',
+	#tag : 'Validator'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Html401Transitional class >> defaultUrl [
 
 	^'http://www.w3.org/TR/html4/loose.dtd' asUrl
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 Html401Transitional class >> docType [
 
 	^'<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">'
 ]
 
-{ #category : #resources }
+{ #category : 'resources' }
 Html401Transitional >> dtd [
 	^ '<!--
     This is the HTML 4.01 Transitional DTD, which includes
@@ -1114,7 +1116,7 @@ several semantically related columns together.
 '
 ]
 
-{ #category : #'initialize-release' }
+{ #category : 'initialize-release' }
 Html401Transitional >> initialize [
 
 	super initialize.
