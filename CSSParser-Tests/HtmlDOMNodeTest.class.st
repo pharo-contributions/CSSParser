@@ -4,9 +4,9 @@ Class {
 	#instVars : [
 		'domNode'
 	],
-	#category : 'CSSParser-Tests',
-	#package : 'CSSParser',
-	#tag : 'Tests'
+	#category : 'CSSParser-Tests-HTML-Tests',
+	#package : 'CSSParser-Tests',
+	#tag : 'HTML-Tests'
 }
 
 { #category : 'accessing' }
