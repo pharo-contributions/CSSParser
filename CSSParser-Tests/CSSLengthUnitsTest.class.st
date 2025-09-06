@@ -4,8 +4,8 @@ Class {
 	#instVars : [
 		'cssformatter'
 	],
-	#category : 'CSSParser-CSS-Tests',
-	#package : 'CSSParser',
+	#category : 'CSSParser-Tests-CSS-Tests',
+	#package : 'CSSParser-Tests',
 	#tag : 'CSS-Tests'
 }
 
