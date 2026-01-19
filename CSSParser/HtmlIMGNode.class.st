@@ -6,20 +6,6 @@ Class {
 	#tag : 'DOM'
 }
 
-{ #category : 'rendering' }
-HtmlIMGNode >> addToFormatter: formatter [
-	| morph url |
-	self src isNil ifTrue: [ ^self ].
-	url := self src.
-	url := url asUrlRelativeTo: self document url asUrl.
-	morph := DownloadingImageMorph new.
-	morph defaultExtent: self imageExtent.
-	morph altText: self alt.
-	morph url: url.
-	
-	formatter addIncompleteMorph: morph.
-]
-
 { #category : 'accessing' }
 HtmlIMGNode >> alt [
 	^self attributes at: 'alt' ifAbsent: ['[image]']
@@ -31,7 +17,7 @@ HtmlIMGNode >> imageExtent [
 	| widthText heightText |
 	widthText := self attributes at: 'width' ifAbsent: [ ^nil ].
 	heightText := self attributes at: 'height' ifAbsent: [ ^nil ].
-	^ [ widthText asNumber @ heightText asNumber ] ifError: [ :a :b | nil ]
+	^ [ widthText asNumber @ heightText asNumber ] onErrorDo: [ :a :b | nil ]
 ]
 
 { #category : 'accessing' }

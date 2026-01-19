@@ -19,15 +19,14 @@ Class {
 		'listTypes',
 		'precedingSpaces',
 		'precedingNewlines',
-		'morphsToEmbed',
-		'incompleteMorphs',
 		'boldLevel',
 		'italicsLevel',
 		'underlineLevel',
 		'strikeLevel',
 		'centerLevel',
 		'anchorLocations',
-		'imageMaps'
+		'imageMaps',
+		'formDatas'
 	],
 	#classVars : [
 		'CSNonSeparators',
@@ -38,81 +37,12 @@ Class {
 	#tag : 'Formatter'
 }
 
-{ #category : 'examples' }
-HtmlFormatter class >> example1 [
-	"(HtmlFormatter example1 asParagraph compositionRectangle: (0@0 extent: 300@500) ) displayAt: 0@0"
-	| input |
-	input := ReadStream on: 
-'<html>
-<head>
-<title>The Gate of Chaos</title>
-</head>
-
-<body>
-
-<h1>Chaos</h1>
-
-
-
-<h2>Into the Maelstrom</h2>
-Direction is useless in the ever-changing Maelstrom.  However,
-if you wander with purpose, you might be able to find....
-<ul>
-<li><a href="/cgi-bin/w">see who''s logged in</a>
-<li><a href="/Telnet/connect.html">log in, if you (oooh) have an account</a>
-<li><a href="http://chaos.resnet.gatech.edu:9000/sw">The Chaos Swiki</a>--scribble on chaos
-<li>the original <a href="/cgi-bin/guestlog-print">Visitor Sands</a>
-<li>my old <a href="rant.html">Rant Page</a>
-<li>neverending <a href="/cgi-bin/bread">poll</a>: do you have an opinion on bread?
-<li>a <a href="http://www.cc.gatech.edu/~lex/linux.html">Linux page</a>-- free UNIX for PC''s!
-<li><a href="english.au">Hear Linus Himself speak!!</a>
-<li><a href="/doc/">some docs on all kinds of computer stuff</a>
-</ul>
-
-<hr>
-
-
-<h2>Paths of Retreat</h2>
-Several commonly travelled ways have left paths leading 
-<em>away</em> from the maelstrom, too:
-<p>
-<ul>
-<li><a href="friends.html">Friends of Chaos</a>
-<li><a href="http://www.apache.org/">The <em>Apache</em> home page</a> -- 
-        <em>Chaos</em>''s WWW server!
-<li><a href="http://www.ee.umanitoba.ca/~djc/personal/notscape.html">
-Notscape</a>
-
-the <a href="http://www.eskimo.com/%7Eirving/anti-ns/">Anti-Netscape
-Page</a> -- fight the tyranny!
-</ul>
-
-<hr>
-<a href="/analog/usage.html">usage stats</a> for this server
-
-<hr>
-<a href="http://www.eff.org/blueribbon.html"><img src="blueribbon.gif" alt="[blue ribbon campaign]"></a>
-<a href="http://www.ee.umanitoba.ca/~djc/personal/notscape.html">
-<img src="notscape.gif" alt="[NOTscape]">
-</a>
-<a href="http://www.anybrowser.org/campaign/">
-<img src="anybrowser3.gif" alt="[Best Viewed With Any Browser"]></a>
-</body>
-</html>'.
-	^(HtmlParser parse: input) formattedText
-]
-
-{ #category : 'initialization' }
+{ #category : 'class initialization' }
 HtmlFormatter class >> initialize [
 	"HtmlFormatter initialize"
 
 	CSSeparators := CharacterSet separators.
 	CSNonSeparators := CSSeparators complement.
-]
-
-{ #category : 'instance creation' }
-HtmlFormatter class >> new [
-	^super new initialize
 ]
 
 { #category : 'instance creation' }
@@ -144,13 +74,6 @@ HtmlFormatter >> addImageMap: anImageMap [
 ]
 
 { #category : 'formatting commands' }
-HtmlFormatter >> addIncompleteMorph: aMorph [
-	"add a morph, and note that it needs to download some more state before reaching its ultimate state"
-	self addMorph: aMorph.
-	incompleteMorphs add: aMorph.
-]
-
-{ #category : 'formatting commands' }
 HtmlFormatter >> addLink: text  url: url [
 	"add a link with the given url and text"
 	| savedAttributes linkAttribute  |
@@ -167,22 +90,6 @@ HtmlFormatter >> addLink: text  url: url [
 
 	"reset counters"
 	precedingSpaces := precedingNewlines := 0.
-]
-
-{ #category : 'formatting commands' }
-HtmlFormatter >> addMorph: aMorph [
-	"add a morph to the output"
-	| savedAttributes |
-	self addChar: Character space.
-
-	savedAttributes := outputStream currentAttributes.
-	outputStream currentAttributes: (savedAttributes copyWith: (TextAnchor new anchoredMorph: aMorph)).
-	self addChar: (Character value: 1).
-	outputStream currentAttributes: savedAttributes.
-
-	self addChar: Character space.
-
-	morphsToEmbed add: aMorph.
 ]
 
 { #category : 'formatting commands' }
@@ -392,25 +299,9 @@ HtmlFormatter >> hr [
 	precedingNewlines := 1000.    "pretend it's the top of a new page"
 ]
 
-{ #category : 'formatting' }
-HtmlFormatter >> htmlInlineMorph [
-	| text htmlInlineMorph |
-	text := outputStream contents.
-	htmlInlineMorph := HtmlInlineMorph new contents: text.
-	morphsToEmbed do:[ :m | htmlInlineMorph addMorph: m ].
-	htmlInlineMorph incompleteMorphs: self incompleteMorphs.
-	^htmlInlineMorph
-]
-
 { #category : 'image maps' }
 HtmlFormatter >> imageMapNamed: imageMapName [
 	^imageMaps detect: [:im | im name asLowercase = imageMapName asLowercase] ifNone: []
-]
-
-{ #category : 'access' }
-HtmlFormatter >> incompleteMorphs [
-	"list of morphs needing to download some more state"
-	^incompleteMorphs
 ]
 
 { #category : 'formatting commands' }
@@ -458,8 +349,6 @@ HtmlFormatter >> initialize [
 	listTypes := OrderedCollection new.
 	precedingSpaces := 0.
 	precedingNewlines := 1000.   "more than will ever be asked for"
-	morphsToEmbed := OrderedCollection new.
-	incompleteMorphs := OrderedCollection new.
 	anchorLocations := Dictionary new.
 	imageMaps := OrderedCollection new.
 ]
@@ -487,7 +376,7 @@ HtmlFormatter >> setAttributes [
 { #category : 'forms' }
 HtmlFormatter >> startForm: form [
 	"a form is beginning"
-	self ensureNewlines: 1.
+	self ensureNewlines: 1. 
 	formDatas addLast: (FormInputSet forForm: form  andBrowser: browser).
 ]
 
@@ -501,32 +390,6 @@ HtmlFormatter >> startHeader: level [
 HtmlFormatter >> startLink: url [
 	urlLink := url.
 	self setAttributes.
-]
-
-{ #category : 'formatting commands' }
-HtmlFormatter >> startListItem [
-	"begin a new list item"
-	(listTypes isEmpty or: [listStyleTypes isEmpty]) ifTrue: [ ^self ].
-	self ensureNewlines: 1.
-	listStyleTypes last = 'none' ifTrue: [ ^self ].
-	listTypes last = #unordered
-		ifTrue: [| bulletPoint|
-				bulletPoint := RectangleMorph new.
-				bulletPoint
-					extent: 8@8;
-					color: Color black;
-					borderColor: Color transparent;
-					borderWidth: 2.
-				self addMorph: bulletPoint.]
-		ifFalse: [ self addString: (listLengths last + 1) printString.
-			self addString: '. ' ].
-	listLengths at: (listLengths size) put: (listLengths last + 1).
-]
-
-{ #category : 'formatting commands' }
-HtmlFormatter >> startListItemWithValue: aValue [
-	listLengths at: (listLengths size) put: (aValue - 1).
-	self startListItem.
 ]
 
 { #category : 'formatting commands' }
@@ -576,13 +439,4 @@ HtmlFormatter >> text [
 	| text |
 	text := outputStream contents.
 	^text
-]
-
-{ #category : 'formatting' }
-HtmlFormatter >> textMorph [
-	| text textMorph |
-	text := outputStream contents.
-	textMorph := TextMorph new contents: text.
-	morphsToEmbed do:[ :m | textMorph addMorph: m ].
-	^textMorph
 ]

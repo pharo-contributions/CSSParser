@@ -16,11 +16,6 @@ HtmlTRNode >> addDefaultStyle [
 ]
 
 { #category : 'accessing' }
-HtmlTRNode >> endStyles: aFormatter [
-	aFormatter ensureNewlines: 1
-]
-
-{ #category : 'accessing' }
 HtmlTRNode >> tag [
 	^ 'tr'
 ]

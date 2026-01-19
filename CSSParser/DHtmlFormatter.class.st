@@ -150,11 +150,3 @@ DHtmlFormatter >> startHeader: level [
 	boldLevel := boldLevel + 1. "self increaseBold"
 	self startFont: (self headerFont: level).
 ]
-
-{ #category : 'formatting commands' }
-DHtmlFormatter >> startStyles: aDomNode [
-	| textAttributes |
-	textAttributes := self parseTextAttributesFor: aDomNode.
-	self startFont: textAttributes.
-	self setAttributes
-]

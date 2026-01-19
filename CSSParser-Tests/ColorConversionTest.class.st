@@ -1,9 +1,9 @@
 Class {
 	#name : 'ColorConversionTest',
 	#superclass : 'TestCase',
-	#category : 'CSSParser-Tests-Tests',
+	#category : 'CSSParser-Tests-Extensions',
 	#package : 'CSSParser-Tests',
-	#tag : 'Tests'
+	#tag : 'Extensions'
 }
 
 { #category : 'testing' }
