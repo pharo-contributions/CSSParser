@@ -15,14 +15,6 @@ HtmlFORMNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : 'rendering' }
-HtmlFORMNode >> addToHtmlMorph: aHtmlBlockMorph [
-	super addToHtmlMorph: aHtmlBlockMorph.
-	
-	associatedForm morph: htmlMorph.
-	associatedForm reset
-]
-
 { #category : 'accessing' }
 HtmlFORMNode >> associatedForm [
 	^ associatedForm

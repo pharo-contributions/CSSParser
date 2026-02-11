@@ -15,13 +15,6 @@ HtmlTBODYNode >> addDefaultStyle [
 	self addStyle: (CSSDefaultStyleRule fromDictionary: styles)
 ]
 
-{ #category : 'rendering' }
-HtmlTBODYNode >> addToHtmlMorph: aHtmlTableMorph [
-	self children do: [ :ea |
-		ea addToHtmlMorph: aHtmlTableMorph.
-	]
-]
-
 { #category : 'accessing' }
 HtmlTBODYNode >> tag [
 	^ 'tbody'

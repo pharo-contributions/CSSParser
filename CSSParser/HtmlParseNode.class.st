@@ -34,11 +34,6 @@ HtmlParseNode >> addError: anError [
 	self errors: (self errors copyWith: anError)
 ]
 
-{ #category : 'rendering' }
-HtmlParseNode >> addToFormatter: aFormatter [
-	self children do: [:e | e addToFormatter: aFormatter ]
-]
-
 { #category : 'accessing' }
 HtmlParseNode >> allErrors [
 

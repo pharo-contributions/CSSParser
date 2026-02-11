@@ -33,7 +33,7 @@ CSSRelationshipSelector class >> selectorForOperator: aString [
 { #category : 'comparing' }
 CSSRelationshipSelector >> = anObject [
 
-	self class = anObject class and: [self selectors = anObject selectors]
+	^ self class = anObject class and: [self selectors = anObject selectors]
 ]
 
 { #category : 'accessing' }

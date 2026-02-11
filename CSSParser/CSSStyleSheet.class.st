@@ -36,56 +36,50 @@ CSSStyleSheet class >> fromFile: aStringOrFileRef [
 CSSStyleSheet class >> fromUrl: aStringOrUrl [
 
 	| doc url |
-
 	url := aStringOrUrl asString.
+	doc := ZnClient new
+		       get: url;
+				 accept: ZnMimeType textCss;
+		       response.
 
-	doc := HTTPSocket httpGetDocument: url args: nil accept: 'text/css' request: ''.
-	^doc isString ifFalse: "life is good"
-	[
-		self new content: doc content; start: 0; end: doc content size; url: url		
-	]
-	ifTrue:
-	[
-		nil
-	]
-
-
+	^ doc isString ifFalse: [
+			  self new
+				  content: doc content;
+				  start: 0;
+				  end: doc content size;
+				  url: url ]
 ]
 
 { #category : 'class initialization' }
 CSSStyleSheet class >> fromUrl: aStringOrUrl parent: aDOMNode [
 
 	| doc href url |
-
 	href := aStringOrUrl asString.
-	((href beginsWith: 'http:') or: [(href beginsWith: 'https:') or:[href beginsWith: 'ftp:']]) 
-	ifFalse:
-	[
-		url := (Url combine: aDOMNode document responseUrl asString withRelative: href).
-	]
-	ifTrue: [url := href].
+	url := ((href beginsWith: 'http:') or: [
+		        (href beginsWith: 'https:') or: [ href beginsWith: 'ftp:' ] ])
+		       ifFalse: [
+		       aDOMNode document responseUrl asUrl / href asRelativeUrl ]
+		       ifTrue: [ href ].
 
-	doc := HTTPSocket httpGetDocument: url args: nil accept: 'text/css' request: ''.
-	^doc isString ifFalse: "life is good"
-	[
-		self new 
-			content: doc content; 
-			start: 0; end: doc content size; 
-			parent: aDOMNode; 
-			url: url;
-			parseContents: (ReadStream on: doc content)		
-	]
-	ifTrue:
-	[
-		nil
-	]
-
-
+	doc := ZnClient new
+		       get: url;
+		       accept: ZnMimeType textCss;
+		       response.
+	^ doc isString ifFalse: [
+			  self new
+				  content: doc content;
+				  start: 0;
+				  end: doc content size;
+				  parent: aDOMNode;
+				  url: url;
+				  parseContents: (ReadStream on: doc content) ]
 ]
 
 { #category : 'accessing' }
 CSSStyleSheet >> absoluteUrl [
-	^self url asUrlRelativeTo: self document requestUrl asUrl
+	"^self url asUrlRelativeTo: self document requestUrl asUrl"
+
+	^ self document requestUrl asUrl / self url asRelativeUrl
 ]
 
 { #category : 'accessing' }

@@ -5,7 +5,6 @@ Class {
 		'fontMap'
 	],
 	#classInstVars : [
-		'numberOfInstalledFonts',
 		'fontSizeFactorMap'
 	],
 	#category : 'CSSParser-Formatter',
@@ -15,21 +14,16 @@ Class {
 
 { #category : 'font parameters' }
 CSSFontFormatter class >> defaultSize [
-	self installFontsIfNecessary.
-	^TextStyle pointsToPixels:
-			(((TextStyle named: 'Verdana') ifNil: [TextStyle default]) defaultFont pointSize)
+
+	^ TextStyle pointsToPixels:
+		  ((TextStyle named: 'Verdana') ifNil: [ TextStyle default ])
+			  defaultFont pointSize
 ]
 
 { #category : 'font parameters' }
 CSSFontFormatter class >> defaultStyle [
-	self installFontsIfNecessary.
-	^(TextStyle named: 'Verdana') ifNil: [TextStyle default]
-]
 
-{ #category : 'font installation' }
-CSSFontFormatter class >> fontDirectory [
-	^('Scamper' asFileReference / 'fonts')
-	"^ FileDirectory uri: 'Scamper' , FileDirectory slash , 'fonts'"
+	^ (TextStyle named: 'Verdana') ifNil: [ TextStyle default ]
 ]
 
 { #category : 'font parameters' }
@@ -50,53 +44,6 @@ CSSFontFormatter class >> fontSizeFactorMap [
 		}]
 ]
 
-{ #category : 'class initialization' }
-CSSFontFormatter class >> initialize [
-	super initialize.
-	numberOfInstalledFonts := 0.
-	self installFontsIfNecessary.
-]
-
-{ #category : 'font installation' }
-CSSFontFormatter class >> installFonts [
-	"self installFonts"
-	| fontFiles |
-	fontFiles := (self fontDirectory fileNamesMatching: '*.ttf').
-	fontFiles do: [:fontfile | 
-			self newTextStyleFromTTFile:
-					self fontDirectory fullName , FileDirectory slash , fontfile].
-	numberOfInstalledFonts := fontFiles size.
-]
-
-{ #category : 'font installation' }
-CSSFontFormatter class >> installFontsIfNecessary [
-
-	| numberOfAvailableFonts dir entries exists |
-	dir := self fontDirectory.
-	entries := (dir exists and: [ dir isDirectory ]) ifTrue: [ dir entries ] ifFalse:[ #() ].
-	entries := entries collect: [ :e | e asFileReference ].
-	entries := entries select: [  :e | '*.ttf' match: e basename  ].
-	numberOfAvailableFonts := entries size.
-	"numberOfAvailableFonts = 0 ifTrue: [self notify: 'Please make sure you have the necessary fonts in the right place and try again. Otherwise Scamper will not work.]."
-	(numberOfAvailableFonts > numberOfInstalledFonts)
-		ifTrue: [self installFonts].
-
-]
-
-{ #category : 'font installation' }
-CSSFontFormatter class >> newTextStyleFromTTFile: fileName [
-	| description array style |
-	description := TTFontDescription addFromTTFile: fileName.
-	array := self pointSizes collect: 
-					[:pt | | f | 
-					f := TTCFont new.
-					f ttcDescription: description.
-					f pointSize: pt].
-	style := TTCFont reorganizeForNewFontArray: array name: array first name asSymbol.
-	style defaultFontIndex: (style fontIndexOfPointSize: 12).
-	^style
-]
-
 { #category : 'font installation' }
 CSSFontFormatter class >> pointSizes [
 	^ #(6 8 9 10 12 14 16 18 20 22 24 26 30 36 48)
@@ -108,13 +55,6 @@ CSSFontFormatter class >> sizeFactorFor: aTextStyle [
 			[:association | aTextStyle = (TextStyle named: association key)
 								ifTrue: [^association value]].
 	^1
-]
-
-{ #category : 'font installation' }
-CSSFontFormatter class >> uninstallFonts [
-	{'NimbusMonoL' . 'TrebuchetMS' . 'Webdings' . 'Georgia' . 'Verdana' . 'AndaleMono' . 'NimbusRomanNo9L' . 'NimbusSansL' . 'ComicSansMS' . 'URWChanceryL'}
-		do: [:font | TTCFont removeStyleName: font].
-	numberOfInstalledFonts := 0.
 ]
 
 { #category : 'accessing' }
@@ -177,13 +117,6 @@ CSSFontFormatter >> isValidStyleValue: aString [
 CSSFontFormatter >> isValidWeightValue: aString [
 
 	^ {'normal'. 'bold'. 'bolder'. 'lighter'. '100'. '200'. '300'. '400'. '500'. '600'. '700'. '800'. '900'. 'initial'. 'inherit'} includes: aString
-]
-
-{ #category : 'parsing' }
-CSSFontFormatter >> parseTextAttributesFrom: aCSSProperty into: aContext [
-
-	self class installFontsIfNecessary.
-	super parseTextAttributesFrom: aCSSProperty into: aContext
 ]
 
 { #category : 'parsing' }

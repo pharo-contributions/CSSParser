@@ -16,11 +16,6 @@ HtmlTDNode >> addDefaultStyle [
 ]
 
 { #category : 'accessing' }
-HtmlTDNode >> endStyles: aFormatter [
-	aFormatter ensureSpaces: 1
-]
-
-{ #category : 'accessing' }
 HtmlTDNode >> tag [
 	^ 'td'
 ]

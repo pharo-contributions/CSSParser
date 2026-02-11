@@ -18,16 +18,6 @@ HtmlULNode >> addDefaultStyle [
 ]
 
 { #category : 'accessing' }
-HtmlULNode >> endStyles: aFormatter [
-	aFormatter endUnorderedList
-]
-
-{ #category : 'accessing' }
-HtmlULNode >> startStyles: aFormatter [
-	aFormatter startUnorderedListWithType: (self computedStyles at: #'list-style-type' ifAbsent: ['disc']).
-]
-
-{ #category : 'accessing' }
 HtmlULNode >> tag [
 	^ 'ul'
 ]

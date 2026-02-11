@@ -6,11 +6,6 @@ Class {
 	#tag : 'DOM'
 }
 
-{ #category : 'initialize-release' }
-HtmlBODYNode >> defaultBlockMorph [
-	^ HtmlBodyMorph
-]
-
 { #category : 'accessing' }
 HtmlBODYNode >> tag [
 	^ 'body'

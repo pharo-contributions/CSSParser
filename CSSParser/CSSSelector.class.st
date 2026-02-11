@@ -133,7 +133,7 @@ CSSSelector class >> oneSelectorFromString: aString [
 								[
 									| last comb | 		
 									last := sel removeLastSelector.
-									comb := CSSTypeSelector selectorForOperator: lastOperator.
+									comb := CSSRelationshipSelector selectorForOperator: lastOperator.
 									comb addSelector: last.
 									sel selectors isEmpty 
 										ifFalse: [sel addSelector: comb] 

@@ -6,14 +6,6 @@ Class {
 	#tag : 'DOM'
 }
 
-{ #category : 'rendering' }
-HtmlSTYLENode >> addToHtmlMorph: aHtmlBlockMorph [	
-	
-	"preliminary fix. Sytle nodes should not render children. Are css sheets still used?"
-	^aHtmlBlockMorph
-
-]
-
 { #category : 'accessing' }
 HtmlSTYLENode >> isCSS [
 

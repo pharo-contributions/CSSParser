@@ -89,7 +89,10 @@ CSSBackgroundFormatter >> readBackgroundImageAttribute: propertyValue of: aCSSPr
 			urlString := (propertyValue copyFrom: openBracketPosition + 1 to: closingBracketPosition - 1) 
 					trimBoth: [:char | (char isSeparator or: [char = $"]) or: [char = $']].
 			url := urlString.
-			aCSSProperty stylesheetDocument ifNotNil: [ :stylesheet | url := url asUrlRelativeTo: stylesheet absoluteUrl ].
+			aCSSProperty stylesheetDocument ifNotNil: [ :stylesheet | 
+				"url := url asUrlRelativeTo: stylesheet absoluteUrl "
+				url := stylesheet absoluteUrl asUrl / url asRelativeUrl 
+			].
 			aContext at: #backgroundImage put: url ]
 ]
 

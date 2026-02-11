@@ -167,16 +167,6 @@ HtmlDTDMatchExpression >> isLiteral [
 	^false
 ]
 
-{ #category : 'matching' }
-HtmlDTDMatchExpression >> matchTagList: aList [
-
-	| in |
-
-	in := ReadStream on: aList.
-	self match: in.
-	^in upToEnd
-]
-
 { #category : 'printing' }
 HtmlDTDMatchExpression >> printOn: aStream [
 

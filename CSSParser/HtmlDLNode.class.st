@@ -6,11 +6,6 @@ Class {
 	#tag : 'DOM'
 }
 
-{ #category : 'rendering' }
-HtmlDLNode >> endStyles: aFormatter [
-	aFormatter ensureNewlines: 1.
-]
-
 { #category : 'accessing' }
 HtmlDLNode >> tag [
 	^ 'dl'

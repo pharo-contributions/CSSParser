@@ -6,11 +6,6 @@ Class {
 	#tag : 'DOM'
 }
 
-{ #category : 'rendering' }
-HtmlSCRIPTNode >> addToFormatter: aFormatter [
-	"Do nothing"
-]
-
 { #category : 'accessing' }
 HtmlSCRIPTNode >> parseContents: aStream [
 
